@@ -1,0 +1,219 @@
+{
+  "_comment": "Calendari d'events de CrossFit La Mola. Edita aquest fitxer (o fes servir admin.html) per canviar els events de la TV.",
+  "_fields": {
+    "id": "identificador únic (sense espais)",
+    "startDate": "AAAA-MM-DD — data d'inici (obligatori)",
+    "endDate": "AAAA-MM-DD — data final (opcional; si no, startDate)",
+    "num": "número(s) del dia que es mostra gran (ex: '9–10' o '14')",
+    "numRng": "true si és un rang de dies",
+    "mes": "nom del mes tal com apareix (ex: 'Maig', 'Juny', 'Oct-Nov')",
+    "month": "mes numèric 01–12 (per ordenar)",
+    "title": "títol principal amb HTML permès (<br>, <em class=\"serif\">)",
+    "titleShort": "títol curt per al sidebar",
+    "lede": "paràgraf descriptiu",
+    "pill": "text de l'etiqueta petita",
+    "pillKind": "free | interior | exterior | star",
+    "rows": "parelles clau/valor per la fitxa",
+    "media": "ruta a imatge (ex: 'assets/hero-climb.jpg')",
+    "isHero": "true si és 'Save the date' destacat",
+    "sbSub": "subtítol del sidebar",
+    "kicker": "text d'entradeta (ex: 'Mountain Club · Expedició')"
+  },
+  "events": [
+    {
+      "id": "pedraforca",
+      "startDate": "2026-05-09",
+      "endDate": "2026-05-10",
+      "kicker": "Mountain Club · Expedició",
+      "num": "9–10",
+      "numRng": true,
+      "mes": "Maig",
+      "month": "05",
+      "title": "La Mola.<br>Mountain Club.<br><em class=\"serif\">Pedraforca</em>",
+      "titleShort": "La Mola. Mountain Club. Pedraforca",
+      "lede": "L'expedició de l'any. Dos dies a la muntanya, campament al peu del Pedraforca i l'ascensió fins al cim.",
+      "pill": "Places limitades",
+      "pillKind": "interior",
+      "rows": [
+        {"k": "On", "v": "Camping Wecamp<br>+ Pedraforca"},
+        {"k": "Durada", "v": "Cap de setmana complet"},
+        {"k": "Cim", "v": "<em>2.506 m</em> d'altitud"}
+      ],
+      "media": "assets/hero-climb.jpg",
+      "sbSub": "Camping Wecamp · Cim 2.506 m"
+    },
+    {
+      "id": "beach-wod",
+      "startDate": "2026-05-31",
+      "endDate": "2026-05-31",
+      "kicker": "Beach WOD · Comunitat",
+      "num": "31",
+      "mes": "Maig",
+      "month": "05",
+      "title": "Beach WOD.<br>La Mola. <em class=\"serif\">&</em> One Mile",
+      "titleShort": "Beach WOD · La Mola & One Mile",
+      "lede": "Jornada completa a la platja en col·laboració amb One Mile. Sol, sorra, mar i comunitat.",
+      "pill": "Beach WOD",
+      "pillKind": "free",
+      "rows": [
+        {"k": "On", "v": "Platja"},
+        {"k": "Horari", "v": "09:00 – 16:00"},
+        {"k": "Partner", "v": "<em>One Mile</em>"}
+      ],
+      "media": "assets/community-1.jpg",
+      "sbSub": "Platja · 09:00–16:00"
+    },
+    {
+      "id": "fcl",
+      "startDate": "2026-06-05",
+      "endDate": "2026-06-07",
+      "kicker": "Competició · FCL Games",
+      "num": "5–7",
+      "numRng": true,
+      "mes": "Juny",
+      "month": "06",
+      "title": "<em class=\"serif\">FCL</em> Games<span class=\"dot\">.</span>",
+      "titleShort": "FCL Games · CrossFit Lynx",
+      "lede": "Tres dies de competició al més alt nivell regional. Inscripcions via Aimharder.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {"k": "On", "v": "CrossFit Lynx"},
+        {"k": "Dates", "v": "5, 6 i 7 de juny"},
+        {"k": "Categoria", "v": "<em>Individual</em>"}
+      ],
+      "media": "assets/class-wod.jpg",
+      "sbSub": "CrossFit Lynx · Individual"
+    },
+    {
+      "id": "halter",
+      "startDate": "2026-06-14",
+      "endDate": "2026-06-14",
+      "kicker": "Seminari · Halterofília",
+      "num": "14",
+      "mes": "Juny",
+      "month": "06",
+      "title": "Seminari<br><em class=\"serif\">Halterofília</em><br>amb Alfonso",
+      "titleShort": "Seminari d'Halterofília · Alfonso",
+      "lede": "Seminari intensiu amb Alfonso. Millora la tècnica d'arrancada i dos temps amb un dels millors coaches.",
+      "pill": "50 €",
+      "pillKind": "interior",
+      "rows": [
+        {"k": "On", "v": "CrossFit La Mola."},
+        {"k": "Coach", "v": "<em>Alfonso</em>"},
+        {"k": "Preu", "v": "50 €"}
+      ],
+      "media": "assets/detail-chalk.jpg",
+      "sbSub": "La Mola. · Alfonso · 50 €"
+    },
+    {
+      "id": "consuegra",
+      "startDate": "2026-06-19",
+      "endDate": "2026-06-21",
+      "kicker": "Competició · Parelles",
+      "num": "19–21",
+      "numRng": true,
+      "mes": "Juny",
+      "month": "06",
+      "title": "<em class=\"serif\">Consuegra</em><br>Throwdown<span class=\"dot\">.</span>",
+      "titleShort": "Consuegra Throwdown · Toledo",
+      "lede": "Competició de referència nacional. Tres dies de CrossFit per parelles a Toledo.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {"k": "On", "v": "Toledo, Castella-La Manxa"},
+        {"k": "Dates", "v": "19, 20 i 21 de juny"},
+        {"k": "Categoria", "v": "<em>Parelles</em>"}
+      ],
+      "media": "assets/detail-rings.jpg",
+      "sbSub": "Toledo · Parelles"
+    },
+    {
+      "id": "summer",
+      "startDate": "2026-07-04",
+      "endDate": "2026-07-04",
+      "kicker": "Competició interna · CrossFit La Mola.",
+      "num": "4",
+      "mes": "Juliol",
+      "month": "07",
+      "title": "La Mola.<br><em class=\"serif\">Summer Fest</em>",
+      "titleShort": "La Mola. Summer Fest",
+      "lede": "La festa de l'estiu ha tornat. WOD, còctels, música i welcome pack per a tothom.",
+      "pill": "★ Save the date",
+      "pillKind": "star",
+      "rows": [
+        {"k": "On", "v": "CrossFit La Mola."},
+        {"k": "Horari", "v": "09:00 – 16:00"},
+        {"k": "Format", "v": "WOD + còctels + música"}
+      ],
+      "media": "assets/community-5.jpg",
+      "sbSub": "La Mola. · 09:00–16:00",
+      "isHero": true
+    },
+    {
+      "id": "wodcelona",
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-13",
+      "kicker": "Competició · Internacional",
+      "num": "11–13",
+      "numRng": true,
+      "mes": "Setembre",
+      "month": "09",
+      "title": "<em class=\"serif\">Wodcelona</em><br>Barcelona<span class=\"dot\">.</span>",
+      "titleShort": "Wodcelona · Barcelona",
+      "lede": "La gran cita final de temporada. Wodcelona és la competició internacional de referència a Barcelona.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {"k": "On", "v": "Barcelona"},
+        {"k": "Dates", "v": "11, 12 i 13 de setembre"},
+        {"k": "Categoria", "v": "<em>Individual</em> i <em>Equips</em>"}
+      ],
+      "media": "assets/community-3.jpg",
+      "sbSub": "Barcelona · Indiv + Equips"
+    },
+    {
+      "id": "ballena",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "kicker": "Competició · Exterior",
+      "num": "17–18",
+      "numRng": true,
+      "mes": "Octubre",
+      "month": "10",
+      "title": "<em class=\"serif\">La Ballena</em><br>Alegre<span class=\"dot\">.</span>",
+      "titleShort": "La Ballena Alegre",
+      "lede": "Competició exterior de tardor. Dos dies d'esport i comunitat.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {"k": "Dates", "v": "17 i 18 d'octubre"},
+        {"k": "Tipus", "v": "Competició exterior"}
+      ],
+      "media": "assets/detail-rope.jpg",
+      "sbSub": "Competició exterior"
+    },
+    {
+      "id": "basque",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-01",
+      "kicker": "Competició · Internacional",
+      "num": "30–1",
+      "numRng": true,
+      "mes": "Oct-Nov",
+      "month": "10",
+      "title": "<em class=\"serif\">Basque</em><br>Txapelketa<span class=\"dot\">.</span>",
+      "titleShort": "Basque Txapelketa · Bilbao",
+      "lede": "Tres dies de competició al País Basc. Una de les cites més importants del calendari de tardor.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {"k": "On", "v": "Bilbao, País Basc"},
+        {"k": "Dates", "v": "30-31 oct + 1 nov"},
+        {"k": "Categoria", "v": "<em>Individual</em>"}
+      ],
+      "media": "assets/detail-board.jpg",
+      "sbSub": "Bilbao · 30-31 Oct + 1 Nov"
+    }
+  ]
+}

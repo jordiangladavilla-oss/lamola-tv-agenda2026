@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CrossFit La Mola. — Agenda TV 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "variant": "C",
+    "speed": 18,
+    "showClock": true
+  }/*EDITMODE-END*/;
+</script>
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   TOKENS (landing v2)
+════════════════════════════════════════════════════════════════════ */
+:root{
+  --ink:        #100e0b;
+  --ink-2:      #1a1714;
+  --ink-3:      #242019;
+
+  --bone:       #f3ecd9;
+  --bone-soft:  #ece3cb;
+  --bone-2:     #e5dcc3;
+  --bone-3:     #d6cbac;
+  --bone-ink:   #2b251b;
+
+  --muted:      #8a8372;
+  --muted-ink:  #6b6450;
+
+  --accent:     #7a7048;
+  --accent-hi:  #b9a972;
+  --accent-ink: #7a7048;
+
+  --line:       rgba(241,234,217,.14);
+  --line-strong:rgba(241,234,217,.28);
+  --line-ink:   rgba(43,37,27,.14);
+  --line-ink-s: rgba(43,37,27,.28);
+
+  --f-display: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --f-serif:   "Instrument Serif", "Times New Roman", serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--bone);font-family:var(--f-display)}
+img{display:block;max-width:100%;height:auto}
+em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-hi)}
+.on-bone em.serif{color:var(--accent-ink)}
+.dot{color:var(--accent-hi)}
+.on-bone .dot{color:var(--accent-ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE — fixed 1920x1080, scaled to viewport
+════════════════════════════════════════════════════════════════════ */
+#stage-wrap{position:fixed;inset:0;display:grid;place-items:center;background:#000}
+#stage{width:1920px;height:1080px;position:relative;overflow:hidden;transform-origin:center center;background:var(--ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   PROGRESS BAR
+════════════════════════════════════════════════════════════════════ */
+#progress{position:absolute;top:0;left:0;height:4px;background:var(--accent-hi);z-index:200;width:0;transition:width linear}
+
+/* ══════════════════════════════════════════════════════════════════
+   HEADER (fixed across variants)
+════════════════════════════════════════════════════════════════════ */
+#header{position:absolute;top:0;left:0;right:0;height:96px;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;background:rgba(16,14,11,.55);backdrop-filter:blur(18px) saturate(130%);
+  border-bottom:1px solid var(--line)}
+#header .brand{display:flex;align-items:center;gap:18px}
+#header .brand img{height:26px;filter:invert(1)}
+#header .brand-txt{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--bone)}
+#header .center{display:flex;align-items:center;gap:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3)}
+#header .center .bar{width:32px;height:1px;background:var(--accent-hi);opacity:.8}
+#header .right{display:flex;align-items:center;gap:28px;font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3)}
+#header .date{color:var(--bone)}
+.on-bone #header{background:rgba(243,236,217,.72);border-bottom-color:var(--line-ink);color:var(--bone-ink)}
+.on-bone #header .brand img{filter:none}
+.on-bone #header .brand-txt{color:var(--bone-ink)}
+.on-bone #header .center,.on-bone #header .right{color:var(--muted-ink)}
+.on-bone #header .date{color:var(--bone-ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   SLIDES
+════════════════════════════════════════════════════════════════════ */
+#slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .9s cubic-bezier(.2,.8,.2,1)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide .stage-inner{position:absolute;inset:96px 0 72px 360px;overflow:hidden}
+.slide .stage-inner.v-A{display:flex}
+.slide .stage-inner.v-C{display:flex}
+.slide.on-bone{background:var(--bone)}
+.slide.on-ink{background:var(--ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   SIDEBAR — event list summary
+════════════════════════════════════════════════════════════════════ */
+#sidebar{position:absolute;top:96px;bottom:72px;left:0;width:360px;z-index:35;
+  background:var(--ink-2);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;overflow:hidden}
+#sidebar .sb-head{padding:22px 24px 14px;border-bottom:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  display:flex;justify-content:space-between;align-items:center}
+#sidebar .sb-head .n{color:var(--accent-hi)}
+#sidebar .sb-scroll{flex:1;overflow:hidden;position:relative}
+#sidebar .sb-list{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none}
+#sidebar .sb-list::-webkit-scrollbar{display:none}
+.sb-month{padding:16px 24px 8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;background:var(--ink-2);z-index:2;border-top:1px solid var(--line)}
+.sb-month:first-child{border-top:0}
+.sb-ev{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:14px 24px;border-left:3px solid transparent;cursor:pointer;transition:background .35s,border-color .35s}
+.sb-ev + .sb-ev{border-top:1px solid rgba(241,234,217,.06)}
+.sb-ev .sb-date{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--bone-3);line-height:1;letter-spacing:-.02em;align-self:center;white-space:nowrap}
+.sb-ev .sb-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.sb-ev .sb-name{font-family:var(--f-display);font-weight:500;font-size:14px;color:var(--bone-2);line-height:1.25;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-ev .sb-sub{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-ev.active{background:rgba(185,169,114,.1);border-left-color:var(--accent-hi)}
+.sb-ev.active .sb-date{color:var(--accent-hi)}
+.sb-ev.active .sb-name{color:var(--bone)}
+.sb-ev.active .sb-sub{color:var(--bone-3)}
+.sb-ev.star .sb-name::before{content:"★  ";color:var(--accent-hi)}
+
+/* reveal on activation */
+.slide .r{opacity:0;transform:translateY(20px);transition:opacity .9s ease .3s,transform .9s cubic-bezier(.2,.8,.2,1) .3s}
+.slide.active .r{opacity:1;transform:none}
+.slide .r-1{transition-delay:.4s}
+.slide .r-2{transition-delay:.55s}
+.slide .r-3{transition-delay:.7s}
+.slide .r-4{transition-delay:.85s}
+.slide .r-5{transition-delay:1.0s}
+
+/* ══════════════════════════════════════════════════════════════════
+   FOOTER ROW — event counter + dots + next up
+════════════════════════════════════════════════════════════════════ */
+#footer{position:absolute;bottom:0;left:360px;right:0;height:72px;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;background:rgba(16,14,11,.6);backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3)}
+#footer .count{color:var(--bone)}
+#footer .count .num{color:var(--accent-hi);font-weight:500}
+#footer .dots{display:flex;gap:8px}
+#footer .dot{width:8px;height:8px;border-radius:50%;background:rgba(241,234,217,.2);transition:all .4s}
+#footer .dot.active{background:var(--accent-hi);width:28px;border-radius:4px}
+#footer .next{display:flex;align-items:center;gap:14px}
+#footer .next .label{color:var(--muted)}
+#footer .next .name{color:var(--bone)}
+.on-bone #footer{background:rgba(243,236,217,.85);border-top-color:var(--line-ink);color:var(--muted-ink)}
+.on-bone #footer .count,.on-bone #footer .next .name{color:var(--bone-ink)}
+.on-bone #footer .count .num{color:var(--accent-ink)}
+.on-bone #footer .dot{background:rgba(43,37,27,.18)}
+.on-bone #footer .dot.active{background:var(--accent-ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT A — REFINAT (similar actual, més polit)
+════════════════════════════════════════════════════════════════════ */
+.v-A .ev-left{width:42%;background:var(--bone-2);color:var(--bone-ink);
+  display:flex;flex-direction:column;justify-content:center;padding:72px 80px;flex-shrink:0;position:relative;overflow:hidden}
+.v-A .ev-left::after{content:"";position:absolute;top:0;right:0;width:1px;height:100%;background:var(--line-ink)}
+.v-A .ev-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink);display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.v-A .ev-kicker .bar{width:44px;height:1px;background:var(--accent-ink)}
+.v-A .ev-num{font-family:var(--f-display);font-weight:800;font-size:260px;line-height:.82;letter-spacing:-.04em;color:var(--bone-ink)}
+.v-A .ev-num.rng{font-size:180px;letter-spacing:-.03em}
+.v-A .ev-mes{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;color:var(--accent-ink);margin-top:18px;letter-spacing:-.02em;text-transform:lowercase}
+.v-A .ev-pill{display:inline-flex;align-items:center;gap:10px;margin-top:48px;padding:12px 22px;font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;border-radius:999px;width:max-content}
+.v-A .ev-pill.interior{background:rgba(122,112,72,.14);color:var(--accent-ink);border:1px solid rgba(122,112,72,.3)}
+.v-A .ev-pill.exterior{background:rgba(43,37,27,.08);color:var(--bone-ink);border:1px solid var(--line-ink-s)}
+.v-A .ev-pill.free{background:var(--bone-ink);color:var(--bone)}
+.v-A .ev-pill.star::before{content:"★";color:var(--accent-ink)}
+.v-A .ev-pill.star{background:var(--accent-ink);color:var(--bone);border:0}
+.v-A .ev-pill.star::before{color:var(--bone)}
+
+.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:72px 80px}
+.v-A .ev-cat{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:28px;display:flex;align-items:center;gap:14px}
+.v-A .ev-cat .num{color:var(--accent-ink)}
+.v-A .ev-cat .bar{width:32px;height:1px;background:var(--muted-ink);opacity:.4}
+.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:114px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:52px;text-wrap:balance}
+.v-A .ev-title.big{font-size:136px}
+.v-A .ev-rows{display:flex;flex-direction:column;gap:0}
+.v-A .ev-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--line-ink)}
+.v-A .ev-row:first-child{border-top:1px solid var(--line-ink)}
+.v-A .ev-row-k{font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-ink);align-self:center}
+.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:34px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.015em}
+.v-A .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+.v-A .ev-desc{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.45;color:var(--muted-ink);max-width:40ch;text-wrap:pretty}
+
+/* VARIANT A — SUMMER FEST (hero slide) */
+.v-A .save{background:var(--ink);color:var(--bone);width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 80px;overflow:hidden}
+.v-A .save::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 20%,rgba(185,169,114,.18),transparent 60%),radial-gradient(900px 500px at 80% 90%,rgba(122,112,72,.12),transparent 60%)}
+.v-A .save>*{position:relative}
+.v-A .save-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:18px;margin-bottom:40px}
+.v-A .save-kicker .bar{width:60px;height:1px;background:var(--accent-hi)}
+.v-A .save-date{font-family:var(--f-mono);font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:32px}
+.v-A .save-title{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.86;letter-spacing:-.04em;color:var(--bone);margin-bottom:48px}
+.v-A .save-title em{color:var(--accent-hi)}
+.v-A .save-sub{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1.45;color:var(--bone-2);max-width:900px;margin-bottom:48px;text-wrap:pretty}
+.v-A .save-tag{display:inline-flex;align-items:center;gap:16px;padding:18px 36px;border:2px solid var(--accent-hi);color:var(--accent-hi);font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;border-radius:999px}
+.v-A .save-tag::before,.v-A .save-tag::after{content:"★"}
+
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT B — EDITORIAL / MAGAZINE
+════════════════════════════════════════════════════════════════════ */
+.v-B{display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%}
+.v-B .ev-media{position:relative;overflow:hidden;background:var(--ink-2)}
+.v-B .ev-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05) brightness(.85)}
+.v-B .ev-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,11,.35) 0%,rgba(16,14,11,0) 30%,rgba(16,14,11,.6) 100%)}
+.v-B .ev-media .media-tag{position:absolute;top:40px;left:40px;font-family:var(--f-mono);font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone);padding:10px 16px;background:rgba(16,14,11,.55);backdrop-filter:blur(10px);border-radius:999px;z-index:3}
+.v-B .ev-media .media-num{position:absolute;bottom:40px;left:40px;font-family:var(--f-display);font-weight:800;font-size:320px;line-height:.8;letter-spacing:-.05em;color:var(--bone);opacity:.96;z-index:3;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.v-B .ev-media .media-num.rng{font-size:220px}
+.v-B .ev-media .media-mes{position:absolute;bottom:56px;right:40px;font-family:var(--f-display);font-weight:700;font-size:54px;color:var(--accent-hi);z-index:3;text-transform:lowercase;letter-spacing:-.02em}
+
+.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:80px;display:flex;flex-direction:column;justify-content:center}
+.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:16px}
+.v-B .ev-kicker .num{color:var(--accent-ink)}
+.v-B .ev-kicker .bar{width:48px;height:1px;background:var(--accent-ink);opacity:.7}
+.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:120px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance}
+.v-B .ev-title em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:48px;text-wrap:pretty}
+.v-B .ev-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:32px;border-top:1px solid var(--line-ink)}
+.v-B .ev-row{display:flex;flex-direction:column;gap:8px}
+.v-B .ev-row-k{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink)}
+.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:28px;color:var(--bone-ink);letter-spacing:-.015em;line-height:1.1}
+.v-B .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+
+/* VARIANT B — SUMMER FEST */
+.v-B.save-layout{grid-template-columns:1fr}
+.v-B .save{position:relative;width:100%;height:100%;background:var(--ink);color:var(--bone);display:flex;flex-direction:column;justify-content:center;padding:0 120px;overflow:hidden}
+.v-B .save::before{content:"";position:absolute;inset:0;background-image:url('assets/hero-climb.jpg');background-size:cover;background-position:center;filter:saturate(.7) contrast(1.05) brightness(.35)}
+.v-B .save::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,14,11,.85) 0%,rgba(16,14,11,.4) 60%,rgba(16,14,11,.75) 100%)}
+.v-B .save>*{position:relative;z-index:2}
+.v-B .save-kicker{font-family:var(--f-mono);font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:40px;display:flex;align-items:center;gap:18px}
+.v-B .save-kicker .bar{width:64px;height:1px;background:var(--accent-hi)}
+.v-B .save-title{font-family:var(--f-display);font-weight:800;font-size:280px;line-height:.82;letter-spacing:-.045em;color:var(--bone);margin-bottom:48px;max-width:16ch}
+.v-B .save-title em{color:var(--accent-hi);font-family:var(--f-serif);font-style:italic;font-weight:400}
+.v-B .save-row{display:flex;gap:80px;align-items:baseline;margin-top:32px}
+.v-B .save-date{font-family:var(--f-display);font-weight:700;font-size:56px;letter-spacing:-.02em;color:var(--bone)}
+.v-B .save-date .d{color:var(--accent-hi)}
+.v-B .save-sub{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--bone-2);max-width:46ch}
+
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT C — MINIMALISTA (Apple TV)
+════════════════════════════════════════════════════════════════════ */
+.v-C{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 120px;background:var(--bone);color:var(--bone-ink);position:relative;overflow:hidden}
+.v-C.dark{background:var(--ink);color:var(--bone)}
+.v-C .c-kicker{font-family:var(--f-mono);font-size:16px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:20px}
+.v-C.dark .c-kicker{color:var(--muted)}
+.v-C .c-kicker .bar{width:60px;height:1px;background:var(--accent-ink)}
+.v-C.dark .c-kicker .bar{background:var(--accent-hi)}
+.v-C .c-date{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.82;letter-spacing:-.05em;color:var(--bone-ink);margin-bottom:4px}
+.v-C.dark .c-date{color:var(--bone)}
+.v-C .c-date.rng{font-size:180px}
+.v-C .c-month{font-family:var(--f-serif);font-style:italic;font-size:72px;color:var(--accent-ink);margin-bottom:40px;letter-spacing:-.01em;text-transform:lowercase}
+.v-C.dark .c-month{color:var(--accent-hi)}
+.v-C .c-title{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:32px;max-width:24ch;text-wrap:balance}
+.v-C.dark .c-title{color:var(--bone)}
+.v-C .c-sub{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:36px;text-wrap:pretty}
+.v-C.dark .c-sub{color:var(--bone-2)}
+.v-C .c-meta{display:flex;gap:40px;font-family:var(--f-mono);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink)}
+.v-C.dark .c-meta{color:var(--muted)}
+.v-C .c-meta .k{opacity:.6;margin-right:10px}
+.v-C .c-meta .v{color:var(--bone-ink)}
+.v-C.dark .c-meta .v{color:var(--bone)}
+
+/* VARIANT C — SUMMER FEST */
+.v-C.save{background:var(--ink);color:var(--bone)}
+.v-C.save .c-title{font-size:160px;color:var(--bone);max-width:18ch;letter-spacing:-.045em;line-height:.88;margin-bottom:40px}
+.v-C.save .c-title em{font-family:var(--f-serif);font-weight:400;color:var(--accent-hi)}
+
+/* ══════════════════════════════════════════════════════════════════
+   CLOCK / NEXT ON HEADER
+════════════════════════════════════════════════════════════════════ */
+#clock{display:inline-flex;align-items:center;gap:10px}
+#clock .time{color:var(--bone);font-weight:500;letter-spacing:.15em}
+.on-bone #clock .time{color:var(--bone-ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   TWEAKS PANEL
+════════════════════════════════════════════════════════════════════ */
+#tweaks-panel{position:fixed;right:16px;bottom:16px;z-index:1000;
+  width:260px;background:rgba(16,14,11,.95);backdrop-filter:blur(16px);
+  border:1px solid var(--line-strong);border-radius:12px;padding:16px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--bone);
+  display:none;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#tweaks-panel.on{display:block}
+#tweaks-panel h5{margin:0 0 14px;text-transform:uppercase;letter-spacing:.24em;font-size:11px;color:var(--accent-hi)}
+#tweaks-panel .row{margin:12px 0}
+#tweaks-panel label{display:block;margin-bottom:8px;color:var(--bone-3);text-transform:uppercase;font-size:10px;letter-spacing:.22em}
+#tweaks-panel .seg{display:flex;gap:4px;background:rgba(241,234,217,.05);padding:3px;border-radius:8px}
+#tweaks-panel .seg button{flex:1;padding:9px 6px;border-radius:6px;font:inherit;font-size:10.5px;color:var(--bone-3);text-transform:uppercase;letter-spacing:.12em;background:none;border:0;cursor:pointer}
+#tweaks-panel .seg button.on{background:var(--bone);color:var(--ink)}
+#tweaks-panel input[type=range]{width:100%}
+#tweaks-panel .val{font-size:10px;color:var(--muted);margin-top:4px}
+
+/* ══════════════════════════════════════════════════════════════════
+   INACTIVE SLIDE CLEANUP
+════════════════════════════════════════════════════════════════════ */
+.slide:not(.active){transition-delay:0s!important}
+.slide:not(.active) .r{transition-delay:0s!important}
+</style>
+</head>
+<body>
+
+<div id="stage-wrap">
+  <div id="stage">
+    <div id="progress"></div>
+
+    <!-- ══ HEADER ══ -->
+    <header id="header">
+      <div class="brand">
+        <img src="assets/logo-short.png" alt="La Mola.">
+        <span class="brand-txt">CROSSFIT LA MOLA<span class="dot">.</span></span>
+      </div>
+      <div class="center">
+        <span>Agenda</span>
+        <span class="bar"></span>
+        <span>Temporada 2026</span>
+      </div>
+      <div class="right">
+        <span id="date-today"></span>
+        <span id="clock"><span class="time"></span></span>
+      </div>
+    </header>
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside id="sidebar">
+      <div class="sb-head"><span>Agenda 2026</span><span class="n" id="sb-count">09</span></div>
+      <div class="sb-scroll"><div class="sb-list" id="sb-list"></div></div>
+    </aside>
+
+    <!-- ══ SLIDES ══ -->
+    <div id="slides"></div>
+
+    <!-- ══ FOOTER ══ -->
+    <footer id="footer">
+      <div class="count">Event <span class="num" id="idx-cur">01</span> / <span id="idx-tot">09</span></div>
+      <div class="dots" id="dots"></div>
+      <div class="next">
+        <span class="label">Next</span>
+        <span class="name" id="next-name">—</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ══ TWEAKS PANEL ══ -->
+<div id="tweaks-panel">
+  <h5>Tweaks — La Mola TV</h5>
+  <div class="row">
+    <label>Variant</label>
+    <div class="seg" data-key="variant">
+      <button data-val="A" title="Refinat">A</button>
+      <button data-val="B" title="Editorial">B</button>
+      <button data-val="C" title="Minimalista">C</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Velocitat per slide</label>
+    <input type="range" id="speed-range" min="8" max="30" step="1">
+    <div class="val"><span id="speed-val"></span>s per slide</div>
+  </div>
+  <div class="row">
+    <label>Rellotge</label>
+    <div class="seg" data-key="showClock">
+      <button data-val="true">ON</button>
+      <button data-val="false">OFF</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   DATA — Agenda 2026
+════════════════════════════════════════════════════════════════════ */
+let EVENTS = []; // carregat des de events.json
+
+async function loadEvents(){
+  try {
+    const res = await fetch('events.json?t=' + Date.now());
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    const all = data.events || [];
+    // Auto-ocultar events passats (endDate < avui)
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const visible = all.filter(ev => {
+      if(!ev.endDate) return true;
+      const end = new Date(ev.endDate + 'T23:59:59');
+      return end >= today;
+    });
+    // Ordenar per startDate ascendent
+    visible.sort((a,b) => (a.startDate||'').localeCompare(b.startDate||''));
+    EVENTS = visible;
+    if(EVENTS.length === 0){
+      // fallback: mostrar tots si no en queda cap
+      EVENTS = all;
+    }
+  } catch(err){
+    console.error('No s\u2019han pogut carregar els events:', err);
+    EVENTS = [];
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RENDER — Build 3 variants per event, toggle via TWEAKS.variant
+════════════════════════════════════════════════════════════════════ */
+const slidesEl = document.getElementById('slides');
+const dotsEl = document.getElementById('dots');
+
+function renderVariantA(ev){
+  if(ev.isHero){
+    return `<div class="save">
+      <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
+      <div class="save-date r r-2">4 de juliol de 2026</div>
+      <h1 class="save-title r r-3">La Mola.<br><em>Summer Fest</em></h1>
+      <p class="save-sub r r-4">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>
+      <div class="save-tag r r-5">Save the date</div>
+    </div>`;
+  }
+  const rowsHTML = ev.rows.map(r => `<div class="ev-row"><div class="ev-row-k">${r.k}</div><div class="ev-row-v">${r.v}</div></div>`).join('');
+  return `
+    <div class="ev-left r r-1">
+      <div class="ev-kicker"><span class="bar"></span>${ev.kicker.split(' · ')[0]}</div>
+      <div class="ev-num${ev.numRng?' rng':''}">${ev.num}</div>
+      <div class="ev-mes">${ev.mes.toLowerCase()}</div>
+      <div class="ev-pill ${ev.pillKind}">${ev.pill}</div>
+    </div>
+    <div class="ev-right r r-2">
+      <div class="ev-cat"><span class="num">${String(EVENTS.indexOf(ev)+1).padStart(2,'0')}</span><span class="bar"></span>${ev.kicker}</div>
+      <h2 class="ev-title${ev.title.length>60?'':' big'}">${ev.title}</h2>
+      <div class="ev-rows">${rowsHTML}</div>
+      <p class="ev-desc">${ev.lede}</p>
+    </div>`;
+}
+
+function renderVariantB(ev){
+  if(ev.isHero){
+    return `<div class="save">
+      <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}</div>
+      <h1 class="save-title r r-2">La Mola.<br><em>Summer</em><br>Fest<span class="dot">.</span></h1>
+      <div class="save-row r r-3">
+        <div class="save-date">4<span class="d">.</span>07<span class="d">.</span>26</div>
+        <div class="save-sub">${ev.lede}<br>09:00 – 16:00h · CrossFit La Mola.</div>
+      </div>
+    </div>`;
+  }
+  const rowsHTML = ev.rows.map(r => `<div class="ev-row"><div class="ev-row-k">${r.k}</div><div class="ev-row-v">${r.v}</div></div>`).join('');
+  return `
+    <div class="ev-media r r-1">
+      <img src="${ev.media}" alt="">
+      <span class="media-tag">${ev.pill}</span>
+      <div class="media-num${ev.numRng?' rng':''}">${ev.num}</div>
+      <div class="media-mes">${ev.mes.toLowerCase()}</div>
+    </div>
+    <div class="ev-body">
+      <div class="ev-kicker r r-2"><span class="num">${String(EVENTS.indexOf(ev)+1).padStart(2,'0')}</span><span class="bar"></span>${ev.kicker}</div>
+      <h2 class="ev-title r r-3">${ev.title}</h2>
+      <p class="ev-lede r r-4">${ev.lede}</p>
+      <div class="ev-rows r r-5">${rowsHTML}</div>
+    </div>`;
+}
+
+function renderVariantC(ev){
+  if(ev.isHero){
+    return `<div class="c-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
+      <div class="c-date r r-2">04</div>
+      <div class="c-month r r-3">juliol</div>
+      <h2 class="c-title r r-4">La Mola. <em class="serif">Summer Fest</em></h2>
+      <p class="c-sub r r-5">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>`;
+  }
+  const metaHTML = ev.rows.slice(0,2).map(r => `<div><span class="k">${r.k}</span><span class="v">${r.v.replace(/<br>/g,' ').replace(/<\/?em[^>]*>/g,'')}</span></div>`).join('');
+  return `
+    <div class="c-kicker r r-1"><span class="bar"></span>${ev.kicker}</div>
+    <div class="c-date${ev.numRng?' rng':''} r r-2">${ev.num}</div>
+    <div class="c-month r r-3">${ev.mes.toLowerCase()}</div>
+    <h2 class="c-title r r-4">${ev.title.replace(/<br>/g,' ')}</h2>
+    <p class="c-sub r r-5">${ev.lede}</p>
+    <div class="c-meta r r-5">${metaHTML}</div>`;
+}
+
+function buildSlides(variant){
+  slidesEl.innerHTML = '';
+  dotsEl.innerHTML = '';
+  EVENTS.forEach((ev, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+    slide.setAttribute('data-screen-label', String(i+1).padStart(2,'0')+' '+ev.titleShort);
+    let inner = '';
+    if(variant === 'A'){
+      slide.classList.add('on-bone');
+      if(ev.isHero) slide.classList.add('on-ink');
+      inner = `<div class="stage-inner v-A">${renderVariantA(ev)}</div>`;
+    } else if(variant === 'B'){
+      slide.classList.add('on-bone');
+      if(ev.isHero){
+        slide.classList.add('on-ink');
+        inner = `<div class="stage-inner v-B save-layout">${renderVariantB(ev)}</div>`;
+      } else {
+        inner = `<div class="stage-inner v-B">${renderVariantB(ev)}</div>`;
+      }
+    } else {
+      slide.classList.add('on-bone');
+      const darkClass = ev.isHero ? ' save dark' : '';
+      inner = `<div class="stage-inner v-C${darkClass}">${renderVariantC(ev)}</div>`;
+      if(ev.isHero) slide.classList.add('on-ink');
+    }
+    slide.innerHTML = inner;
+    slidesEl.appendChild(slide);
+
+    const d = document.createElement('div');
+    d.className = 'dot';
+    dotsEl.appendChild(d);
+  });
+  document.getElementById('idx-tot').textContent = String(EVENTS.length).padStart(2,'0');
+  document.getElementById('sb-count').textContent = String(EVENTS.length).padStart(2,'0');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SIDEBAR BUILD
+════════════════════════════════════════════════════════════════════ */
+function buildSidebar(){
+  const list = document.getElementById('sb-list');
+  list.innerHTML = '';
+  let lastMonth = null;
+  EVENTS.forEach((ev, i)=>{
+    if(ev.mes !== lastMonth){
+      const mh = document.createElement('div');
+      mh.className = 'sb-month';
+      mh.textContent = ev.mes;
+      list.appendChild(mh);
+      lastMonth = ev.mes;
+    }
+    const row = document.createElement('div');
+    row.className = 'sb-ev' + (ev.isHero ? ' star' : '');
+    row.dataset.idx = i;
+    const name = ev.isHero
+      ? '<span style="color:var(--accent-hi)">\u2605</span>&nbsp; '+ev.titleShort.replace(/^★\s*/, '')
+      : ev.titleShort;
+    row.innerHTML = `
+      <div class="sb-date">${ev.num}</div>
+      <div class="sb-info">
+        <div class="sb-name">${name}</div>
+        <div class="sb-sub">${ev.sbSub || ''}</div>
+      </div>`;
+    row.addEventListener('click', ()=>goTo(parseInt(row.dataset.idx,10)));
+    list.appendChild(row);
+  });
+}
+function updateSidebar(n){
+  document.querySelectorAll('.sb-ev').forEach(el=>el.classList.remove('active'));
+  const rows = document.querySelectorAll('.sb-ev');
+  if(rows[n]){
+    rows[n].classList.add('active');
+    const r = rows[n].getBoundingClientRect();
+    const list = document.getElementById('sb-list');
+    const lr = list.getBoundingClientRect();
+    if(r.top < lr.top + 60 || r.bottom > lr.bottom - 60){
+      list.scrollTo({top: rows[n].offsetTop - list.clientHeight/2 + rows[n].clientHeight/2, behavior:'smooth'});
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE SCALING
+════════════════════════════════════════════════════════════════════ */
+function fitStage(){
+  const s = document.getElementById('stage');
+  const w = window.innerWidth, h = window.innerHeight;
+  const scale = Math.min(w/1920, h/1080);
+  s.style.transform = 'scale('+scale+')';
+}
+window.addEventListener('resize', fitStage);
+
+/* ══════════════════════════════════════════════════════════════════
+   ROTATION
+════════════════════════════════════════════════════════════════════ */
+let cur = 0;
+let timer;
+const prog = document.getElementById('progress');
+
+function goTo(n){
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  const N = slides.length;
+  const next = ((n % N) + N) % N;
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = next;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+
+  // body class for header theme
+  const isInk = slides[cur].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+
+  // update counters
+  document.getElementById('idx-cur').textContent = String(cur+1).padStart(2,'0');
+  const nx = (cur+1) % N;
+  document.getElementById('next-name').textContent = EVENTS[nx].titleShort;
+  updateSidebar(cur);
+
+  startTimer();
+}
+
+function startTimer(){
+  clearTimeout(timer);
+  const ev = EVENTS[cur];
+  const base = (TWEAKS.speed || 18);
+  const d = (ev.isHero ? base + 4 : base) * 1000;
+  prog.style.transition = 'none'; prog.style.width = '0%';
+  void prog.offsetWidth;
+  requestAnimationFrame(()=>{
+    prog.style.transition = 'width '+d+'ms linear';
+    prog.style.width = '100%';
+  });
+  timer = setTimeout(()=>goTo(cur+1), d);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CLOCK + DATE
+════════════════════════════════════════════════════════════════════ */
+const DAYS = ['diumenge','dilluns','dimarts','dimecres','dijous','divendres','dissabte'];
+const MONTHS = ['gener','febrer','març','abril','maig','juny','juliol','agost','setembre','octubre','novembre','desembre'];
+function updateClock(){
+  const d = new Date();
+  const day = DAYS[d.getDay()];
+  const dn = d.getDate();
+  const mn = MONTHS[d.getMonth()];
+  document.getElementById('date-today').textContent = day+' '+dn+' '+mn;
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mm = String(d.getMinutes()).padStart(2,'0');
+  const clockEl = document.querySelector('#clock .time');
+  clockEl.textContent = hh+':'+mm;
+  document.getElementById('clock').style.display = TWEAKS.showClock ? 'inline-flex' : 'none';
+}
+setInterval(updateClock, 1000*30);
+
+/* ══════════════════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════════════════════ */
+async function start(){
+  await loadEvents();
+  if(EVENTS.length === 0){
+    document.getElementById('slides').innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#E8E2D2;font-family:serif;font-size:48px;padding:80px;text-align:center">No hi ha events programats.<br><span style="font-size:24px;opacity:.6;margin-top:20px;display:block">Afegeix-ne des de admin.html</span></div>';
+    return;
+  }
+  buildSlides(TWEAKS.variant);
+  buildSidebar();
+  fitStage();
+  updateClock();
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  cur = 0;
+  slides[0].classList.add('active');
+  dots[0].classList.add('active');
+  const isInk = slides[0].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+  document.getElementById('idx-cur').textContent = '01';
+  document.getElementById('next-name').textContent = EVENTS[1].titleShort;
+  updateSidebar(0);
+  startTimer();
+}
+start();
+
+/* ══════════════════════════════════════════════════════════════════
+   KEYBOARD
+════════════════════════════════════════════════════════════════════ */
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); goTo(cur+1); }
+  if(e.key==='ArrowLeft'){ e.preventDefault(); goTo(cur-1); }
+  if(e.key==='1'){ setVariant('A'); }
+  if(e.key==='2'){ setVariant('B'); }
+  if(e.key==='3'){ setVariant('C'); }
+});
+
+function setVariant(v){
+  TWEAKS.variant = v;
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits:{variant:v}}, '*');
+  const keep = cur;
+  buildSlides(v);
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  cur = Math.min(keep, slides.length-1);
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  const isInk = slides[cur].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+  document.getElementById('idx-cur').textContent = String(cur+1).padStart(2,'0');
+  document.getElementById('next-name').textContent = EVENTS[(cur+1)%EVENTS.length].titleShort;
+  syncPanel();
+  startTimer();
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TWEAKS PANEL WIRING
+════════════════════════════════════════════════════════════════════ */
+const panel = document.getElementById('tweaks-panel');
+window.addEventListener('message', e=>{
+  const d = e.data || {};
+  if(d.type === '__activate_edit_mode') panel.classList.add('on');
+  if(d.type === '__deactivate_edit_mode') panel.classList.remove('on');
+});
+window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+function syncPanel(){
+  panel.querySelectorAll('.seg').forEach(seg=>{
+    const key = seg.dataset.key;
+    const val = String(TWEAKS[key]);
+    seg.querySelectorAll('button').forEach(b=>{
+      b.classList.toggle('on', b.dataset.val === val);
+    });
+  });
+  document.getElementById('speed-range').value = TWEAKS.speed;
+  document.getElementById('speed-val').textContent = TWEAKS.speed;
+}
+
+panel.querySelectorAll('.seg').forEach(seg=>{
+  seg.addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    const key = seg.dataset.key;
+    let val = b.dataset.val;
+    if(val === 'true') val = true;
+    else if(val === 'false') val = false;
+    TWEAKS[key] = val;
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[key]:val}}, '*');
+    if(key === 'variant') setVariant(val);
+    if(key === 'showClock') updateClock();
+    syncPanel();
+  });
+});
+document.getElementById('speed-range').addEventListener('input', e=>{
+  TWEAKS.speed = parseInt(e.target.value, 10);
+  document.getElementById('speed-val').textContent = TWEAKS.speed;
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits:{speed:TWEAKS.speed}}, '*');
+  startTimer();
+});
+syncPanel();
+</script>
+</body>
+</html>
