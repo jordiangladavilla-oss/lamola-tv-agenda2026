@@ -1,755 +1,756 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="utf-8">
-<title>Admin · La Mola TV</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CrossFit La Mola. — Agenda TV 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "variant": "C",
+    "speed": 18,
+    "showClock": true
+  }/*EDITMODE-END*/;
+</script>
 <style>
+/* ══════════════════════════════════════════════════════════════════
+   TOKENS (landing v2)
+════════════════════════════════════════════════════════════════════ */
 :root{
-  --ink:#17140F;
-  --ink-2:#2A251D;
-  --bone:#F4EEDF;
-  --bone-2:#E8E2D2;
-  --bone-3:#D4CCB8;
-  --bone-ink:#17140F;
-  --muted-ink:#6B6455;
-  --accent:#C85E2E;
-  --accent-hi:#E87C4A;
-  --accent-ink:#B84D1E;
-  --ok:#3E6B4F;
-  --err:#B8342C;
-  --f-display:'Fraunces',serif;
-  --f-serif:'Fraunces',serif;
-  --f-sans:'Inter',-apple-system,sans-serif;
-  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ink:        #100e0b;
+  --ink-2:      #1a1714;
+  --ink-3:      #242019;
+
+  --bone:       #f3ecd9;
+  --bone-soft:  #ece3cb;
+  --bone-2:     #e5dcc3;
+  --bone-3:     #d6cbac;
+  --bone-ink:   #2b251b;
+
+  --muted:      #8a8372;
+  --muted-ink:  #6b6450;
+
+  --accent:     #7a7048;
+  --accent-hi:  #b9a972;
+  --accent-ink: #7a7048;
+
+  --line:       rgba(241,234,217,.14);
+  --line-strong:rgba(241,234,217,.28);
+  --line-ink:   rgba(43,37,27,.14);
+  --line-ink-s: rgba(43,37,27,.28);
+
+  --f-display: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --f-serif:   "Instrument Serif", "Times New Roman", serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bone);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-body{min-height:100vh;padding:0 0 120px}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--bone);font-family:var(--f-display)}
+img{display:block;max-width:100%;height:auto}
+em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-hi)}
+.on-bone em.serif{color:var(--accent-ink)}
+.dot{color:var(--accent-hi)}
+.on-bone .dot{color:var(--accent-ink)}
 
-/* ── Header ─────────────────────────────── */
-.top{background:var(--ink);color:var(--bone);padding:24px 48px;display:flex;align-items:center;gap:32px;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--ink-2)}
-.top .brand{font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:-.01em}
-.top .brand em{font-style:italic;color:var(--accent-hi)}
-.top .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--bone-3)}
-.top .spacer{flex:1}
-.top .counts{font-family:var(--f-mono);font-size:12px;color:var(--bone-3);letter-spacing:.1em}
-.top .counts b{color:var(--bone);font-weight:500}
-.top a.link{color:var(--bone-3);text-decoration:none;font-size:13px;padding:8px 14px;border:1px solid var(--ink-2);border-radius:6px;transition:all .15s}
-.top a.link:hover{color:var(--bone);border-color:var(--bone-3)}
+/* ══════════════════════════════════════════════════════════════════
+   STAGE — fixed 1920x1080, scaled to viewport
+════════════════════════════════════════════════════════════════════ */
+#stage-wrap{position:fixed;inset:0;background:#000;overflow:hidden}
+#stage{width:1920px;height:1080px;position:absolute;top:0;left:0;overflow:hidden;transform-origin:0 0;background:var(--ink)}
 
-/* ── Hero / Title ───────────────────────── */
-.hero{padding:56px 48px 32px;border-bottom:1px solid var(--bone-3)}
-.hero h1{font-family:var(--f-display);font-weight:700;font-size:64px;line-height:1;letter-spacing:-.03em;margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--accent-ink)}
-.hero .lede{font-family:var(--f-serif);font-style:italic;font-size:20px;color:var(--muted-ink);max-width:60ch}
+/* ══════════════════════════════════════════════════════════════════
+   PROGRESS BAR
+════════════════════════════════════════════════════════════════════ */
+#progress{position:absolute;top:0;left:0;height:4px;background:var(--accent-hi);z-index:200;width:0;transition:width linear}
 
-/* ── Toolbar ────────────────────────────── */
-.toolbar{padding:24px 48px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;background:var(--bone);position:sticky;top:79px;z-index:40;border-bottom:1px solid var(--bone-3)}
-.btn{font-family:var(--f-sans);font-weight:500;font-size:14px;padding:12px 20px;border:1px solid var(--ink);background:var(--bone);color:var(--ink);border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s;line-height:1}
-.btn:hover{background:var(--ink);color:var(--bone)}
-.btn.primary{background:var(--ink);color:var(--bone)}
-.btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
-.btn.ghost{border-color:var(--bone-3);color:var(--muted-ink)}
-.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
-.btn.danger{border-color:var(--err);color:var(--err)}
-.btn.danger:hover{background:var(--err);color:var(--bone)}
-.btn.ok{background:var(--ok);border-color:var(--ok);color:var(--bone)}
-.btn svg{width:16px;height:16px;flex-shrink:0}
-.pill-count{background:var(--bone-2);color:var(--muted-ink);padding:4px 10px;border-radius:20px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;margin-left:auto}
+/* ══════════════════════════════════════════════════════════════════
+   HEADER (fixed across variants)
+════════════════════════════════════════════════════════════════════ */
+#header{position:absolute;top:0;left:0;right:0;height:96px;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;background:rgba(16,14,11,.55);backdrop-filter:blur(18px) saturate(130%);
+  border-bottom:1px solid var(--line)}
+#header .brand{display:flex;align-items:center;gap:18px}
+#header .brand img{height:30px;filter:invert(1)}
+#header .brand-txt{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--bone)}
+#header .center{display:flex;align-items:center;gap:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3)}
+#header .center .bar{width:32px;height:1px;background:var(--accent-hi);opacity:.8}
+#header .right{display:flex;align-items:center;gap:28px;font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3)}
+#header .date{color:var(--bone)}
+.on-bone #header{background:rgba(243,236,217,.72);border-bottom-color:var(--line-ink);color:var(--bone-ink)}
+.on-bone #header .brand img{filter:none}
+.on-bone #header .brand-txt{color:var(--bone-ink)}
+.on-bone #header .center,.on-bone #header .right{color:var(--muted-ink)}
+.on-bone #header .date{color:var(--bone-ink)}
 
-/* ── Status bar ─────────────────────────── */
-.status{padding:12px 48px;font-size:13px;color:var(--muted-ink);background:var(--bone-2);display:none;border-bottom:1px solid var(--bone-3)}
-.status.on{display:block}
-.status.ok{color:var(--ok);background:#E8EFE4}
-.status.err{color:var(--err);background:#F4E0DE}
+/* ══════════════════════════════════════════════════════════════════
+   SLIDES
+════════════════════════════════════════════════════════════════════ */
+#slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .9s cubic-bezier(.2,.8,.2,1)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide .stage-inner{position:absolute;inset:96px 0 72px 360px;overflow:hidden}
+.slide .stage-inner.v-A{display:flex}
+.slide .stage-inner.v-C{display:flex}
+.slide.on-bone{background:var(--bone)}
+.slide.on-ink{background:var(--ink)}
 
-/* ── Event cards ────────────────────────── */
-.events{padding:32px 48px;display:grid;grid-template-columns:1fr;gap:16px;max-width:1200px}
-.card{background:var(--bone);border:1px solid var(--bone-3);border-radius:12px;overflow:hidden;transition:all .2s}
-.card:hover{border-color:var(--ink)}
-.card.past{opacity:.55}
-.card.hero-ev{border-left:4px solid var(--accent)}
-.card-head{padding:20px 24px;display:flex;align-items:center;gap:20px;cursor:pointer;user-select:none}
-.card-head:hover{background:var(--bone-2)}
-.card-drag{color:var(--bone-3);font-size:20px;cursor:grab;line-height:1}
-.card-drag:active{cursor:grabbing}
-.card-date-big{font-family:var(--f-display);font-weight:800;font-size:38px;line-height:.9;letter-spacing:-.03em;min-width:80px;color:var(--ink)}
-.card-date-big.rng{font-size:28px}
-.card.past .card-date-big{color:var(--muted-ink)}
-.card-mes{font-family:var(--f-serif);font-style:italic;font-size:15px;color:var(--accent-ink);text-transform:lowercase;margin-top:2px}
-.card.past .card-mes{color:var(--muted-ink)}
-.card-info{flex:1;min-width:0}
-.card-title{font-family:var(--f-display);font-weight:600;font-size:20px;line-height:1.2;letter-spacing:-.01em;margin-bottom:4px}
-.card-kicker{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink)}
-.card-tags{display:flex;gap:6px;align-items:center}
-.tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:4px 8px;border-radius:20px;font-family:var(--f-mono);font-weight:500}
-.tag.past{background:var(--bone-2);color:var(--muted-ink)}
-.tag.hero-ev{background:var(--accent);color:var(--bone)}
-.tag.kind-free{background:#E4EFE4;color:#3E6B4F}
-.tag.kind-interior{background:var(--ink);color:var(--bone)}
-.tag.kind-exterior{background:var(--bone-2);color:var(--ink)}
-.tag.kind-star{background:var(--accent);color:var(--bone)}
-.chev{color:var(--bone-3);transition:transform .2s}
-.card.open .chev{transform:rotate(180deg)}
+/* ══════════════════════════════════════════════════════════════════
+   SIDEBAR — event list summary
+════════════════════════════════════════════════════════════════════ */
+#sidebar{position:absolute;top:96px;bottom:72px;left:0;width:360px;z-index:35;
+  background:var(--ink-2);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;overflow:hidden}
+#sidebar .sb-head{padding:22px 24px 14px;border-bottom:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  display:flex;justify-content:space-between;align-items:center}
+#sidebar .sb-head .n{color:var(--accent-hi)}
+#sidebar .sb-scroll{flex:1;overflow:hidden;position:relative}
+#sidebar .sb-list{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none}
+#sidebar .sb-list::-webkit-scrollbar{display:none}
+.sb-month{padding:16px 24px 8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;background:var(--ink-2);z-index:2;border-top:1px solid var(--line)}
+.sb-month:first-child{border-top:0}
+.sb-ev{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:14px 24px;border-left:3px solid transparent;cursor:pointer;transition:background .35s,border-color .35s}
+.sb-ev + .sb-ev{border-top:1px solid rgba(241,234,217,.06)}
+.sb-ev .sb-date{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--bone-3);line-height:1;letter-spacing:-.02em;align-self:center;white-space:nowrap}
+.sb-ev .sb-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.sb-ev .sb-name{font-family:var(--f-display);font-weight:500;font-size:14px;color:var(--bone-2);line-height:1.25;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-ev .sb-sub{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-ev.active{background:rgba(185,169,114,.1);border-left-color:var(--accent-hi)}
+.sb-ev.active .sb-date{color:var(--accent-hi)}
+.sb-ev.active .sb-name{color:var(--bone)}
+.sb-ev.active .sb-sub{color:var(--bone-3)}
+.sb-ev.star .sb-name::before{content:"★  ";color:var(--accent-hi)}
 
-/* ── Edit form ──────────────────────────── */
-.card-body{display:none;padding:4px 24px 24px;border-top:1px solid var(--bone-2)}
-.card.open .card-body{display:block}
-.row{display:grid;grid-template-columns:180px 1fr;gap:16px;margin-top:16px;align-items:start}
-.row label{font-family:var(--f-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-ink);padding-top:10px}
-.row label .hint{display:block;font-size:10px;letter-spacing:.05em;text-transform:none;color:var(--bone-3);margin-top:4px;font-style:italic;font-family:var(--f-serif)}
-.row input[type=text],.row input[type=date],.row textarea,.row select{width:100%;font-family:var(--f-sans);font-size:14px;padding:10px 14px;border:1px solid var(--bone-3);border-radius:6px;background:var(--bone);color:var(--ink);line-height:1.5}
-.row input:focus,.row textarea:focus,.row select:focus{outline:none;border-color:var(--ink)}
-.row textarea{resize:vertical;min-height:70px;font-family:var(--f-serif)}
-.row .mini{display:flex;gap:10px;align-items:center}
-.row .mini input[type=text]{flex:1}
-.row .mini input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
-.row .dates{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rows-editor{display:flex;flex-direction:column;gap:8px}
-.rows-row{display:grid;grid-template-columns:1fr 2fr auto;gap:8px}
-.rows-row input{padding:8px 12px;font-size:13px}
-.rows-row button{padding:0 12px;border:1px solid var(--bone-3);background:transparent;color:var(--muted-ink);border-radius:6px;cursor:pointer;font-size:13px}
-.rows-row button:hover{border-color:var(--err);color:var(--err)}
-.img-preview{display:flex;gap:12px;align-items:center}
-.img-preview img{width:80px;height:80px;object-fit:cover;border-radius:6px;border:1px solid var(--bone-3)}
-.img-preview .info{font-size:12px;color:var(--muted-ink);font-family:var(--f-mono)}
-.card-actions{display:flex;gap:10px;margin-top:24px;padding-top:20px;border-top:1px dashed var(--bone-3);justify-content:flex-end}
+/* reveal on activation */
+.slide .r{opacity:0;transform:translateY(20px);transition:opacity .9s ease .3s,transform .9s cubic-bezier(.2,.8,.2,1) .3s}
+.slide.active .r{opacity:1;transform:none}
+.slide .r-1{transition-delay:.4s}
+.slide .r-2{transition-delay:.55s}
+.slide .r-3{transition-delay:.7s}
+.slide .r-4{transition-delay:.85s}
+.slide .r-5{transition-delay:1.0s}
 
-/* ── Empty state ────────────────────────── */
-.empty{padding:80px 48px;text-align:center;color:var(--muted-ink)}
-.empty h3{font-family:var(--f-display);font-size:32px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+/* ══════════════════════════════════════════════════════════════════
+   FOOTER ROW — event counter + dots + next up
+════════════════════════════════════════════════════════════════════ */
+#footer{position:absolute;bottom:0;left:360px;right:0;height:72px;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;background:rgba(16,14,11,.6);backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-3)}
+#footer .count{color:var(--bone)}
+#footer .count .num{color:var(--accent-hi);font-weight:500}
+#footer .dots{display:flex;gap:8px}
+#footer .dot{width:8px;height:8px;border-radius:50%;background:rgba(241,234,217,.2);transition:all .4s}
+#footer .dot.active{background:var(--accent-hi);width:28px;border-radius:4px}
+#footer .next{display:flex;align-items:center;gap:14px}
+#footer .next .label{color:var(--muted)}
+#footer .next .name{color:var(--bone)}
+.on-bone #footer{background:rgba(243,236,217,.85);border-top-color:var(--line-ink);color:var(--muted-ink)}
+.on-bone #footer .count,.on-bone #footer .next .name{color:var(--bone-ink)}
+.on-bone #footer .count .num{color:var(--accent-ink)}
+.on-bone #footer .dot{background:rgba(43,37,27,.18)}
+.on-bone #footer .dot.active{background:var(--accent-ink)}
 
-/* ── Modal ──────────────────────────────── */
-.modal-back{position:fixed;inset:0;background:rgba(23,20,15,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:40px}
-.modal-back.on{display:flex}
-.modal{background:var(--bone);border-radius:16px;max-width:560px;width:100%;padding:36px;max-height:90vh;overflow-y:auto}
-.modal h2{font-family:var(--f-display);font-weight:700;font-size:28px;margin-bottom:8px;letter-spacing:-.02em}
-.modal h2 em{font-style:italic;color:var(--accent-ink)}
-.modal p{color:var(--muted-ink);margin-bottom:24px;font-size:14px}
-.modal label{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:6px;margin-top:16px}
-.modal input[type=text],.modal input[type=password]{width:100%;font-family:var(--f-mono);font-size:13px;padding:12px 14px;border:1px solid var(--bone-3);border-radius:6px;background:var(--bone)}
-.modal input:focus{outline:none;border-color:var(--ink)}
-.modal .hint{font-size:12px;color:var(--muted-ink);font-style:italic;margin-top:6px;font-family:var(--f-serif)}
-.modal .hint a{color:var(--accent-ink)}
-.modal-actions{display:flex;gap:10px;margin-top:28px;justify-content:flex-end}
-details summary{cursor:pointer;color:var(--muted-ink);font-size:13px;margin-top:8px;user-select:none}
-details summary:hover{color:var(--ink)}
-details[open] summary{color:var(--ink);margin-bottom:8px}
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT A — REFINAT (similar actual, més polit)
+════════════════════════════════════════════════════════════════════ */
+.v-A .ev-left{width:42%;background:var(--bone-2);color:var(--bone-ink);
+  display:flex;flex-direction:column;justify-content:center;padding:72px 80px;flex-shrink:0;position:relative;overflow:hidden}
+.v-A .ev-left::after{content:"";position:absolute;top:0;right:0;width:1px;height:100%;background:var(--line-ink)}
+.v-A .ev-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink);display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.v-A .ev-kicker .bar{width:44px;height:1px;background:var(--accent-ink)}
+.v-A .ev-num{font-family:var(--f-display);font-weight:800;font-size:260px;line-height:.82;letter-spacing:-.04em;color:var(--bone-ink)}
+.v-A .ev-num.rng{font-size:180px;letter-spacing:-.03em}
+.v-A .ev-mes{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;color:var(--accent-ink);margin-top:18px;letter-spacing:-.02em;text-transform:lowercase}
+.v-A .ev-pill{display:inline-flex;align-items:center;gap:10px;margin-top:48px;padding:12px 22px;font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;border-radius:999px;width:max-content}
+.v-A .ev-pill.interior{background:rgba(122,112,72,.14);color:var(--accent-ink);border:1px solid rgba(122,112,72,.3)}
+.v-A .ev-pill.exterior{background:rgba(43,37,27,.08);color:var(--bone-ink);border:1px solid var(--line-ink-s)}
+.v-A .ev-pill.free{background:var(--bone-ink);color:var(--bone)}
+.v-A .ev-pill.star::before{content:"★";color:var(--accent-ink)}
+.v-A .ev-pill.star{background:var(--accent-ink);color:var(--bone);border:0}
+.v-A .ev-pill.star::before{color:var(--bone)}
 
-/* Responsive */
-@media (max-width:760px){
-  .top{padding:16px 20px;flex-wrap:wrap;gap:12px}
-  .top .brand{font-size:18px}
-  .top .counts{display:none}
-  .hero{padding:32px 20px 24px}
-  .hero h1{font-size:40px}
-  .hero .lede{font-size:16px}
-  .toolbar{padding:16px 20px;top:auto;position:static}
-  .events{padding:16px 20px}
-  .row{grid-template-columns:1fr;gap:6px}
-  .row label{padding-top:0}
-  .card-head{padding:14px 16px;gap:12px}
-  .card-date-big{font-size:28px;min-width:60px}
-  .card-date-big.rng{font-size:20px}
-  .card-title{font-size:16px}
-  .card-body{padding:4px 16px 20px}
-  .modal{padding:24px}
-}
+.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:60px 72px;overflow:hidden;min-width:0}
+.v-A .ev-cat{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:28px;display:flex;align-items:center;gap:14px}
+.v-A .ev-cat .num{color:var(--accent-ink)}
+.v-A .ev-cat .bar{width:32px;height:1px;background:var(--muted-ink);opacity:.4}
+.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:88px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:44px;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+.v-A .ev-title.big{font-size:104px}
+.v-A .ev-rows{display:flex;flex-direction:column;gap:0}
+.v-A .ev-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--line-ink)}
+.v-A .ev-row:first-child{border-top:1px solid var(--line-ink)}
+.v-A .ev-row-k{font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-ink);align-self:center}
+.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:26px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.01em}
+.v-A .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+.v-A .ev-desc{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.45;color:var(--muted-ink);max-width:40ch;text-wrap:pretty}
+
+/* VARIANT A — SUMMER FEST (hero slide) */
+.v-A .save{background:var(--ink);color:var(--bone);width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 80px;overflow:hidden}
+.v-A .save::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 20%,rgba(185,169,114,.18),transparent 60%),radial-gradient(900px 500px at 80% 90%,rgba(122,112,72,.12),transparent 60%)}
+.v-A .save>*{position:relative}
+.v-A .save-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:18px;margin-bottom:40px}
+.v-A .save-kicker .bar{width:60px;height:1px;background:var(--accent-hi)}
+.v-A .save-date{font-family:var(--f-mono);font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:32px}
+.v-A .save-title{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.86;letter-spacing:-.04em;color:var(--bone);margin-bottom:48px}
+.v-A .save-title em{color:var(--accent-hi)}
+.v-A .save-sub{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1.45;color:var(--bone-2);max-width:900px;margin-bottom:48px;text-wrap:pretty}
+.v-A .save-tag{display:inline-flex;align-items:center;gap:16px;padding:18px 36px;border:2px solid var(--accent-hi);color:var(--accent-hi);font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;border-radius:999px}
+.v-A .save-tag::before,.v-A .save-tag::after{content:"★"}
+
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT B — EDITORIAL / MAGAZINE
+════════════════════════════════════════════════════════════════════ */
+.v-B{display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%}
+.v-B .ev-media{position:relative;overflow:hidden;background:var(--ink-2)}
+.v-B .ev-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05) brightness(.85)}
+.v-B .ev-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,11,.35) 0%,rgba(16,14,11,0) 30%,rgba(16,14,11,.6) 100%)}
+.v-B .ev-media .media-tag{position:absolute;top:40px;left:40px;font-family:var(--f-mono);font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone);padding:10px 16px;background:rgba(16,14,11,.55);backdrop-filter:blur(10px);border-radius:999px;z-index:3}
+.v-B .ev-media .media-num{position:absolute;bottom:40px;left:40px;font-family:var(--f-display);font-weight:800;font-size:320px;line-height:.8;letter-spacing:-.05em;color:var(--bone);opacity:.96;z-index:3;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.v-B .ev-media .media-num.rng{font-size:220px}
+.v-B .ev-media .media-mes{position:absolute;bottom:56px;right:40px;font-family:var(--f-display);font-weight:700;font-size:54px;color:var(--accent-hi);z-index:3;text-transform:lowercase;letter-spacing:-.02em}
+
+.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:56px 52px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-width:0}
+.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:16px}
+.v-B .ev-kicker .num{color:var(--accent-ink)}
+.v-B .ev-kicker .bar{width:48px;height:1px;background:var(--accent-ink);opacity:.7}
+.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:76px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:40px;text-wrap:balance;overflow-wrap:break-word;word-break:break-word;hyphens:auto}
+.v-B .ev-title em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--muted-ink);max-width:100%;margin-bottom:36px;text-wrap:pretty}
+.v-B .ev-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:32px;border-top:1px solid var(--line-ink)}
+.v-B .ev-row{display:flex;flex-direction:column;gap:8px}
+.v-B .ev-row-k{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink)}
+.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:22px;color:var(--bone-ink);letter-spacing:-.01em;line-height:1.15}
+.v-B .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
+
+/* VARIANT B — SUMMER FEST */
+.v-B.save-layout{grid-template-columns:1fr}
+.v-B .save{position:relative;width:100%;height:100%;background:var(--ink);color:var(--bone);display:flex;flex-direction:column;justify-content:center;padding:0 120px;overflow:hidden}
+.v-B .save::before{content:"";position:absolute;inset:0;background-image:url('assets/hero-climb.jpg');background-size:cover;background-position:center;filter:saturate(.7) contrast(1.05) brightness(.35)}
+.v-B .save::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,14,11,.85) 0%,rgba(16,14,11,.4) 60%,rgba(16,14,11,.75) 100%)}
+.v-B .save>*{position:relative;z-index:2}
+.v-B .save-kicker{font-family:var(--f-mono);font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:40px;display:flex;align-items:center;gap:18px}
+.v-B .save-kicker .bar{width:64px;height:1px;background:var(--accent-hi)}
+.v-B .save-title{font-family:var(--f-display);font-weight:800;font-size:280px;line-height:.82;letter-spacing:-.045em;color:var(--bone);margin-bottom:48px;max-width:16ch}
+.v-B .save-title em{color:var(--accent-hi);font-family:var(--f-serif);font-style:italic;font-weight:400}
+.v-B .save-row{display:flex;gap:80px;align-items:baseline;margin-top:32px}
+.v-B .save-date{font-family:var(--f-display);font-weight:700;font-size:56px;letter-spacing:-.02em;color:var(--bone)}
+.v-B .save-date .d{color:var(--accent-hi)}
+.v-B .save-sub{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--bone-2);max-width:46ch}
+
+/* ══════════════════════════════════════════════════════════════════
+   VARIANT C — MINIMALISTA (Apple TV)
+════════════════════════════════════════════════════════════════════ */
+.v-C{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 120px;background:var(--bone);color:var(--bone-ink);position:relative;overflow:hidden}
+.v-C.dark{background:var(--ink);color:var(--bone)}
+.v-C .c-kicker{font-family:var(--f-mono);font-size:16px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:20px}
+.v-C.dark .c-kicker{color:var(--muted)}
+.v-C .c-kicker .bar{width:60px;height:1px;background:var(--accent-ink)}
+.v-C.dark .c-kicker .bar{background:var(--accent-hi)}
+.v-C .c-date{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.82;letter-spacing:-.05em;color:var(--bone-ink);margin-bottom:4px}
+.v-C.dark .c-date{color:var(--bone)}
+.v-C .c-date.rng{font-size:180px}
+.v-C .c-month{font-family:var(--f-serif);font-style:italic;font-size:72px;color:var(--accent-ink);margin-bottom:40px;letter-spacing:-.01em;text-transform:lowercase}
+.v-C.dark .c-month{color:var(--accent-hi)}
+.v-C .c-title{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:32px;max-width:24ch;text-wrap:balance}
+.v-C.dark .c-title{color:var(--bone)}
+.v-C .c-sub{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:36px;text-wrap:pretty}
+.v-C.dark .c-sub{color:var(--bone-2)}
+.v-C .c-meta{display:flex;gap:40px;font-family:var(--f-mono);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink)}
+.v-C.dark .c-meta{color:var(--muted)}
+.v-C .c-meta .k{opacity:.6;margin-right:10px}
+.v-C .c-meta .v{color:var(--bone-ink)}
+.v-C.dark .c-meta .v{color:var(--bone)}
+
+/* VARIANT C — SUMMER FEST */
+.v-C.save{background:var(--ink);color:var(--bone)}
+.v-C.save .c-title{font-size:160px;color:var(--bone);max-width:18ch;letter-spacing:-.045em;line-height:.88;margin-bottom:40px}
+.v-C.save .c-title em{font-family:var(--f-serif);font-weight:400;color:var(--accent-hi)}
+
+/* ══════════════════════════════════════════════════════════════════
+   CLOCK / NEXT ON HEADER
+════════════════════════════════════════════════════════════════════ */
+#clock{display:inline-flex;align-items:center;gap:10px}
+#clock .time{color:var(--bone);font-weight:500;letter-spacing:.15em}
+.on-bone #clock .time{color:var(--bone-ink)}
+
+/* ══════════════════════════════════════════════════════════════════
+   TWEAKS PANEL
+════════════════════════════════════════════════════════════════════ */
+#tweaks-panel{position:fixed;right:16px;bottom:16px;z-index:1000;
+  width:260px;background:rgba(16,14,11,.95);backdrop-filter:blur(16px);
+  border:1px solid var(--line-strong);border-radius:12px;padding:16px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--bone);
+  display:none;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#tweaks-panel.on{display:block}
+#tweaks-panel h5{margin:0 0 14px;text-transform:uppercase;letter-spacing:.24em;font-size:11px;color:var(--accent-hi)}
+#tweaks-panel .row{margin:12px 0}
+#tweaks-panel label{display:block;margin-bottom:8px;color:var(--bone-3);text-transform:uppercase;font-size:10px;letter-spacing:.22em}
+#tweaks-panel .seg{display:flex;gap:4px;background:rgba(241,234,217,.05);padding:3px;border-radius:8px}
+#tweaks-panel .seg button{flex:1;padding:9px 6px;border-radius:6px;font:inherit;font-size:10.5px;color:var(--bone-3);text-transform:uppercase;letter-spacing:.12em;background:none;border:0;cursor:pointer}
+#tweaks-panel .seg button.on{background:var(--bone);color:var(--ink)}
+#tweaks-panel input[type=range]{width:100%}
+#tweaks-panel .val{font-size:10px;color:var(--muted);margin-top:4px}
+
+/* ══════════════════════════════════════════════════════════════════
+   INACTIVE SLIDE CLEANUP
+════════════════════════════════════════════════════════════════════ */
+.slide:not(.active){transition-delay:0s!important}
+.slide:not(.active) .r{transition-delay:0s!important}
 </style>
 </head>
 <body>
 
-<div class="top">
-  <div>
-    <div class="brand">La Mola<em>.</em> TV <span style="color:var(--bone-3);font-weight:400;margin-left:8px">·</span> <span style="font-size:13px;color:var(--bone-3);letter-spacing:.02em">Admin</span></div>
-    <div class="sub" style="margin-top:2px">Calendari d'events</div>
-  </div>
-  <div class="spacer"></div>
-  <div class="counts"><b id="count-vis">0</b> visibles · <b id="count-tot">0</b> totals</div>
-  <a href="index.html" class="link" target="_blank">↗ Veure TV</a>
-</div>
+<div id="stage-wrap">
+  <div id="stage">
+    <div id="progress"></div>
 
-<section class="hero">
-  <h1>Gestió d'<em>events</em></h1>
-  <div class="lede">Afegeix, edita o elimina events del calendari. Els canvis es desen al navegador mentre treballes, i els publiques quan estiguin llestos.</div>
-</section>
-
-<div class="toolbar">
-  <button class="btn primary" id="btn-add">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>
-    Afegir event
-  </button>
-  <button class="btn ghost" id="btn-clear-past">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M6 5V3h4v2M5 5l.5 9h5l.5-9"/></svg>
-    Netejar passats
-  </button>
-  <button class="btn" id="btn-download">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v9M4 7l4 4 4-4M2 13h12"/></svg>
-    Descarregar JSON
-  </button>
-  <button class="btn ok" id="btn-publish">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1L2 4v5c0 3 2.5 5.5 6 6.5 3.5-1 6-3.5 6-6.5V4L8 1z"/><path d="M5.5 8l2 2 3-4"/></svg>
-    Publicar a GitHub
-  </button>
-  <span class="pill-count" id="pill-count">0 events</span>
-</div>
-
-<div class="status" id="status"></div>
-
-<div class="events" id="events"></div>
-
-<!-- GitHub token modal -->
-<div class="modal-back" id="modal-gh">
-  <div class="modal">
-    <h2>Configura <em>GitHub</em></h2>
-    <p>Per publicar automàticament, necessites un token personal de GitHub. Es guarda només al teu navegador, mai s'envia enlloc més.</p>
-    <label for="gh-repo">Repositori (<code>usuari/repo</code>)</label>
-    <input type="text" id="gh-repo" placeholder="ex: joan/lamola-tv" spellcheck="false">
-    <label for="gh-branch">Branca</label>
-    <input type="text" id="gh-branch" placeholder="main" value="main" spellcheck="false">
-    <label for="gh-token">Personal Access Token</label>
-    <input type="password" id="gh-token" placeholder="ghp_..." spellcheck="false">
-    <div class="hint">Crea'n un a <a href="https://github.com/settings/tokens/new?scopes=repo&description=La%20Mola%20TV" target="_blank">github.com/settings/tokens</a> amb scope <b>repo</b>. Caduca segons el que triïs.</div>
-    <details><summary>Com obtenir el token? (detallat)</summary>
-      <div class="hint" style="margin-top:8px;line-height:1.6">
-        1. Obre <a href="https://github.com/settings/tokens/new?scopes=repo&description=La%20Mola%20TV" target="_blank">aquest enllaç</a> (ja ve preconfigurat)<br>
-        2. A "Expiration", tria "No expiration" o la data que vulguis<br>
-        3. Verifica que <b>repo</b> està marcat<br>
-        4. Clic a "Generate token" al final<br>
-        5. Copia el token (només es mostra un cop) i enganxa'l aquí a dalt
+    <!-- ══ HEADER ══ -->
+    <header id="header">
+      <div class="brand">
+        <img src="assets/logo-full.png" alt="CrossFit La Mola.">
       </div>
-    </details>
-    <div class="modal-actions">
-      <button class="btn ghost" id="gh-cancel">Cancel·lar</button>
-      <button class="btn primary" id="gh-save">Desar i publicar</button>
+      <div class="center">
+        <span>Agenda</span>
+        <span class="bar"></span>
+        <span>Temporada 2026</span>
+      </div>
+      <div class="right">
+        <span id="date-today"></span>
+        <span id="clock"><span class="time"></span></span>
+      </div>
+    </header>
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside id="sidebar">
+      <div class="sb-head"><span>Agenda 2026</span><span class="n" id="sb-count">09</span></div>
+      <div class="sb-scroll"><div class="sb-list" id="sb-list"></div></div>
+    </aside>
+
+    <!-- ══ SLIDES ══ -->
+    <div id="slides"></div>
+
+    <!-- ══ FOOTER ══ -->
+    <footer id="footer">
+      <div class="count">Event <span class="num" id="idx-cur">01</span> / <span id="idx-tot">09</span></div>
+      <div class="dots" id="dots"></div>
+      <div class="next">
+        <span class="label">Next</span>
+        <span class="name" id="next-name">—</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ══ TWEAKS PANEL ══ -->
+<div id="tweaks-panel">
+  <h5>Tweaks — La Mola TV</h5>
+  <div class="row">
+    <label>Variant</label>
+    <div class="seg" data-key="variant">
+      <button data-val="A" title="Refinat">A</button>
+      <button data-val="B" title="Editorial">B</button>
+      <button data-val="C" title="Minimalista">C</button>
     </div>
   </div>
-</div>
-
-<!-- Confirm modal -->
-<div class="modal-back" id="modal-confirm">
-  <div class="modal" style="max-width:460px">
-    <h2 id="confirm-title">Confirmar</h2>
-    <p id="confirm-msg"></p>
-    <div class="modal-actions">
-      <button class="btn ghost" id="confirm-no">Cancel·lar</button>
-      <button class="btn danger" id="confirm-yes">Confirmar</button>
+  <div class="row">
+    <label>Velocitat per slide</label>
+    <input type="range" id="speed-range" min="8" max="30" step="1">
+    <div class="val"><span id="speed-val"></span>s per slide</div>
+  </div>
+  <div class="row">
+    <label>Rellotge</label>
+    <div class="seg" data-key="showClock">
+      <button data-val="true">ON</button>
+      <button data-val="false">OFF</button>
     </div>
   </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════
-   STATE
-═══════════════════════════════════════════════ */
-let DATA = null; // full events.json object
-let EVENTS = []; // events array ref
-const STORAGE_KEY = 'lamolaTV_admin_draft';
-const GH_KEY = 'lamolaTV_gh_config';
+/* ══════════════════════════════════════════════════════════════════
+   DATA — Agenda 2026
+════════════════════════════════════════════════════════════════════ */
+let EVENTS = []; // carregat des de events.json
 
-/* ═══════════════════════════════════════════════
-   UTILS
-═══════════════════════════════════════════════ */
-const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
-
-function status(msg, kind='info'){
-  const s = $('#status');
-  s.className = 'status on ' + (kind==='ok'?'ok':kind==='err'?'err':'');
-  s.textContent = msg;
-  if(kind !== 'err') setTimeout(()=>s.className='status', 4000);
-}
-
-function isPast(ev){
-  if(!ev.endDate) return false;
-  const end = new Date(ev.endDate + 'T23:59:59');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  return end < today;
-}
-
-function monthNameCat(month){
-  const m = {'01':'Gener','02':'Febrer','03':'Març','04':'Abril','05':'Maig','06':'Juny','07':'Juliol','08':'Agost','09':'Setembre','10':'Octubre','11':'Novembre','12':'Desembre'};
-  return m[month] || '';
-}
-
-function computeNum(ev){
-  if(!ev.startDate) return '';
-  const s = new Date(ev.startDate);
-  const sD = s.getDate();
-  if(ev.endDate && ev.endDate !== ev.startDate){
-    const e = new Date(ev.endDate);
-    return sD + '–' + e.getDate();
-  }
-  return String(sD);
-}
-
-function saveDraft(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
-}
-
-function slugify(s){
-  return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
-}
-
-function uniqueId(base){
-  let id = base || 'event';
-  let n = 1;
-  const has = i => EVENTS.some(e => e.id === i);
-  while(has(id)) id = (base||'event') + '-' + (++n);
-  return id;
-}
-
-/* ═══════════════════════════════════════════════
-   LOAD / SAVE
-═══════════════════════════════════════════════ */
-async function loadData(){
-  // Draft wins over file (user was mid-edit)
-  const draft = localStorage.getItem(STORAGE_KEY);
-  if(draft){
-    try {
-      DATA = JSON.parse(draft);
-      EVENTS = DATA.events || [];
-      status('Esborrany local carregat. Publica per fer-ho permanent.', 'info');
-      render();
-      return;
-    } catch {}
-  }
+async function loadEvents(){
   try {
     const res = await fetch('events.json?t=' + Date.now());
-    DATA = await res.json();
-    EVENTS = DATA.events || [];
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    const all = data.events || [];
+    // Auto-ocultar events passats (endDate < avui)
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const visible = all.filter(ev => {
+      if(!ev.endDate) return true;
+      const end = new Date(ev.endDate + 'T23:59:59');
+      return end >= today;
+    });
+    // Ordenar per startDate ascendent
+    visible.sort((a,b) => (a.startDate||'').localeCompare(b.startDate||''));
+    EVENTS = visible;
+    if(EVENTS.length === 0){
+      // fallback: mostrar tots si no en queda cap
+      EVENTS = all;
+    }
   } catch(err){
-    // Minimal fallback
-    DATA = { events: [] };
+    console.error('No s\u2019han pogut carregar els events:', err);
     EVENTS = [];
-    status('No s\'ha pogut carregar events.json. Comença afegint un event.', 'err');
   }
-  render();
 }
 
-function discardDraft(){
-  localStorage.removeItem(STORAGE_KEY);
-  loadData();
-}
+/* ══════════════════════════════════════════════════════════════════
+   RENDER — Build 3 variants per event, toggle via TWEAKS.variant
+════════════════════════════════════════════════════════════════════ */
+const slidesEl = document.getElementById('slides');
+const dotsEl = document.getElementById('dots');
 
-/* ═══════════════════════════════════════════════
-   RENDER
-═══════════════════════════════════════════════ */
-function render(){
-  const container = $('#events');
-  container.innerHTML = '';
-  // Sort by startDate
-  EVENTS.sort((a,b) => (a.startDate||'').localeCompare(b.startDate||''));
-  if(EVENTS.length === 0){
-    container.innerHTML = '<div class="empty"><h3>Cap event encara</h3><p>Clica <b>Afegir event</b> per començar.</p></div>';
-  } else {
-    EVENTS.forEach((ev, i)=>{
-      container.appendChild(renderCard(ev, i));
-    });
+function renderVariantA(ev){
+  if(ev.isHero){
+    return `<div class="save">
+      <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
+      <div class="save-date r r-2">4 de juliol de 2026</div>
+      <h1 class="save-title r r-3">La Mola.<br><em>Summer Fest</em></h1>
+      <p class="save-sub r r-4">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>
+      <div class="save-tag r r-5">Save the date</div>
+    </div>`;
   }
-  const vis = EVENTS.filter(e => !isPast(e)).length;
-  $('#count-vis').textContent = vis;
-  $('#count-tot').textContent = EVENTS.length;
-  $('#pill-count').textContent = EVENTS.length + ' events';
+  const rowsHTML = ev.rows.map(r => `<div class="ev-row"><div class="ev-row-k">${r.k}</div><div class="ev-row-v">${r.v}</div></div>`).join('');
+  return `
+    <div class="ev-left r r-1">
+      <div class="ev-kicker"><span class="bar"></span>${ev.kicker.split(' · ')[0]}</div>
+      <div class="ev-num${ev.numRng?' rng':''}">${ev.num}</div>
+      <div class="ev-mes">${ev.mes.toLowerCase()}</div>
+      <div class="ev-pill ${ev.pillKind}">${ev.pill}</div>
+    </div>
+    <div class="ev-right r r-2">
+      <div class="ev-cat"><span class="num">${String(EVENTS.indexOf(ev)+1).padStart(2,'0')}</span><span class="bar"></span>${ev.kicker}</div>
+      <h2 class="ev-title${ev.title.length>60?'':' big'}">${ev.title}</h2>
+      <div class="ev-rows">${rowsHTML}</div>
+      <p class="ev-desc">${ev.lede}</p>
+    </div>`;
 }
 
-function renderCard(ev, i){
-  const past = isPast(ev);
-  const card = document.createElement('div');
-  card.className = 'card' + (past?' past':'') + (ev.isHero?' hero-ev':'');
-  card.dataset.idx = i;
-  const mes = ev.mes || monthNameCat(ev.month);
-  const num = ev.num || computeNum(ev);
-  const isRng = ev.numRng || (ev.endDate && ev.endDate !== ev.startDate);
-  // Strip HTML from title for display
-  const titlePlain = (ev.titleShort || (ev.title||'').replace(/<[^>]*>/g,'')).replace(/★\s*/,'');
-
-  card.innerHTML = `
-    <div class="card-head">
-      <div class="card-drag" title="Reordenar (drag)">⋮⋮</div>
-      <div>
-        <div class="card-date-big${isRng?' rng':''}">${num || '—'}</div>
-        <div class="card-mes">${(mes||'').toLowerCase()}</div>
+function renderVariantB(ev){
+  if(ev.isHero){
+    return `<div class="save">
+      <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}</div>
+      <h1 class="save-title r r-2">La Mola.<br><em>Summer</em><br>Fest<span class="dot">.</span></h1>
+      <div class="save-row r r-3">
+        <div class="save-date">4<span class="d">.</span>07<span class="d">.</span>26</div>
+        <div class="save-sub">${ev.lede}<br>09:00 – 16:00h · CrossFit La Mola.</div>
       </div>
-      <div class="card-info">
-        <div class="card-title">${ev.isHero?'★ ':''}${titlePlain || '(sense títol)'}</div>
-        <div class="card-kicker">${ev.kicker || ''}</div>
-      </div>
-      <div class="card-tags">
-        ${past?'<span class="tag past">Passat</span>':''}
-        ${ev.isHero?'<span class="tag hero-ev">Hero</span>':''}
-        ${ev.pillKind?`<span class="tag kind-${ev.pillKind}">${ev.pillKind}</span>`:''}
-      </div>
-      <div class="chev">▾</div>
+    </div>`;
+  }
+  const rowsHTML = ev.rows.map(r => `<div class="ev-row"><div class="ev-row-k">${r.k}</div><div class="ev-row-v">${r.v}</div></div>`).join('');
+  return `
+    <div class="ev-media r r-1">
+      <img src="${ev.media}" alt="">
+      <span class="media-tag">${ev.pill}</span>
+      <div class="media-num${ev.numRng?' rng':''}">${ev.num}</div>
+      <div class="media-mes">${ev.mes.toLowerCase()}</div>
     </div>
-    <div class="card-body"></div>
-  `;
-  // Toggle
-  card.querySelector('.card-head').addEventListener('click', e => {
-    if(e.target.closest('.card-drag')) return;
-    const wasOpen = card.classList.contains('open');
-    // close others
-    $$('.card.open').forEach(c => c !== card && c.classList.remove('open'));
-    card.classList.toggle('open');
-    if(!wasOpen){
-      buildForm(card.querySelector('.card-body'), ev);
-    }
-  });
-  return card;
+    <div class="ev-body">
+      <div class="ev-kicker r r-2"><span class="num">${String(EVENTS.indexOf(ev)+1).padStart(2,'0')}</span><span class="bar"></span>${ev.kicker}</div>
+      <h2 class="ev-title r r-3">${ev.title}</h2>
+      <p class="ev-lede r r-4">${ev.lede}</p>
+      <div class="ev-rows r r-5">${rowsHTML}</div>
+    </div>`;
 }
 
-function buildForm(body, ev){
-  body.innerHTML = `
-    <div class="row">
-      <label>Identificador<span class="hint">sense espais, únic</span></label>
-      <input type="text" data-f="id" value="${esc(ev.id)}" spellcheck="false">
-    </div>
-    <div class="row">
-      <label>Dates<span class="hint">inici / final</span></label>
-      <div class="dates">
-        <input type="date" data-f="startDate" value="${esc(ev.startDate)}">
-        <input type="date" data-f="endDate" value="${esc(ev.endDate)}">
-      </div>
-    </div>
-    <div class="row">
-      <label>Mes (text)<span class="hint">com apareix a la TV</span></label>
-      <input type="text" data-f="mes" value="${esc(ev.mes)}" placeholder="ex: Maig, Juny, Oct-Nov">
-    </div>
-    <div class="row">
-      <label>Número dia<span class="hint">buit = auto des de dates</span></label>
-      <div class="mini">
-        <input type="text" data-f="num" value="${esc(ev.num)}" placeholder="ex: 14 o 9–10">
-        <label style="padding:0;font-family:var(--f-sans);text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink);display:flex;gap:6px;align-items:center;cursor:pointer">
-          <input type="checkbox" data-f="numRng" ${ev.numRng?'checked':''}> és rang
-        </label>
-      </div>
-    </div>
-    <div class="row">
-      <label>Entradeta (kicker)<span class="hint">text petit a dalt</span></label>
-      <input type="text" data-f="kicker" value="${esc(ev.kicker)}" placeholder="ex: Mountain Club · Expedició">
-    </div>
-    <div class="row">
-      <label>Títol<span class="hint">HTML permès: &lt;br&gt;, &lt;em class="serif"&gt;</span></label>
-      <textarea data-f="title" rows="2">${esc(ev.title)}</textarea>
-    </div>
-    <div class="row">
-      <label>Títol curt<span class="hint">per al sidebar</span></label>
-      <input type="text" data-f="titleShort" value="${esc(ev.titleShort)}">
-    </div>
-    <div class="row">
-      <label>Descripció (lede)<span class="hint">paràgraf descriptiu</span></label>
-      <textarea data-f="lede" rows="3">${esc(ev.lede)}</textarea>
-    </div>
-    <div class="row">
-      <label>Subtítol sidebar<span class="hint">línia petita al llistat</span></label>
-      <input type="text" data-f="sbSub" value="${esc(ev.sbSub)}">
-    </div>
-    <div class="row">
-      <label>Etiqueta (pill)</label>
-      <div class="mini">
-        <input type="text" data-f="pill" value="${esc(ev.pill)}" placeholder="ex: Places limitades">
-        <select data-f="pillKind">
-          <option value="">— tipus —</option>
-          <option value="free"${ev.pillKind==='free'?' selected':''}>free (verd)</option>
-          <option value="interior"${ev.pillKind==='interior'?' selected':''}>interior (fosc)</option>
-          <option value="exterior"${ev.pillKind==='exterior'?' selected':''}>exterior (beige)</option>
-          <option value="star"${ev.pillKind==='star'?' selected':''}>★ star (taronja)</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <label>Files de fitxa<span class="hint">clau / valor (HTML &lt;em&gt; permès al valor)</span></label>
-      <div class="rows-editor" data-rows-editor></div>
-    </div>
-    <div class="row">
-      <label>Imatge<span class="hint">ruta relativa des del repo</span></label>
-      <div>
-        <input type="text" data-f="media" value="${esc(ev.media)}" placeholder="assets/nom-imatge.jpg">
-        <div class="img-preview" style="margin-top:10px">
-          <img data-preview src="${esc(ev.media)}" onerror="this.style.opacity=.2;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23E8E2D2%22/%3E%3Cpath d=%22M20 55 L30 40 L40 48 L52 32 L60 55 Z%22 fill=%22%23D4CCB8%22/%3E%3C/svg%3E'">
-          <div class="info">Per canviar la imatge: puja el fitxer a <b>/assets/</b> al repo (mateix nom, sobreescriu) o indica un nom nou.</div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <label>Event destacat (hero)<span class="hint">Save the date amb fons fosc</span></label>
-      <label style="padding:0;font-family:var(--f-sans);text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink);display:flex;gap:8px;align-items:center;cursor:pointer">
-        <input type="checkbox" data-f="isHero" ${ev.isHero?'checked':''}> Marcar com a event destacat
-      </label>
-    </div>
-    <div class="card-actions">
-      <button class="btn danger" data-action="delete">Eliminar</button>
-      <button class="btn ghost" data-action="duplicate">Duplicar</button>
-    </div>
-  `;
+function renderVariantC(ev){
+  if(ev.isHero){
+    return `<div class="c-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
+      <div class="c-date r r-2">04</div>
+      <div class="c-month r r-3">juliol</div>
+      <h2 class="c-title r r-4">La Mola. <em class="serif">Summer Fest</em></h2>
+      <p class="c-sub r r-5">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>`;
+  }
+  const metaHTML = ev.rows.slice(0,2).map(r => `<div><span class="k">${r.k}</span><span class="v">${r.v.replace(/<br>/g,' ').replace(/<\/?em[^>]*>/g,'')}</span></div>`).join('');
+  return `
+    <div class="c-kicker r r-1"><span class="bar"></span>${ev.kicker}</div>
+    <div class="c-date${ev.numRng?' rng':''} r r-2">${ev.num}</div>
+    <div class="c-month r r-3">${ev.mes.toLowerCase()}</div>
+    <h2 class="c-title r r-4">${ev.title.replace(/<br>/g,' ')}</h2>
+    <p class="c-sub r r-5">${ev.lede}</p>
+    <div class="c-meta r r-5">${metaHTML}</div>`;
+}
 
-  // Wire fields
-  body.querySelectorAll('[data-f]').forEach(el => {
-    el.addEventListener('input', ()=>{
-      const f = el.dataset.f;
-      if(el.type === 'checkbox') ev[f] = el.checked;
-      else ev[f] = el.value;
-      saveDraft();
-      // Update live header
-      const card = body.closest('.card');
-      refreshCardHead(card, ev);
-      if(f === 'media'){
-        const prev = body.querySelector('[data-preview]');
-        if(prev){ prev.src = ev.media; prev.style.opacity = 1; }
+function buildSlides(variant){
+  slidesEl.innerHTML = '';
+  dotsEl.innerHTML = '';
+  EVENTS.forEach((ev, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+    slide.setAttribute('data-screen-label', String(i+1).padStart(2,'0')+' '+ev.titleShort);
+    let inner = '';
+    if(variant === 'A'){
+      slide.classList.add('on-bone');
+      if(ev.isHero) slide.classList.add('on-ink');
+      inner = `<div class="stage-inner v-A">${renderVariantA(ev)}</div>`;
+    } else if(variant === 'B'){
+      slide.classList.add('on-bone');
+      if(ev.isHero){
+        slide.classList.add('on-ink');
+        inner = `<div class="stage-inner v-B save-layout">${renderVariantB(ev)}</div>`;
+      } else {
+        inner = `<div class="stage-inner v-B">${renderVariantB(ev)}</div>`;
       }
-    });
-  });
-
-  // Rows editor
-  const rowsEditor = body.querySelector('[data-rows-editor]');
-  function renderRows(){
-    rowsEditor.innerHTML = '';
-    (ev.rows||[]).forEach((r, idx)=>{
-      const row = document.createElement('div');
-      row.className = 'rows-row';
-      row.innerHTML = `
-        <input type="text" placeholder="Clau (ex: On)" value="${esc(r.k)}">
-        <input type="text" placeholder="Valor (ex: Barcelona)" value="${esc(r.v)}">
-        <button title="Eliminar">✕</button>
-      `;
-      const [kEl, vEl, delBtn] = row.children;
-      kEl.addEventListener('input', ()=>{ r.k = kEl.value; saveDraft(); });
-      vEl.addEventListener('input', ()=>{ r.v = vEl.value; saveDraft(); });
-      delBtn.addEventListener('click', ()=>{
-        ev.rows.splice(idx,1);
-        saveDraft();
-        renderRows();
-      });
-      rowsEditor.appendChild(row);
-    });
-    const add = document.createElement('button');
-    add.className = 'btn ghost';
-    add.style.alignSelf = 'flex-start';
-    add.style.fontSize = '12px';
-    add.style.padding = '8px 14px';
-    add.textContent = '+ Afegir fila';
-    add.addEventListener('click', ()=>{
-      ev.rows = ev.rows || [];
-      ev.rows.push({k:'', v:''});
-      saveDraft();
-      renderRows();
-    });
-    rowsEditor.appendChild(add);
-  }
-  renderRows();
-
-  // Actions
-  body.querySelector('[data-action=delete]').addEventListener('click', ()=>{
-    confirmDialog('Eliminar event?', 'Aquesta acció no es pot desfer (fins que publiquis, l\'esborrany queda al navegador).', ()=>{
-      const idx = EVENTS.indexOf(ev);
-      if(idx>-1) EVENTS.splice(idx,1);
-      saveDraft();
-      render();
-      status('Event eliminat.', 'ok');
-    });
-  });
-  body.querySelector('[data-action=duplicate]').addEventListener('click', ()=>{
-    const copy = JSON.parse(JSON.stringify(ev));
-    copy.id = uniqueId(ev.id + '-copia');
-    copy.titleShort = (ev.titleShort||'') + ' (còpia)';
-    copy.isHero = false;
-    const idx = EVENTS.indexOf(ev);
-    EVENTS.splice(idx+1, 0, copy);
-    saveDraft();
-    render();
-    status('Event duplicat.', 'ok');
-  });
-}
-
-function refreshCardHead(card, ev){
-  const past = isPast(ev);
-  card.classList.toggle('past', past);
-  card.classList.toggle('hero-ev', !!ev.isHero);
-  const mes = ev.mes || monthNameCat(ev.month);
-  const num = ev.num || computeNum(ev);
-  const isRng = ev.numRng || (ev.endDate && ev.endDate !== ev.startDate);
-  const titlePlain = (ev.titleShort || (ev.title||'').replace(/<[^>]*>/g,'')).replace(/★\s*/,'');
-  card.querySelector('.card-date-big').textContent = num || '—';
-  card.querySelector('.card-date-big').className = 'card-date-big' + (isRng?' rng':'');
-  card.querySelector('.card-mes').textContent = (mes||'').toLowerCase();
-  card.querySelector('.card-title').innerHTML = (ev.isHero?'★ ':'') + (titlePlain || '(sense títol)');
-  card.querySelector('.card-kicker').textContent = ev.kicker || '';
-  const tags = card.querySelector('.card-tags');
-  tags.innerHTML = `${past?'<span class="tag past">Passat</span>':''}${ev.isHero?'<span class="tag hero-ev">Hero</span>':''}${ev.pillKind?`<span class="tag kind-${ev.pillKind}">${ev.pillKind}</span>`:''}`;
-}
-
-function esc(v){
-  if(v == null || v === undefined) return '';
-  return String(v).replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-/* ═══════════════════════════════════════════════
-   ACTIONS
-═══════════════════════════════════════════════ */
-$('#btn-add').addEventListener('click', ()=>{
-  const now = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  const iso = now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-  const newEv = {
-    id: uniqueId('nou-event'),
-    startDate: iso,
-    endDate: iso,
-    kicker: 'Categoria · Descripció',
-    mes: monthNameCat(pad(now.getMonth()+1)),
-    month: pad(now.getMonth()+1),
-    num: String(now.getDate()),
-    title: 'Nou event',
-    titleShort: 'Nou event',
-    lede: 'Descripció del nou event.',
-    pill: 'Etiqueta',
-    pillKind: 'interior',
-    rows: [{k:'On', v:'Lloc'},{k:'Horari', v:'09:00'}],
-    media: 'assets/hero-climb.jpg',
-    sbSub: 'Subtítol del sidebar'
-  };
-  EVENTS.push(newEv);
-  saveDraft();
-  render();
-  // Open the newly-added card
-  setTimeout(()=>{
-    const cards = $$('.card');
-    const last = cards[cards.length-1];
-    if(last){
-      last.classList.add('open');
-      buildForm(last.querySelector('.card-body'), newEv);
-      last.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      slide.classList.add('on-bone');
+      const darkClass = ev.isHero ? ' save dark' : '';
+      inner = `<div class="stage-inner v-C${darkClass}">${renderVariantC(ev)}</div>`;
+      if(ev.isHero) slide.classList.add('on-ink');
     }
-  }, 50);
-  status('Event afegit. Edita els camps i publica quan vulguis.', 'ok');
-});
+    slide.innerHTML = inner;
+    slidesEl.appendChild(slide);
 
-$('#btn-clear-past').addEventListener('click', ()=>{
-  const past = EVENTS.filter(isPast);
-  if(past.length === 0){ status('No hi ha events passats per netejar.', 'info'); return; }
-  confirmDialog('Netejar '+past.length+' events passats?', 'S\'eliminaran tots els events amb data final anterior a avui. Podràs desfer-ho fins que publiquis.', ()=>{
-    EVENTS = EVENTS.filter(e => !isPast(e));
-    DATA.events = EVENTS;
-    saveDraft();
-    render();
-    status('S\'han eliminat '+past.length+' events passats.', 'ok');
+    const d = document.createElement('div');
+    d.className = 'dot';
+    dotsEl.appendChild(d);
   });
-});
-
-$('#btn-download').addEventListener('click', ()=>{
-  DATA.events = EVENTS;
-  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'events.json';
-  a.click();
-  setTimeout(()=>URL.revokeObjectURL(url), 1000);
-  status('events.json descarregat. Puja\'l a l\'arrel del repo de GitHub.', 'ok');
-});
-
-/* ═══════════════════════════════════════════════
-   GITHUB PUBLISH
-═══════════════════════════════════════════════ */
-$('#btn-publish').addEventListener('click', ()=>{
-  const cfg = loadGhConfig();
-  $('#gh-repo').value = cfg.repo || '';
-  $('#gh-branch').value = cfg.branch || 'main';
-  $('#gh-token').value = cfg.token || '';
-  $('#modal-gh').classList.add('on');
-});
-
-$('#gh-cancel').addEventListener('click', ()=>$('#modal-gh').classList.remove('on'));
-$('#modal-gh').addEventListener('click', e=>{ if(e.target.id==='modal-gh') $('#modal-gh').classList.remove('on'); });
-
-$('#gh-save').addEventListener('click', async ()=>{
-  const repo = $('#gh-repo').value.trim();
-  const branch = $('#gh-branch').value.trim() || 'main';
-  const token = $('#gh-token').value.trim();
-  if(!repo || !token){ alert('Cal omplir repositori i token.'); return; }
-  if(!repo.includes('/')){ alert('El repositori ha de ser en format usuari/repo.'); return; }
-  saveGhConfig({repo, branch, token});
-  $('#modal-gh').classList.remove('on');
-  await publishToGithub({repo, branch, token});
-});
-
-function loadGhConfig(){
-  try { return JSON.parse(localStorage.getItem(GH_KEY) || '{}'); } catch { return {}; }
-}
-function saveGhConfig(cfg){
-  localStorage.setItem(GH_KEY, JSON.stringify(cfg));
+  document.getElementById('idx-tot').textContent = String(EVENTS.length).padStart(2,'0');
+  document.getElementById('sb-count').textContent = String(EVENTS.length).padStart(2,'0');
 }
 
-async function publishToGithub({repo, branch, token}){
-  DATA.events = EVENTS;
-  const content = JSON.stringify(DATA, null, 2);
-  const path = 'events.json';
-  const apiBase = `https://api.github.com/repos/${repo}/contents/${path}`;
-
-  status('Publicant a GitHub…', 'info');
-  try {
-    // Get current SHA
-    let sha = null;
-    const getRes = await fetch(apiBase + '?ref=' + branch, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if(getRes.ok){
-      const j = await getRes.json();
-      sha = j.sha;
-    } else if(getRes.status !== 404){
-      throw new Error('GitHub API: '+getRes.status+' '+getRes.statusText);
+/* ══════════════════════════════════════════════════════════════════
+   SIDEBAR BUILD
+════════════════════════════════════════════════════════════════════ */
+function buildSidebar(){
+  const list = document.getElementById('sb-list');
+  list.innerHTML = '';
+  let lastMonth = null;
+  EVENTS.forEach((ev, i)=>{
+    if(ev.mes !== lastMonth){
+      const mh = document.createElement('div');
+      mh.className = 'sb-month';
+      mh.textContent = ev.mes;
+      list.appendChild(mh);
+      lastMonth = ev.mes;
     }
-
-    // PUT new content
-    const body = {
-      message: 'Update events.json from admin ('+new Date().toLocaleString('ca-ES')+')',
-      content: btoa(unescape(encodeURIComponent(content))),
-      branch
-    };
-    if(sha) body.sha = sha;
-
-    const putRes = await fetch(apiBase, {
-      method: 'PUT',
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-    if(!putRes.ok){
-      const err = await putRes.json().catch(()=>({}));
-      throw new Error('GitHub: '+(err.message || putRes.status));
+    const row = document.createElement('div');
+    row.className = 'sb-ev' + (ev.isHero ? ' star' : '');
+    row.dataset.idx = i;
+    const name = ev.isHero
+      ? '<span style="color:var(--accent-hi)">\u2605</span>&nbsp; '+ev.titleShort.replace(/^★\s*/, '')
+      : ev.titleShort;
+    row.innerHTML = `
+      <div class="sb-date">${ev.num}</div>
+      <div class="sb-info">
+        <div class="sb-name">${name}</div>
+        <div class="sb-sub">${ev.sbSub || ''}</div>
+      </div>`;
+    row.addEventListener('click', ()=>goTo(parseInt(row.dataset.idx,10)));
+    list.appendChild(row);
+  });
+}
+function updateSidebar(n){
+  document.querySelectorAll('.sb-ev').forEach(el=>el.classList.remove('active'));
+  const rows = document.querySelectorAll('.sb-ev');
+  if(rows[n]){
+    rows[n].classList.add('active');
+    const r = rows[n].getBoundingClientRect();
+    const list = document.getElementById('sb-list');
+    const lr = list.getBoundingClientRect();
+    if(r.top < lr.top + 60 || r.bottom > lr.bottom - 60){
+      list.scrollTo({top: rows[n].offsetTop - list.clientHeight/2 + rows[n].clientHeight/2, behavior:'smooth'});
     }
-    // Success → clear draft
-    localStorage.removeItem(STORAGE_KEY);
-    status('✓ Publicat! Els canvis apareixeran a la TV en ~1 minut.', 'ok');
-  } catch(err){
-    status('✗ Error publicant: '+err.message, 'err');
   }
 }
 
-/* ═══════════════════════════════════════════════
-   CONFIRM DIALOG
-═══════════════════════════════════════════════ */
-let confirmCb = null;
-function confirmDialog(title, msg, cb){
-  $('#confirm-title').textContent = title;
-  $('#confirm-msg').textContent = msg;
-  confirmCb = cb;
-  $('#modal-confirm').classList.add('on');
+/* ══════════════════════════════════════════════════════════════════
+   STAGE SCALING — TV-safe (overscan, slow fonts, misreported viewport)
+════════════════════════════════════════════════════════════════════ */
+function fitStage(){
+  const s = document.getElementById('stage');
+  if(!s) return;
+  // Use visualViewport when available (TVs with overscan report it correctly)
+  const vv = window.visualViewport;
+  const w = (vv && vv.width) ? vv.width : window.innerWidth;
+  const h = (vv && vv.height) ? vv.height : window.innerHeight;
+  const scale = Math.min(w/1920, h/1080);
+  // Center horizontally and vertically
+  const offsetX = (w - 1920 * scale) / 2;
+  const offsetY = (h - 1080 * scale) / 2;
+  s.style.transformOrigin = '0 0';
+  s.style.transform = 'translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';
 }
-$('#confirm-yes').addEventListener('click', ()=>{
-  $('#modal-confirm').classList.remove('on');
-  if(confirmCb) confirmCb();
-});
-$('#confirm-no').addEventListener('click', ()=>$('#modal-confirm').classList.remove('on'));
-$('#modal-confirm').addEventListener('click', e=>{ if(e.target.id==='modal-confirm') $('#modal-confirm').classList.remove('on'); });
+window.addEventListener('resize', fitStage);
+window.addEventListener('load', fitStage);
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', fitStage);
+}
+// TV browsers sometimes report wrong viewport initially — re-fit a few times
+[100, 500, 1500, 3000].forEach(ms => setTimeout(fitStage, ms));
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════════════
+   ROTATION
+════════════════════════════════════════════════════════════════════ */
+let cur = 0;
+let timer;
+const prog = document.getElementById('progress');
+
+function goTo(n){
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  const N = slides.length;
+  const next = ((n % N) + N) % N;
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = next;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+
+  // body class for header theme
+  const isInk = slides[cur].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+
+  // update counters
+  document.getElementById('idx-cur').textContent = String(cur+1).padStart(2,'0');
+  const nx = (cur+1) % N;
+  document.getElementById('next-name').textContent = EVENTS[nx].titleShort;
+  updateSidebar(cur);
+
+  startTimer();
+}
+
+function startTimer(){
+  clearTimeout(timer);
+  const ev = EVENTS[cur];
+  const base = (TWEAKS.speed || 18);
+  const d = (ev.isHero ? base + 4 : base) * 1000;
+  prog.style.transition = 'none'; prog.style.width = '0%';
+  void prog.offsetWidth;
+  requestAnimationFrame(()=>{
+    prog.style.transition = 'width '+d+'ms linear';
+    prog.style.width = '100%';
+  });
+  timer = setTimeout(()=>goTo(cur+1), d);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CLOCK + DATE
+════════════════════════════════════════════════════════════════════ */
+const DAYS = ['diumenge','dilluns','dimarts','dimecres','dijous','divendres','dissabte'];
+const MONTHS = ['gener','febrer','març','abril','maig','juny','juliol','agost','setembre','octubre','novembre','desembre'];
+function updateClock(){
+  const d = new Date();
+  const day = DAYS[d.getDay()];
+  const dn = d.getDate();
+  const mn = MONTHS[d.getMonth()];
+  document.getElementById('date-today').textContent = day+' '+dn+' '+mn;
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mm = String(d.getMinutes()).padStart(2,'0');
+  const clockEl = document.querySelector('#clock .time');
+  clockEl.textContent = hh+':'+mm;
+  document.getElementById('clock').style.display = TWEAKS.showClock ? 'inline-flex' : 'none';
+}
+setInterval(updateClock, 1000*30);
+
+/* ══════════════════════════════════════════════════════════════════
    INIT
-═══════════════════════════════════════════════ */
-loadData();
+════════════════════════════════════════════════════════════════════ */
+async function start(){
+  await loadEvents();
+  if(EVENTS.length === 0){
+    document.getElementById('slides').innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#E8E2D2;font-family:serif;font-size:48px;padding:80px;text-align:center">No hi ha events programats.<br><span style="font-size:24px;opacity:.6;margin-top:20px;display:block">Afegeix-ne des de admin.html</span></div>';
+    return;
+  }
+  buildSlides(TWEAKS.variant);
+  buildSidebar();
+  fitStage();
+  updateClock();
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  cur = 0;
+  slides[0].classList.add('active');
+  dots[0].classList.add('active');
+  const isInk = slides[0].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+  document.getElementById('idx-cur').textContent = '01';
+  document.getElementById('next-name').textContent = EVENTS[1].titleShort;
+  updateSidebar(0);
+  startTimer();
+}
+start();
+
+/* ══════════════════════════════════════════════════════════════════
+   KEYBOARD
+════════════════════════════════════════════════════════════════════ */
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); goTo(cur+1); }
+  if(e.key==='ArrowLeft'){ e.preventDefault(); goTo(cur-1); }
+  if(e.key==='1'){ setVariant('A'); }
+  if(e.key==='2'){ setVariant('B'); }
+  if(e.key==='3'){ setVariant('C'); }
+});
+
+function setVariant(v){
+  TWEAKS.variant = v;
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits:{variant:v}}, '*');
+  const keep = cur;
+  buildSlides(v);
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#dots .dot');
+  cur = Math.min(keep, slides.length-1);
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  const isInk = slides[cur].classList.contains('on-ink');
+  document.body.classList.toggle('on-bone', !isInk);
+  document.getElementById('idx-cur').textContent = String(cur+1).padStart(2,'0');
+  document.getElementById('next-name').textContent = EVENTS[(cur+1)%EVENTS.length].titleShort;
+  syncPanel();
+  startTimer();
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TWEAKS PANEL WIRING
+════════════════════════════════════════════════════════════════════ */
+const panel = document.getElementById('tweaks-panel');
+window.addEventListener('message', e=>{
+  const d = e.data || {};
+  if(d.type === '__activate_edit_mode') panel.classList.add('on');
+  if(d.type === '__deactivate_edit_mode') panel.classList.remove('on');
+});
+window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+function syncPanel(){
+  panel.querySelectorAll('.seg').forEach(seg=>{
+    const key = seg.dataset.key;
+    const val = String(TWEAKS[key]);
+    seg.querySelectorAll('button').forEach(b=>{
+      b.classList.toggle('on', b.dataset.val === val);
+    });
+  });
+  document.getElementById('speed-range').value = TWEAKS.speed;
+  document.getElementById('speed-val').textContent = TWEAKS.speed;
+}
+
+panel.querySelectorAll('.seg').forEach(seg=>{
+  seg.addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    const key = seg.dataset.key;
+    let val = b.dataset.val;
+    if(val === 'true') val = true;
+    else if(val === 'false') val = false;
+    TWEAKS[key] = val;
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[key]:val}}, '*');
+    if(key === 'variant') setVariant(val);
+    if(key === 'showClock') updateClock();
+    syncPanel();
+  });
+});
+document.getElementById('speed-range').addEventListener('input', e=>{
+  TWEAKS.speed = parseInt(e.target.value, 10);
+  document.getElementById('speed-val').textContent = TWEAKS.speed;
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits:{speed:TWEAKS.speed}}, '*');
+  startTimer();
+});
+syncPanel();
 </script>
 </body>
 </html>
