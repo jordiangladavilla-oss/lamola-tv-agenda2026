@@ -276,9 +276,9 @@
       "numRng": true,
       "mes": "Octubre",
       "month": "10",
-      "title": "<em class=\"serif\">La Ballena</em><br>Alegre<span class=\"dot\">.</span>",
-      "titleShort": "La Ballena Alegre",
-      "lede": "Competició exterior de tardor. Dos dies d'esport i comunitat.",
+      "title": "<em class=\"serif\">FCL Costa Brava</em><br>@La Ballena Alegre<span class=\"dot\">.</span>",
+      "titleShort": "FCL Costa Brava ",
+      "lede": "Competició exterior de tardor. Dos dies d'esport i comunitat. ",
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
@@ -289,6 +289,10 @@
         {
           "k": "Tipus",
           "v": "Competició exterior"
+        },
+        {
+          "k": "On",
+          "v": "Camping La Ballena Alegre"
         }
       ],
       "media": "assets/evento-costa-brava-fitness-01.jpg",
