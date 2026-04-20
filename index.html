@@ -572,7 +572,11 @@ function fitStage(){
   const vv = window.visualViewport;
   const w = (vv && vv.width) ? vv.width : window.innerWidth;
   const h = (vv && vv.height) ? vv.height : window.innerHeight;
-  const scale = Math.min(w/1920, h/1080);
+  // Safe area: 3% margin on each edge to avoid TV overscan cutting content
+  const SAFE = 0.94;
+  const safeW = w * SAFE;
+  const safeH = h * SAFE;
+  const scale = Math.min(safeW/1920, safeH/1080);
   // Center horizontally and vertically
   const offsetX = (w - 1920 * scale) / 2;
   const offsetY = (h - 1080 * scale) / 2;
