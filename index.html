@@ -195,7 +195,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .save-kicker .bar{width:60px;height:1px;background:var(--accent-hi)}
 .v-A .save-date{font-family:var(--f-mono);font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:32px}
 .v-A .save-title{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.86;letter-spacing:-.04em;color:var(--bone);margin-bottom:48px}
-.v-A .save-title em{color:var(--accent-hi)}
+.v-A .save-title em{color:var(--accent-hi);font-weight:400;font-family:var(--f-serif);font-style:italic;letter-spacing:-.02em}
 .v-A .save-sub{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1.45;color:var(--bone-2);max-width:900px;margin-bottom:48px;text-wrap:pretty}
 .v-A .save-tag{display:inline-flex;align-items:center;gap:16px;padding:18px 36px;border:2px solid var(--accent-hi);color:var(--accent-hi);font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;border-radius:999px}
 .v-A .save-tag::before,.v-A .save-tag::after{content:"★"}
@@ -243,7 +243,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    VARIANT C — MINIMALISTA (Apple TV)
 ════════════════════════════════════════════════════════════════════ */
-.v-C{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 120px;background:var(--bone);color:var(--bone-ink);position:relative;overflow:hidden}
+.v-C{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 120px;background:var(--bone);color:var(--bone-ink);position:relative}
 .v-C.dark{background:var(--ink);color:var(--bone)}
 .v-C .c-kicker{font-family:var(--f-mono);font-size:16px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:20px}
 .v-C.dark .c-kicker{color:var(--muted)}
@@ -266,7 +266,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 
 /* VARIANT C — SUMMER FEST */
 .v-C.save{background:var(--ink);color:var(--bone)}
-.v-C.save .c-title{font-size:160px;color:var(--bone);max-width:18ch;letter-spacing:-.045em;line-height:.88;margin-bottom:40px}
+.v-C.save .c-title{font-size:120px;color:var(--bone);max-width:18ch;letter-spacing:-.04em;line-height:.9;margin-bottom:40px}
 .v-C.save .c-title em{font-family:var(--f-serif);font-weight:400;color:var(--accent-hi)}
 
 /* ══════════════════════════════════════════════════════════════════
@@ -536,7 +536,7 @@ function buildSidebar(){
     row.className = 'sb-ev' + (ev.isHero ? ' star' : '');
     row.dataset.idx = i;
     const name = ev.isHero
-      ? '<span style="color:var(--accent-hi)">\u2605</span>&nbsp; '+ev.titleShort.replace(/^★\s*/, '')
+      ? ev.titleShort.replace(/^★\s*/, '')
       : ev.titleShort;
     row.innerHTML = `
       <div class="sb-date">${ev.num}</div>
