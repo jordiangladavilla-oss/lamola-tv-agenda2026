@@ -35,9 +35,18 @@
       "pill": "Places limitades",
       "pillKind": "interior",
       "rows": [
-        {"k": "On", "v": "Camping Wecamp<br>+ Pedraforca"},
-        {"k": "Durada", "v": "Cap de setmana complet"},
-        {"k": "Cim", "v": "<em>2.506 m</em> d'altitud"}
+        {
+          "k": "On",
+          "v": "Camping Wecamp<br>+ Pedraforca"
+        },
+        {
+          "k": "Durada",
+          "v": "Cap de setmana complet"
+        },
+        {
+          "k": "Cim",
+          "v": "<em>2.506 m</em> d'altitud"
+        }
       ],
       "media": "assets/hero-climb.jpg",
       "sbSub": "Camping Wecamp · Cim 2.506 m"
@@ -56,9 +65,18 @@
       "pill": "Beach WOD",
       "pillKind": "free",
       "rows": [
-        {"k": "On", "v": "Platja"},
-        {"k": "Horari", "v": "09:00 – 16:00"},
-        {"k": "Partner", "v": "<em>One Mile</em>"}
+        {
+          "k": "On",
+          "v": "Platja"
+        },
+        {
+          "k": "Horari",
+          "v": "09:00 – 16:00"
+        },
+        {
+          "k": "Partner",
+          "v": "<em>One Mile</em>"
+        }
       ],
       "media": "assets/community-1.jpg",
       "sbSub": "Platja · 09:00–16:00"
@@ -78,9 +96,18 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {"k": "On", "v": "CrossFit Lynx"},
-        {"k": "Dates", "v": "5, 6 i 7 de juny"},
-        {"k": "Categoria", "v": "<em>Individual</em>"}
+        {
+          "k": "On",
+          "v": "CrossFit Lynx"
+        },
+        {
+          "k": "Dates",
+          "v": "5, 6 i 7 de juny"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Individual</em>"
+        }
       ],
       "media": "assets/class-wod.jpg",
       "sbSub": "CrossFit Lynx · Individual"
@@ -99,9 +126,18 @@
       "pill": "50 €",
       "pillKind": "interior",
       "rows": [
-        {"k": "On", "v": "CrossFit La Mola."},
-        {"k": "Coach", "v": "<em>Alfonso</em>"},
-        {"k": "Preu", "v": "50 €"}
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        },
+        {
+          "k": "Coach",
+          "v": "<em>Alfonso</em>"
+        },
+        {
+          "k": "Preu",
+          "v": "50 €"
+        }
       ],
       "media": "assets/detail-chalk.jpg",
       "sbSub": "La Mola. · Alfonso · 50 €"
@@ -121,9 +157,18 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {"k": "On", "v": "Toledo, Castella-La Manxa"},
-        {"k": "Dates", "v": "19, 20 i 21 de juny"},
-        {"k": "Categoria", "v": "<em>Parelles</em>"}
+        {
+          "k": "On",
+          "v": "Toledo, Castella-La Manxa"
+        },
+        {
+          "k": "Dates",
+          "v": "19, 20 i 21 de juny"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Parelles</em>"
+        }
       ],
       "media": "assets/detail-rings.jpg",
       "sbSub": "Toledo · Parelles"
@@ -142,9 +187,18 @@
       "pill": "★ Save the date",
       "pillKind": "star",
       "rows": [
-        {"k": "On", "v": "CrossFit La Mola."},
-        {"k": "Horari", "v": "09:00 – 16:00"},
-        {"k": "Format", "v": "WOD + còctels + música"}
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        },
+        {
+          "k": "Horari",
+          "v": "09:00 – 16:00"
+        },
+        {
+          "k": "Format",
+          "v": "WOD + còctels + música"
+        }
       ],
       "media": "assets/community-5.jpg",
       "sbSub": "La Mola. · 09:00–16:00",
@@ -165,9 +219,18 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {"k": "On", "v": "Barcelona"},
-        {"k": "Dates", "v": "11, 12 i 13 de setembre"},
-        {"k": "Categoria", "v": "<em>Individual</em> i <em>Equips</em>"}
+        {
+          "k": "On",
+          "v": "Barcelona"
+        },
+        {
+          "k": "Dates",
+          "v": "11, 12 i 13 de setembre"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Individual</em> i <em>Equips</em>"
+        }
       ],
       "media": "assets/community-3.jpg",
       "sbSub": "Barcelona · Indiv + Equips"
@@ -187,8 +250,14 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {"k": "Dates", "v": "17 i 18 d'octubre"},
-        {"k": "Tipus", "v": "Competició exterior"}
+        {
+          "k": "Dates",
+          "v": "17 i 18 d'octubre"
+        },
+        {
+          "k": "Tipus",
+          "v": "Competició exterior"
+        }
       ],
       "media": "assets/detail-rope.jpg",
       "sbSub": "Competició exterior"
@@ -208,9 +277,18 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {"k": "On", "v": "Bilbao, País Basc"},
-        {"k": "Dates", "v": "30-31 oct + 1 nov"},
-        {"k": "Categoria", "v": "<em>Individual</em>"}
+        {
+          "k": "On",
+          "v": "Bilbao, País Basc"
+        },
+        {
+          "k": "Dates",
+          "v": "30-31 oct + 1 nov"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Individual</em>"
+        }
       ],
       "media": "assets/detail-board.jpg",
       "sbSub": "Bilbao · 30-31 Oct + 1 Nov"
