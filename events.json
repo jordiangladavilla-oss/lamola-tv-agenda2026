@@ -21,40 +21,6 @@
   },
   "events": [
     {
-      "id": "Run by the beach @Badalona",
-      "startDate": "2026-05-24",
-      "endDate": "2026-05-24",
-      "kicker": "Beach RUN · Comunitat",
-      "mes": "Maig",
-      "month": "04",
-      "num": "24",
-      "title": "<br>Run by the beach.<br><em class=\"serif\">@Badalona</em>",
-      "titleShort": "Run by the beach @Badalona",
-      "lede": "Sortida de running per el passeig maritim de @Badalona seguida d'un esmorzar en format brunch. Esport, mar i comunitat. La millor combinació.\n",
-      "pill": "Etiqueta",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Passeig maritim Badalona"
-        },
-        {
-          "k": "Horari",
-          "v": "09:00 - 14:00"
-        },
-        {
-          "k": "Nivell",
-          "v": "Tots els nivells benvinguts"
-        },
-        {
-          "k": "Recorregut",
-          "v": "10 km aprox."
-        }
-      ],
-      "media": "assets/hero-climb.jpg",
-      "sbSub": "Run grupal + Brunch"
-    },
-    {
       "id": "pedraforca",
       "startDate": "2026-05-09",
       "endDate": "2026-05-10",
@@ -69,21 +35,33 @@
       "pill": "Places limitades",
       "pillKind": "interior",
       "rows": [
-        {
-          "k": "On",
-          "v": "Camping Wecamp<br>+ Pedraforca"
-        },
-        {
-          "k": "Durada",
-          "v": "Cap de setmana complet"
-        },
-        {
-          "k": "Cim",
-          "v": "<em>2.506 m</em> d'altitud"
-        }
+        {"k": "On", "v": "Camping Wecamp<br>+ Pedraforca"},
+        {"k": "Durada", "v": "Cap de setmana complet"},
+        {"k": "Cim", "v": "<em>2.506 m</em> d'altitud"}
       ],
       "media": "assets/hero-climb.jpg",
       "sbSub": "Camping Wecamp · Cim 2.506 m"
+    },
+    {
+      "id": "run-beach",
+      "startDate": "2026-05-24",
+      "endDate": "2026-05-24",
+      "kicker": "Run Club · Badalona",
+      "num": "24",
+      "mes": "Maig",
+      "month": "05",
+      "title": "Run by the beach<br><em class=\"serif\">@ Badalona</em>",
+      "titleShort": "Run by the beach @ Badalona",
+      "lede": "Run Club a primera línia de mar. Sortida matinal pel passeig marítim i brunch comunitari per acabar.",
+      "pill": "Run + Brunch",
+      "pillKind": "free",
+      "rows": [
+        {"k": "On", "v": "Passeig marítim<br>de Badalona"},
+        {"k": "Horari", "v": "09:00 – 14:00"},
+        {"k": "Ruta", "v": "<em>~12 km</em> · Run + Brunch"}
+      ],
+      "media": "assets/community-3.jpg",
+      "sbSub": "Badalona · ~12 km · Run + Brunch"
     },
     {
       "id": "beach-wod",
@@ -93,24 +71,15 @@
       "num": "31",
       "mes": "Maig",
       "month": "05",
-      "title": "Beach WOD.<br>La Mola. <em class=\"serif\">&</em> One Mile",
-      "titleShort": "Beach WOD · La Mola & One Mile",
-      "lede": "Jornada completa a la platja en col·laboració amb One Mile. Sol, sorra, mar i comunitat.",
+      "title": "Beach WOD.<br>La Mola. <em class=\"serif\">&</em> Ikaika",
+      "titleShort": "Beach WOD · La Mola & Ikaika",
+      "lede": "Jornada completa a la platja en col·laboració amb Ikaika Training Masnou. Sol, sorra, mar i comunitat.",
       "pill": "Beach WOD",
       "pillKind": "free",
       "rows": [
-        {
-          "k": "On",
-          "v": "Platja"
-        },
-        {
-          "k": "Horari",
-          "v": "09:00 – 16:00"
-        },
-        {
-          "k": "Partner",
-          "v": "<em>One Mile</em>"
-        }
+        {"k": "On", "v": "Platja"},
+        {"k": "Horari", "v": "09:00 – 16:00"},
+        {"k": "Partner", "v": "<em>Ikaika Training Masnou</em>"}
       ],
       "media": "assets/community-1.jpg",
       "sbSub": "Platja · 09:00–16:00"
@@ -130,18 +99,9 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {
-          "k": "On",
-          "v": "CrossFit Lynx"
-        },
-        {
-          "k": "Dates",
-          "v": "5, 6 i 7 de juny"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Individual</em>"
-        }
+        {"k": "On", "v": "CrossFit Lynx"},
+        {"k": "Dates", "v": "5, 6 i 7 de juny"},
+        {"k": "Categoria", "v": "<em>Individual</em>"}
       ],
       "media": "assets/class-wod.jpg",
       "sbSub": "CrossFit Lynx · Individual"
@@ -160,18 +120,9 @@
       "pill": "50 €",
       "pillKind": "interior",
       "rows": [
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        },
-        {
-          "k": "Coach",
-          "v": "<em>Alfonso</em>"
-        },
-        {
-          "k": "Preu",
-          "v": "50 €"
-        }
+        {"k": "On", "v": "CrossFit La Mola."},
+        {"k": "Coach", "v": "<em>Alfonso</em>"},
+        {"k": "Preu", "v": "50 €"}
       ],
       "media": "assets/detail-chalk.jpg",
       "sbSub": "La Mola. · Alfonso · 50 €"
@@ -191,18 +142,9 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {
-          "k": "On",
-          "v": "Toledo, Castella-La Manxa"
-        },
-        {
-          "k": "Dates",
-          "v": "19, 20 i 21 de juny"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Parelles</em>"
-        }
+        {"k": "On", "v": "Toledo, Castella-La Manxa"},
+        {"k": "Dates", "v": "19, 20 i 21 de juny"},
+        {"k": "Categoria", "v": "<em>Parelles</em>"}
       ],
       "media": "assets/detail-rings.jpg",
       "sbSub": "Toledo · Parelles"
@@ -221,18 +163,9 @@
       "pill": "★ Save the date",
       "pillKind": "star",
       "rows": [
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        },
-        {
-          "k": "Horari",
-          "v": "09:00 – 16:00"
-        },
-        {
-          "k": "Format",
-          "v": "WOD + còctels + música"
-        }
+        {"k": "On", "v": "CrossFit La Mola."},
+        {"k": "Horari", "v": "09:00 – 16:00"},
+        {"k": "Format", "v": "WOD + còctels + música"}
       ],
       "media": "assets/community-5.jpg",
       "sbSub": "La Mola. · 09:00–16:00",
@@ -253,18 +186,9 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {
-          "k": "On",
-          "v": "Barcelona"
-        },
-        {
-          "k": "Dates",
-          "v": "11, 12 i 13 de setembre"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Individual</em> i <em>Equips</em>"
-        }
+        {"k": "On", "v": "Barcelona"},
+        {"k": "Dates", "v": "11, 12 i 13 de setembre"},
+        {"k": "Categoria", "v": "<em>Individual</em> i <em>Equips</em>"}
       ],
       "media": "assets/community-3.jpg",
       "sbSub": "Barcelona · Indiv + Equips"
@@ -284,14 +208,8 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {
-          "k": "Dates",
-          "v": "17 i 18 d'octubre"
-        },
-        {
-          "k": "Tipus",
-          "v": "Competició exterior"
-        }
+        {"k": "Dates", "v": "17 i 18 d'octubre"},
+        {"k": "Tipus", "v": "Competició exterior"}
       ],
       "media": "assets/detail-rope.jpg",
       "sbSub": "Competició exterior"
@@ -311,18 +229,9 @@
       "pill": "Competició ext.",
       "pillKind": "exterior",
       "rows": [
-        {
-          "k": "On",
-          "v": "Bilbao, País Basc"
-        },
-        {
-          "k": "Dates",
-          "v": "30-31 oct + 1 nov"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Individual</em>"
-        }
+        {"k": "On", "v": "Bilbao, País Basc"},
+        {"k": "Dates", "v": "30-31 oct + 1 nov"},
+        {"k": "Categoria", "v": "<em>Individual</em>"}
       ],
       "media": "assets/detail-board.jpg",
       "sbSub": "Bilbao · 30-31 Oct + 1 Nov"
