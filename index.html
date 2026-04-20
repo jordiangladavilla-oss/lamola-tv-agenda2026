@@ -177,8 +177,8 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .ev-cat{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:28px;display:flex;align-items:center;gap:14px}
 .v-A .ev-cat .num{color:var(--accent-ink)}
 .v-A .ev-cat .bar{width:32px;height:1px;background:var(--muted-ink);opacity:.4}
-.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:114px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:52px;text-wrap:balance}
-.v-A .ev-title.big{font-size:136px}
+.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:108px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:52px;text-wrap:balance;overflow-wrap:break-word}
+.v-A .ev-title.big{font-size:128px}
 .v-A .ev-rows{display:flex;flex-direction:column;gap:0}
 .v-A .ev-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--line-ink)}
 .v-A .ev-row:first-child{border-top:1px solid var(--line-ink)}
@@ -212,11 +212,11 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-B .ev-media .media-num.rng{font-size:220px}
 .v-B .ev-media .media-mes{position:absolute;bottom:56px;right:40px;font-family:var(--f-display);font-weight:700;font-size:54px;color:var(--accent-hi);z-index:3;text-transform:lowercase;letter-spacing:-.02em}
 
-.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:80px;display:flex;flex-direction:column;justify-content:center}
+.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:72px 64px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-width:0}
 .v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:16px}
 .v-B .ev-kicker .num{color:var(--accent-ink)}
 .v-B .ev-kicker .bar{width:48px;height:1px;background:var(--accent-ink);opacity:.7}
-.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:120px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance}
+.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:104px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance;overflow-wrap:break-word;word-break:break-word}
 .v-B .ev-title em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 .v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:48px;text-wrap:pretty}
 .v-B .ev-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:32px;border-top:1px solid var(--line-ink)}
@@ -572,11 +572,7 @@ function fitStage(){
   const vv = window.visualViewport;
   const w = (vv && vv.width) ? vv.width : window.innerWidth;
   const h = (vv && vv.height) ? vv.height : window.innerHeight;
-  // Safe area: 3% margin on each edge to avoid TV overscan cutting content
-  const SAFE = 0.94;
-  const safeW = w * SAFE;
-  const safeH = h * SAFE;
-  const scale = Math.min(safeW/1920, safeH/1080);
+  const scale = Math.min(w/1920, h/1080);
   // Center horizontally and vertically
   const offsetX = (w - 1920 * scale) / 2;
   const offsetY = (h - 1080 * scale) / 2;
