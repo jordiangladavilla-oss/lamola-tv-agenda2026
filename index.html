@@ -56,8 +56,8 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    STAGE — fixed 1920x1080, scaled to viewport
 ════════════════════════════════════════════════════════════════════ */
-#stage-wrap{position:fixed;inset:0;display:grid;place-items:center;background:#000}
-#stage{width:1920px;height:1080px;position:relative;overflow:hidden;transform-origin:center center;background:var(--ink)}
+#stage-wrap{position:fixed;inset:0;background:#000;overflow:hidden}
+#stage{width:1920px;height:1080px;position:absolute;top:0;left:0;overflow:hidden;transform-origin:0 0;background:var(--ink)}
 
 /* ══════════════════════════════════════════════════════════════════
    PROGRESS BAR
@@ -72,7 +72,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
   padding:0 56px;background:rgba(16,14,11,.55);backdrop-filter:blur(18px) saturate(130%);
   border-bottom:1px solid var(--line)}
 #header .brand{display:flex;align-items:center;gap:18px}
-#header .brand img{height:26px;filter:invert(1)}
+#header .brand img{height:30px;filter:invert(1)}
 #header .brand-txt{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--bone)}
 #header .center{display:flex;align-items:center;gap:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3)}
 #header .center .bar{width:32px;height:1px;background:var(--accent-hi);opacity:.8}
@@ -173,17 +173,17 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .ev-pill.star{background:var(--accent-ink);color:var(--bone);border:0}
 .v-A .ev-pill.star::before{color:var(--bone)}
 
-.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:72px 80px}
+.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:60px 72px;overflow:hidden;min-width:0}
 .v-A .ev-cat{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:28px;display:flex;align-items:center;gap:14px}
 .v-A .ev-cat .num{color:var(--accent-ink)}
 .v-A .ev-cat .bar{width:32px;height:1px;background:var(--muted-ink);opacity:.4}
-.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:114px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:52px;text-wrap:balance}
-.v-A .ev-title.big{font-size:136px}
+.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:100px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+.v-A .ev-title.big{font-size:120px}
 .v-A .ev-rows{display:flex;flex-direction:column;gap:0}
 .v-A .ev-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--line-ink)}
 .v-A .ev-row:first-child{border-top:1px solid var(--line-ink)}
 .v-A .ev-row-k{font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-ink);align-self:center}
-.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:34px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.015em}
+.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:30px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.01em}
 .v-A .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 .v-A .ev-desc{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.45;color:var(--muted-ink);max-width:40ch;text-wrap:pretty}
 
@@ -203,8 +203,8 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    VARIANT B — EDITORIAL / MAGAZINE
 ════════════════════════════════════════════════════════════════════ */
-.v-B{display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%}
-.v-B .ev-media{position:relative;overflow:hidden;background:var(--ink-2)}
+.v-B{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.v-B .ev-media{position:relative;overflow:hidden;background:var(--ink-2);min-width:0;width:100%}
 .v-B .ev-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05) brightness(.85)}
 .v-B .ev-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,11,.35) 0%,rgba(16,14,11,0) 30%,rgba(16,14,11,.6) 100%)}
 .v-B .ev-media .media-tag{position:absolute;top:40px;left:40px;font-family:var(--f-mono);font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone);padding:10px 16px;background:rgba(16,14,11,.55);backdrop-filter:blur(10px);border-radius:999px;z-index:3}
@@ -212,17 +212,17 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-B .ev-media .media-num.rng{font-size:220px}
 .v-B .ev-media .media-mes{position:absolute;bottom:56px;right:40px;font-family:var(--f-display);font-weight:700;font-size:54px;color:var(--accent-hi);z-index:3;text-transform:lowercase;letter-spacing:-.02em}
 
-.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:80px;display:flex;flex-direction:column;justify-content:center}
-.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:16px}
+.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:56px 52px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-width:0}
+.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:36px;display:flex;align-items:center;gap:16px}
 .v-B .ev-kicker .num{color:var(--accent-ink)}
 .v-B .ev-kicker .bar{width:48px;height:1px;background:var(--accent-ink);opacity:.7}
-.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:120px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance}
+.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:96px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:44px;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
 .v-B .ev-title em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
-.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:48px;text-wrap:pretty}
+.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.4;color:var(--muted-ink);max-width:100%;margin-bottom:40px;text-wrap:pretty}
 .v-B .ev-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:32px;border-top:1px solid var(--line-ink)}
 .v-B .ev-row{display:flex;flex-direction:column;gap:8px}
 .v-B .ev-row-k{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink)}
-.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:28px;color:var(--bone-ink);letter-spacing:-.015em;line-height:1.1}
+.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:26px;color:var(--bone-ink);letter-spacing:-.01em;line-height:1.2}
 .v-B .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 
 /* VARIANT B — SUMMER FEST */
@@ -310,8 +310,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
     <!-- ══ HEADER ══ -->
     <header id="header">
       <div class="brand">
-        <img src="assets/logo-short.png" alt="La Mola.">
-        <span class="brand-txt">CROSSFIT LA MOLA<span class="dot">.</span></span>
+        <img src="assets/logo-full.png" alt="CrossFit La Mola.">
       </div>
       <div class="center">
         <span>Agenda</span>
@@ -564,15 +563,32 @@ function updateSidebar(n){
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   STAGE SCALING
+   STAGE SCALING — TV-safe (overscan, slow fonts, misreported viewport)
 ════════════════════════════════════════════════════════════════════ */
 function fitStage(){
   const s = document.getElementById('stage');
-  const w = window.innerWidth, h = window.innerHeight;
+  if(!s) return;
+  // Use visualViewport when available (TVs with overscan report it correctly)
+  const vv = window.visualViewport;
+  const w = (vv && vv.width) ? vv.width : window.innerWidth;
+  const h = (vv && vv.height) ? vv.height : window.innerHeight;
   const scale = Math.min(w/1920, h/1080);
-  s.style.transform = 'scale('+scale+')';
+  // Center horizontally and vertically
+  const offsetX = (w - 1920 * scale) / 2;
+  const offsetY = (h - 1080 * scale) / 2;
+  s.style.transformOrigin = '0 0';
+  s.style.transform = 'translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';
 }
 window.addEventListener('resize', fitStage);
+window.addEventListener('load', fitStage);
+document.addEventListener('DOMContentLoaded', fitStage);
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', fitStage);
+}
+// Run ASAP — don't wait for DOMContentLoaded
+fitStage();
+// TV browsers sometimes report wrong viewport initially — re-fit a few times
+[50, 200, 500, 1500, 3000].forEach(ms => setTimeout(fitStage, ms));
 
 /* ══════════════════════════════════════════════════════════════════
    ROTATION
@@ -645,6 +661,7 @@ async function start(){
   await loadEvents();
   if(EVENTS.length === 0){
     document.getElementById('slides').innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#E8E2D2;font-family:serif;font-size:48px;padding:80px;text-align:center">No hi ha events programats.<br><span style="font-size:24px;opacity:.6;margin-top:20px;display:block">Afegeix-ne des de admin.html</span></div>';
+    fitStage();
     return;
   }
   buildSlides(TWEAKS.variant);
