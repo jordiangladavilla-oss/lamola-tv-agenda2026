@@ -56,8 +56,8 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    STAGE — fixed 1920x1080, scaled to viewport
 ════════════════════════════════════════════════════════════════════ */
-#stage-wrap{position:fixed;inset:0;display:grid;place-items:center;background:#000}
-#stage{width:1920px;height:1080px;position:relative;overflow:hidden;transform-origin:center center;background:var(--ink)}
+#stage-wrap{position:fixed;inset:0;background:#000;overflow:hidden}
+#stage{width:1920px;height:1080px;position:absolute;top:0;left:0;overflow:hidden;transform-origin:0 0;background:var(--ink)}
 
 /* ══════════════════════════════════════════════════════════════════
    PROGRESS BAR
@@ -72,7 +72,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
   padding:0 56px;background:rgba(16,14,11,.55);backdrop-filter:blur(18px) saturate(130%);
   border-bottom:1px solid var(--line)}
 #header .brand{display:flex;align-items:center;gap:18px}
-#header .brand img{height:26px;filter:invert(1)}
+#header .brand img{height:30px;filter:invert(1)}
 #header .brand-txt{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;font-size:20px;color:var(--bone)}
 #header .center{display:flex;align-items:center;gap:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-3)}
 #header .center .bar{width:32px;height:1px;background:var(--accent-hi);opacity:.8}
@@ -90,7 +90,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 #slides{position:absolute;inset:0}
 .slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .9s cubic-bezier(.2,.8,.2,1)}
 .slide.active{opacity:1;pointer-events:auto}
-.slide .stage-inner{position:absolute;inset:96px 0 72px 360px;overflow:hidden;max-height:calc(100% - 168px)}
+.slide .stage-inner{position:absolute;inset:96px 0 72px 360px;overflow:hidden}
 .slide .stage-inner.v-A{display:flex}
 .slide .stage-inner.v-C{display:flex}
 .slide.on-bone{background:var(--bone)}
@@ -157,14 +157,14 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    VARIANT A — REFINAT (similar actual, més polit)
 ════════════════════════════════════════════════════════════════════ */
-.v-A .ev-left{width:38%;background:var(--bone-2);color:var(--bone-ink);
-  display:flex;flex-direction:column;justify-content:center;padding:48px 56px;flex-shrink:0;position:relative;overflow:hidden}
+.v-A .ev-left{width:42%;background:var(--bone-2);color:var(--bone-ink);
+  display:flex;flex-direction:column;justify-content:center;padding:72px 80px;flex-shrink:0;position:relative;overflow:hidden}
 .v-A .ev-left::after{content:"";position:absolute;top:0;right:0;width:1px;height:100%;background:var(--line-ink)}
 .v-A .ev-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink);display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .v-A .ev-kicker .bar{width:44px;height:1px;background:var(--accent-ink)}
-.v-A .ev-num{font-family:var(--f-display);font-weight:800;font-size:180px;line-height:.82;letter-spacing:-.04em;color:var(--bone-ink)}
-.v-A .ev-num.rng{font-size:130px;letter-spacing:-.03em}
-.v-A .ev-mes{font-family:var(--f-display);font-weight:700;font-size:52px;line-height:1;color:var(--accent-ink);margin-top:14px;letter-spacing:-.02em;text-transform:lowercase}
+.v-A .ev-num{font-family:var(--f-display);font-weight:800;font-size:260px;line-height:.82;letter-spacing:-.04em;color:var(--bone-ink)}
+.v-A .ev-num.rng{font-size:180px;letter-spacing:-.03em}
+.v-A .ev-mes{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;color:var(--accent-ink);margin-top:18px;letter-spacing:-.02em;text-transform:lowercase}
 .v-A .ev-pill{display:inline-flex;align-items:center;gap:10px;margin-top:48px;padding:12px 22px;font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;border-radius:999px;width:max-content}
 .v-A .ev-pill.interior{background:rgba(122,112,72,.14);color:var(--accent-ink);border:1px solid rgba(122,112,72,.3)}
 .v-A .ev-pill.exterior{background:rgba(43,37,27,.08);color:var(--bone-ink);border:1px solid var(--line-ink-s)}
@@ -173,19 +173,19 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .ev-pill.star{background:var(--accent-ink);color:var(--bone);border:0}
 .v-A .ev-pill.star::before{color:var(--bone)}
 
-.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:48px 56px;overflow:hidden}
+.v-A .ev-right{flex:1;background:var(--bone);color:var(--bone-ink);display:flex;flex-direction:column;justify-content:center;padding:60px 72px;overflow:hidden;min-width:0}
 .v-A .ev-cat{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:28px;display:flex;align-items:center;gap:14px}
 .v-A .ev-cat .num{color:var(--accent-ink)}
 .v-A .ev-cat .bar{width:32px;height:1px;background:var(--muted-ink);opacity:.4}
-.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:32px;text-wrap:balance}
-.v-A .ev-title.big{font-size:88px}
+.v-A .ev-title{font-family:var(--f-display);font-weight:700;font-size:100px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:48px;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+.v-A .ev-title.big{font-size:120px}
 .v-A .ev-rows{display:flex;flex-direction:column;gap:0}
-.v-A .ev-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line-ink)}
+.v-A .ev-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--line-ink)}
 .v-A .ev-row:first-child{border-top:1px solid var(--line-ink)}
 .v-A .ev-row-k{font-family:var(--f-mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-ink);align-self:center}
-.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:26px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.015em}
+.v-A .ev-row-v{font-family:var(--f-display);font-weight:500;font-size:30px;color:var(--bone-ink);line-height:1.15;letter-spacing:-.01em}
 .v-A .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
-.v-A .ev-desc{margin-top:24px;padding-top:18px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:22px;line-height:1.4;color:var(--muted-ink);max-width:44ch;text-wrap:pretty}
+.v-A .ev-desc{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.45;color:var(--muted-ink);max-width:40ch;text-wrap:pretty}
 
 /* VARIANT A — SUMMER FEST (hero slide) */
 .v-A .save{background:var(--ink);color:var(--bone);width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 80px;overflow:hidden}
@@ -194,7 +194,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .save-kicker{font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:18px;margin-bottom:40px}
 .v-A .save-kicker .bar{width:60px;height:1px;background:var(--accent-hi)}
 .v-A .save-date{font-family:var(--f-mono);font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:32px}
-.v-A .save-title{font-family:var(--f-display);font-weight:800;font-size:160px;line-height:.86;letter-spacing:-.04em;color:var(--bone);margin-bottom:36px}
+.v-A .save-title{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.86;letter-spacing:-.04em;color:var(--bone);margin-bottom:48px}
 .v-A .save-title em{color:var(--accent-hi)}
 .v-A .save-sub{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1.45;color:var(--bone-2);max-width:900px;margin-bottom:48px;text-wrap:pretty}
 .v-A .save-tag{display:inline-flex;align-items:center;gap:16px;padding:18px 36px;border:2px solid var(--accent-hi);color:var(--accent-hi);font-family:var(--f-mono);font-size:18px;letter-spacing:.35em;text-transform:uppercase;border-radius:999px}
@@ -208,21 +208,21 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-B .ev-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05) brightness(.85)}
 .v-B .ev-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,11,.35) 0%,rgba(16,14,11,0) 30%,rgba(16,14,11,.6) 100%)}
 .v-B .ev-media .media-tag{position:absolute;top:40px;left:40px;font-family:var(--f-mono);font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone);padding:10px 16px;background:rgba(16,14,11,.55);backdrop-filter:blur(10px);border-radius:999px;z-index:3}
-.v-B .ev-media .media-num{position:absolute;bottom:40px;left:40px;font-family:var(--f-display);font-weight:800;font-size:200px;line-height:.8;letter-spacing:-.05em;color:var(--bone);opacity:.96;z-index:3;text-shadow:0 8px 40px rgba(0,0,0,.5)}
-.v-B .ev-media .media-num.rng{font-size:150px}
+.v-B .ev-media .media-num{position:absolute;bottom:40px;left:40px;font-family:var(--f-display);font-weight:800;font-size:320px;line-height:.8;letter-spacing:-.05em;color:var(--bone);opacity:.96;z-index:3;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.v-B .ev-media .media-num.rng{font-size:220px}
 .v-B .ev-media .media-mes{position:absolute;bottom:56px;right:40px;font-family:var(--f-display);font-weight:700;font-size:54px;color:var(--accent-hi);z-index:3;text-transform:lowercase;letter-spacing:-.02em}
 
-.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:48px 56px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:16px}
+.v-B .ev-body{background:var(--bone);color:var(--bone-ink);padding:56px 52px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-width:0}
+.v-B .ev-kicker{font-family:var(--f-mono);font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:36px;display:flex;align-items:center;gap:16px}
 .v-B .ev-kicker .num{color:var(--accent-ink)}
 .v-B .ev-kicker .bar{width:48px;height:1px;background:var(--accent-ink);opacity:.7}
-.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:.92;letter-spacing:-.035em;color:var(--bone-ink);margin-bottom:32px;text-wrap:balance}
+.v-B .ev-title{font-family:var(--f-display);font-weight:700;font-size:96px;line-height:.95;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:44px;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
 .v-B .ev-title em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
-.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:32px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:48px;text-wrap:pretty}
+.v-B .ev-lede{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.4;color:var(--muted-ink);max-width:100%;margin-bottom:40px;text-wrap:pretty}
 .v-B .ev-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:32px;border-top:1px solid var(--line-ink)}
 .v-B .ev-row{display:flex;flex-direction:column;gap:8px}
 .v-B .ev-row-k{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-ink)}
-.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:28px;color:var(--bone-ink);letter-spacing:-.015em;line-height:1.1}
+.v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:26px;color:var(--bone-ink);letter-spacing:-.01em;line-height:1.2}
 .v-B .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 
 /* VARIANT B — SUMMER FEST */
@@ -233,7 +233,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-B .save>*{position:relative;z-index:2}
 .v-B .save-kicker{font-family:var(--f-mono);font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:40px;display:flex;align-items:center;gap:18px}
 .v-B .save-kicker .bar{width:64px;height:1px;background:var(--accent-hi)}
-.v-B .save-title{font-family:var(--f-display);font-weight:800;font-size:180px;line-height:.82;letter-spacing:-.045em;color:var(--bone);margin-bottom:36px;max-width:18ch}
+.v-B .save-title{font-family:var(--f-display);font-weight:800;font-size:280px;line-height:.82;letter-spacing:-.045em;color:var(--bone);margin-bottom:48px;max-width:16ch}
 .v-B .save-title em{color:var(--accent-hi);font-family:var(--f-serif);font-style:italic;font-weight:400}
 .v-B .save-row{display:flex;gap:80px;align-items:baseline;margin-top:32px}
 .v-B .save-date{font-family:var(--f-display);font-weight:700;font-size:56px;letter-spacing:-.02em;color:var(--bone)}
@@ -243,18 +243,18 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 /* ══════════════════════════════════════════════════════════════════
    VARIANT C — MINIMALISTA (Apple TV)
 ════════════════════════════════════════════════════════════════════ */
-.v-C{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 80px;background:var(--bone);color:var(--bone-ink);position:relative;overflow:hidden}
+.v-C{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 120px;background:var(--bone);color:var(--bone-ink);position:relative;overflow:hidden}
 .v-C.dark{background:var(--ink);color:var(--bone)}
 .v-C .c-kicker{font-family:var(--f-mono);font-size:16px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:40px;display:flex;align-items:center;gap:20px}
 .v-C.dark .c-kicker{color:var(--muted)}
 .v-C .c-kicker .bar{width:60px;height:1px;background:var(--accent-ink)}
 .v-C.dark .c-kicker .bar{background:var(--accent-hi)}
-.v-C .c-date{font-family:var(--f-display);font-weight:800;font-size:160px;line-height:.82;letter-spacing:-.05em;color:var(--bone-ink);margin-bottom:4px}
+.v-C .c-date{font-family:var(--f-display);font-weight:800;font-size:240px;line-height:.82;letter-spacing:-.05em;color:var(--bone-ink);margin-bottom:4px}
 .v-C.dark .c-date{color:var(--bone)}
-.v-C .c-date.rng{font-size:120px}
-.v-C .c-month{font-family:var(--f-serif);font-style:italic;font-size:52px;color:var(--accent-ink);margin-bottom:28px;letter-spacing:-.01em;text-transform:lowercase}
+.v-C .c-date.rng{font-size:180px}
+.v-C .c-month{font-family:var(--f-serif);font-style:italic;font-size:72px;color:var(--accent-ink);margin-bottom:40px;letter-spacing:-.01em;text-transform:lowercase}
 .v-C.dark .c-month{color:var(--accent-hi)}
-.v-C .c-title{font-family:var(--f-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:24px;max-width:28ch;text-wrap:balance}
+.v-C .c-title{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;letter-spacing:-.03em;color:var(--bone-ink);margin-bottom:32px;max-width:24ch;text-wrap:balance}
 .v-C.dark .c-title{color:var(--bone)}
 .v-C .c-sub{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.4;color:var(--muted-ink);max-width:42ch;margin-bottom:36px;text-wrap:pretty}
 .v-C.dark .c-sub{color:var(--bone-2)}
@@ -266,7 +266,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 
 /* VARIANT C — SUMMER FEST */
 .v-C.save{background:var(--ink);color:var(--bone)}
-.v-C.save .c-title{font-size:100px;color:var(--bone);max-width:22ch;letter-spacing:-.045em;line-height:.88;margin-bottom:32px}
+.v-C.save .c-title{font-size:160px;color:var(--bone);max-width:18ch;letter-spacing:-.045em;line-height:.88;margin-bottom:40px}
 .v-C.save .c-title em{font-family:var(--f-serif);font-weight:400;color:var(--accent-hi)}
 
 /* ══════════════════════════════════════════════════════════════════
@@ -310,7 +310,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
     <!-- ══ HEADER ══ -->
     <header id="header">
       <div class="brand">
-        <span class="brand-txt">CROSSFIT LA MOLA<span class="dot">.</span></span>
+        <img src="assets/logo-full.png" alt="CrossFit La Mola.">
       </div>
       <div class="center">
         <span>Agenda</span>
@@ -563,15 +563,32 @@ function updateSidebar(n){
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   STAGE SCALING
+   STAGE SCALING — TV-safe (overscan, slow fonts, misreported viewport)
 ════════════════════════════════════════════════════════════════════ */
 function fitStage(){
   const s = document.getElementById('stage');
-  const w = window.innerWidth, h = window.innerHeight;
+  if(!s) return;
+  // Use visualViewport when available (TVs with overscan report it correctly)
+  const vv = window.visualViewport;
+  const w = (vv && vv.width) ? vv.width : window.innerWidth;
+  const h = (vv && vv.height) ? vv.height : window.innerHeight;
   const scale = Math.min(w/1920, h/1080);
-  s.style.transform = 'scale('+scale+')';
+  // Center horizontally and vertically
+  const offsetX = (w - 1920 * scale) / 2;
+  const offsetY = (h - 1080 * scale) / 2;
+  s.style.transformOrigin = '0 0';
+  s.style.transform = 'translate('+offsetX+'px,'+offsetY+'px) scale('+scale+')';
 }
 window.addEventListener('resize', fitStage);
+window.addEventListener('load', fitStage);
+document.addEventListener('DOMContentLoaded', fitStage);
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', fitStage);
+}
+// Run ASAP — don't wait for DOMContentLoaded
+fitStage();
+// TV browsers sometimes report wrong viewport initially — re-fit a few times
+[50, 200, 500, 1500, 3000].forEach(ms => setTimeout(fitStage, ms));
 
 /* ══════════════════════════════════════════════════════════════════
    ROTATION
@@ -644,6 +661,7 @@ async function start(){
   await loadEvents();
   if(EVENTS.length === 0){
     document.getElementById('slides').innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#E8E2D2;font-family:serif;font-size:48px;padding:80px;text-align:center">No hi ha events programats.<br><span style="font-size:24px;opacity:.6;margin-top:20px;display:block">Afegeix-ne des de admin.html</span></div>';
+    fitStage();
     return;
   }
   buildSlides(TWEAKS.variant);
