@@ -21,6 +21,40 @@
   },
   "events": [
     {
+      "id": "Run by the beach @Badalona",
+      "startDate": "2026-05-24",
+      "endDate": "2026-05-24",
+      "kicker": "Beach RUN · Comunitat",
+      "mes": "Maig",
+      "month": "04",
+      "num": "24",
+      "title": "<br>Run by the beach.<br><em class=\"serif\">@Badalona</em>",
+      "titleShort": "Run by the beach @Badalona",
+      "lede": "Sortida de running per el passeig maritim de @Badalona seguida d'un esmorzar en format brunch. Esport, mar i comunitat. La millor combinació.\n",
+      "pill": "Etiqueta",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Passeig maritim Badalona"
+        },
+        {
+          "k": "Horari",
+          "v": "09:00 - 14:00"
+        },
+        {
+          "k": "Nivell",
+          "v": "Tots els nivells benvinguts"
+        },
+        {
+          "k": "Recorregut",
+          "v": "10 km aprox."
+        }
+      ],
+      "media": "assets/hero-climb.jpg",
+      "sbSub": "Run grupal + Brunch"
+    },
+    {
       "id": "pedraforca",
       "startDate": "2026-05-09",
       "endDate": "2026-05-10",
