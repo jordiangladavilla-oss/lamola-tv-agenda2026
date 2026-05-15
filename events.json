@@ -215,7 +215,7 @@
       "month": "07",
       "title": "La Mola.<br><em class=\"serif\">Summer Fest</em>",
       "titleShort": "La Mola. Summer Fest",
-      "lede": "La festa de l'estiu ha tornat. WOD, còctels, música i welcome pack per a tothom.",
+      "lede": "La festa de l'estiu ha tornat. WOD, pizza, música gresca i xerinola.",
       "pill": "★ Save the date",
       "pillKind": "star",
       "rows": [
@@ -225,15 +225,15 @@
         },
         {
           "k": "Horari",
-          "v": "09:00 – 16:00"
+          "v": "17:00 – 22:00"
         },
         {
           "k": "Format",
-          "v": "WOD + còctels + música"
+          "v": "WOD + pizza + música"
         }
       ],
       "media": "assets/community-5.jpg",
-      "sbSub": "La Mola. · 09:00–16:00",
+      "sbSub": "La Mola. · 17:00–22:00",
       "isHero": true
     },
     {
