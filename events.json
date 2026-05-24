@@ -21,38 +21,6 @@
   },
   "events": [
     {
-      "id": "pedraforca",
-      "startDate": "2026-05-09",
-      "endDate": "2026-05-10",
-      "kicker": "Mountain Club · Expedició",
-      "num": "9–10",
-      "numRng": true,
-      "mes": "Maig",
-      "month": "05",
-      "title": "La Mola.<br>Mountain Club.<br><em class=\"serif\">Pedraforca</em>",
-      "titleShort": "La Mola. Mountain Club. Pedraforca",
-      "lede": "L'expedició de l'any. Dos dies a la muntanya, campament al peu del Pedraforca i l'ascensió fins al cim.",
-      "pill": "Places limitades",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Camping Wecamp<br>+ Pedraforca"
-        },
-        {
-          "k": "Durada",
-          "v": "Cap de setmana complet"
-        },
-        {
-          "k": "Cim",
-          "v": "<em>2.506 m</em> d'altitud"
-        }
-      ],
-      "media": "assets/camping-repos-del-pedraforca.jpg",
-      "sbSub": "Camping Wecamp · Cim 2.506 m",
-      "isHero": false
-    },
-    {
       "id": "run-beach",
       "startDate": "2026-05-09",
       "endDate": "2026-05-24",
