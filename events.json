@@ -21,37 +21,6 @@
   },
   "events": [
     {
-      "id": "run-beach",
-      "startDate": "2026-05-09",
-      "endDate": "2026-05-24",
-      "kicker": "Run Club · Badalona",
-      "num": "24",
-      "mes": "Maig",
-      "month": "05",
-      "title": "Run by the beach<br><em class=\"serif\">@ Badalona</em>",
-      "titleShort": "Run by the beach @ Badalona",
-      "lede": "Run Club a primera línia de mar. Sortida matinal pel passeig marítim i brunch comunitari per acabar.",
-      "pill": "Run + Brunch",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Passeig marítim<br>de Badalona"
-        },
-        {
-          "k": "Horari",
-          "v": "09:00 – 14:00"
-        },
-        {
-          "k": "Ruta",
-          "v": "Per a tots els nivells · Run + Brunch"
-        }
-      ],
-      "media": "assets/run by the beach.jpeg",
-      "sbSub": "Badalona · ~12 km · Run + Brunch",
-      "isHero": false
-    },
-    {
       "id": "beach-wod",
       "startDate": "2026-05-31",
       "endDate": "2026-05-31",
