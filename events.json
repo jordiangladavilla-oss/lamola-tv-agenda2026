@@ -21,6 +21,29 @@
   },
   "events": [
     {
+      "id": "Leapmotor HYROX Barcelona",
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-15",
+      "kicker": "Competició · Internacional",
+      "mes": "Novembre",
+      "month": "05",
+      "num": "12-15",
+      "title": "<em class=\"serif\">HYROX</em><br>Barcelona<span class=\"dot\">.</span>",
+      "titleShort": "HYROX Barcelona",
+      "lede": "Llega Leapmotor HYROX Barcelona del 12 al 15 de noviembre con cuatro días de pura adrenalina, competición intensa y un ambiente inmejorable.",
+      "pill": "Etiqueta",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Fira Gran Vía Barcelona"
+        }
+      ],
+      "media": "assets/hyrox-bcn.jpg",
+      "sbSub": "Barcelona · Indiv + Equips",
+      "numRng": true
+    },
+    {
       "id": "beach-wod",
       "startDate": "2026-05-31",
       "endDate": "2026-05-31",
