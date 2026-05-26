@@ -21,27 +21,6 @@
   },
   "events": [
     {
-      "id": "leapmotor-hyrox-barcelona",
-      "startDate": "2026-11-12",
-      "endDate": "2026-11-15",
-      "kicker": "Competició · Internacional",
-      "mes": "Novembre",
-      "month": "11",
-      "num": "12-15",
-      "title": "Leapmotor <em class=\"serif\">HYROX</em><br>Barcelona<span class=\"dot\">.</span>",
-      "titleShort": "HYROX Barcelona",
-      "lede": "Quatre dies de competició intensa a Barcelona del 12 al 15 de novembre. Adrenalina, comunitat i ambient inmillorable.",
-      "pill": "Internacional",
-      "pillKind": "exterior",
-      "rows": [
-        { "k": "On", "v": "Fira Gran Vía Barcelona" },
-        { "k": "Format", "v": "Individual + Equips" }
-      ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "Barcelona · Indiv + Equips",
-      "numRng": true
-    },
-    {
       "id": "beach-wod",
       "startDate": "2026-05-31",
       "endDate": "2026-05-31",
@@ -224,6 +203,38 @@
       ],
       "media": "assets/WODCELONA.JPG",
       "sbSub": "Barcelona · Indiv + Equips"
+    },
+    {
+      "id": "Hyrox",
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-15",
+      "kicker": "Competició · Internacional",
+      "num": "12–15",
+      "numRng": true,
+      "mes": "Novembre",
+      "month": "09",
+      "title": "<em class=\"serif\">Hyrox</em><br>Barcelona<span class=\"dot\">.</span>",
+      "titleShort": "Hyrox · Barcelona",
+      "lede": "Leapmotor HYROX Barcelona llega del 12 al 15 de noviembre con cuatro días de pura adrenalina, competición intensa y un ambiente inigualable.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Fira Gran Vía Barcelona"
+        },
+        {
+          "k": "Dates",
+          "v": "12, 13, 14 i 15 de novembre"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Individual</em> i <em>Equips</em>"
+        }
+      ],
+      "media": "assets/hyrox-bcn.JPG",
+      "sbSub": "Barcelona · Indiv + Equips",
+      "isHero": false
     },
     {
       "id": "ballena",
