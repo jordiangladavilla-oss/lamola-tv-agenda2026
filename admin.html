@@ -310,27 +310,62 @@ function uniqueId(base){
    LOAD / SAVE
 ═══════════════════════════════════════════════ */
 async function loadData(){
-  // Draft wins over file (user was mid-edit)
-  const draft = localStorage.getItem(STORAGE_KEY);
-  if(draft){
-    try {
-      DATA = JSON.parse(draft);
-      EVENTS = DATA.events || [];
-      status('Esborrany local carregat. Publica per fer-ho permanent.', 'info');
-      render();
-      return;
-    } catch {}
-  }
+  // Always fetch the remote file first so we can compare it with any local
+  // draft and let the user choose explicitly. Silently preferring the draft
+  // hid published commits from the editor in the past.
+  let remote = null;
   try {
-    const res = await fetch('events.json?t=' + Date.now());
-    DATA = await res.json();
-    EVENTS = DATA.events || [];
+    const res = await fetch('events.json?t=' + Date.now(), { cache: 'no-store' });
+    remote = await res.json();
   } catch(err){
-    // Minimal fallback
+    // Network failure: fall back to draft if any, else empty.
+    const draft = localStorage.getItem(STORAGE_KEY);
+    if(draft){
+      try {
+        DATA = JSON.parse(draft);
+        EVENTS = DATA.events || [];
+        status('Sense xarxa: carregant l\'esborrany local.', 'info');
+        render();
+        return;
+      } catch {}
+    }
     DATA = { events: [] };
     EVENTS = [];
     status('No s\'ha pogut carregar events.json. Comença afegint un event.', 'err');
+    render();
+    return;
   }
+
+  const draft = localStorage.getItem(STORAGE_KEY);
+  if(draft){
+    const remoteSig = JSON.stringify(remote);
+    let parsed = null;
+    try { parsed = JSON.parse(draft); } catch {}
+    if(parsed && JSON.stringify(parsed) !== remoteSig){
+      // Conflict — ask the user explicitly. No silent override.
+      const choice = confirm(
+        'Tens canvis locals sense publicar que NO coincideixen amb la versió de GitHub.\n\n' +
+        'OK = continuar editant els teus canvis locals.\n' +
+        'Cancel·lar = descartar el local i carregar la versió publicada (RECOMANAT si has editat per GitHub web).'
+      );
+      if(choice){
+        DATA = parsed;
+        EVENTS = DATA.events || [];
+        status('Continuant amb el teu esborrany local. Publica quan estigui llest.', 'info');
+        render();
+        return;
+      }
+      // User chose to drop the draft
+      localStorage.removeItem(STORAGE_KEY);
+      status('Esborrany local descartat. Carregant la versió publicada.', 'ok');
+    } else if(parsed){
+      // Draft is identical to remote — safe to remove it silently
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
+
+  DATA = remote;
+  EVENTS = DATA.events || [];
   render();
 }
 
