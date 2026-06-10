@@ -21,97 +21,6 @@
   },
   "events": [
     {
-      "id": "beach-wod",
-      "startDate": "2026-05-31",
-      "endDate": "2026-05-31",
-      "kicker": "Beach WOD · Comunitat",
-      "num": "31",
-      "mes": "Maig",
-      "month": "05",
-      "title": "Beach WOD.<br>La Mola. <em class=\"serif\">&</em> Ikaika ",
-      "titleShort": "Beach WOD · La Mola & Ikaika ",
-      "lede": "Jornada completa a la platja en col·laboració amb Ikaika Training Masnou. Sol, sorra, mar i comunitat.",
-      "pill": "Beach WOD",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Platja"
-        },
-        {
-          "k": "Horari",
-          "v": "09:00 – 16:00"
-        },
-        {
-          "k": "Partner",
-          "v": "<em>Ikaika Training Masnou</em>"
-        }
-      ],
-      "media": "assets/BeachWod_5.jpg",
-      "sbSub": "Platja · 09:00–16:00"
-    },
-    {
-      "id": "fcl",
-      "startDate": "2026-06-05",
-      "endDate": "2026-06-07",
-      "kicker": "Competició · FCL Games",
-      "num": "5–7",
-      "numRng": true,
-      "mes": "Juny",
-      "month": "06",
-      "title": "<em class=\"serif\">FCL</em> Games<span class=\"dot\">.</span>",
-      "titleShort": "FCL Games · CrossFit Lynx",
-      "lede": "Tres dies de competició al més alt nivell regional. ",
-      "pill": "Competició ext.",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "CrossFit Lynx"
-        },
-        {
-          "k": "Dates",
-          "v": "5, 6 i 7 de juny"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Individual</em>"
-        }
-      ],
-      "media": "assets/class-wod.jpg",
-      "sbSub": "CrossFit Lynx · Individual"
-    },
-    {
-      "id": "halter",
-      "startDate": "2026-06-14",
-      "endDate": "2026-06-14",
-      "kicker": "Seminari · Halterofília",
-      "num": "14",
-      "mes": "Juny",
-      "month": "06",
-      "title": "Seminari<br><em class=\"serif\">Halterofília</em><br>amb Alfonso",
-      "titleShort": "Seminari d'Halterofília · Alfonso",
-      "lede": "Seminari intensiu amb Alfonso. Millora la tècnica d'arrancada i dos temps amb un dels millors coaches.",
-      "pill": "50 €",
-      "pillKind": "interior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        },
-        {
-          "k": "Coach",
-          "v": "<em>Alfonso</em>"
-        },
-        {
-          "k": "Preu",
-          "v": "50 €"
-        }
-      ],
-      "media": "assets/detail-chalk.jpg",
-      "sbSub": "La Mola. · Alfonso · 50 €"
-    },
-    {
       "id": "consuegra",
       "startDate": "2026-06-19",
       "endDate": "2026-06-21",
@@ -174,6 +83,37 @@
       "isHero": true
     },
     {
+      "id": "summer-copia",
+      "startDate": "2026-07-19",
+      "endDate": "2026-07-19",
+      "kicker": "Pool Party · CrossFit La Mola.",
+      "num": "19",
+      "mes": "Juliol",
+      "month": "07",
+      "title": "La Mola.<br><em class=\"serif\">Pool Party</em>",
+      "titleShort": "La Mola. Pool Party",
+      "lede": "WOD + PISCINA, BBQ, MÚSICA, BILLAR I FUTBOLIN",
+      "pill": "★ Save the date",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        },
+        {
+          "k": "Horari",
+          "v": "10:00 – 20:00"
+        },
+        {
+          "k": "Format",
+          "v": "WOD + piscina + música"
+        }
+      ],
+      "media": "assets/pool-party.jpg",
+      "sbSub": "La Mola. · 10:00–20:00",
+      "isHero": false
+    },
+    {
       "id": "wodcelona",
       "startDate": "2026-09-11",
       "endDate": "2026-09-13",
@@ -203,38 +143,6 @@
       ],
       "media": "assets/WODCELONA.JPG",
       "sbSub": "Barcelona · Indiv + Equips"
-    },
-    {
-      "id": "Hyrox",
-      "startDate": "2026-11-11",
-      "endDate": "2026-11-15",
-      "kicker": "Competició · Internacional",
-      "num": "12–15",
-      "numRng": true,
-      "mes": "Novembre",
-      "month": "09",
-      "title": "<br>Hyrox<span class=\"dot\"><em class=\"serif\">Barcelona</em>.</span>",
-      "titleShort": "Hyrox · Barcelona",
-      "lede": "Leapmotor HYROX Barcelona llega del 12 al 15 de noviembre con cuatro días de pura adrenalina, competición intensa y un ambiente inigualable.",
-      "pill": "Competició ext.",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Fira Gran Vía Barcelona"
-        },
-        {
-          "k": "Dates",
-          "v": "12, 13, 14 i 15 de novembre"
-        },
-        {
-          "k": "Categoria",
-          "v": "<em>Individual</em> i <em>Equips</em>"
-        }
-      ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "Barcelona · Indiv + Equips",
-      "isHero": false
     },
     {
       "id": "ballena",
@@ -297,6 +205,38 @@
       ],
       "media": "assets/BASQUE-TXAPELKETA.jpg",
       "sbSub": "Bilbao · 30-31 Oct + 1 Nov"
+    },
+    {
+      "id": "Hyrox",
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-15",
+      "kicker": "Competició · Internacional",
+      "num": "12–15",
+      "numRng": true,
+      "mes": "Novembre",
+      "month": "09",
+      "title": "<br>Hyrox<span class=\"dot\"><em class=\"serif\">Barcelona</em>.</span>",
+      "titleShort": "Hyrox · Barcelona",
+      "lede": "Leapmotor HYROX Barcelona llega del 12 al 15 de noviembre con cuatro días de pura adrenalina, competición intensa y un ambiente inigualable.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Fira Gran Vía Barcelona"
+        },
+        {
+          "k": "Dates",
+          "v": "12, 13, 14 i 15 de novembre"
+        },
+        {
+          "k": "Categoria",
+          "v": "<em>Individual</em> i <em>Equips</em>"
+        }
+      ],
+      "media": "assets/hyrox-bcn.jpg",
+      "sbSub": "Barcelona · Indiv + Equips",
+      "isHero": false
     }
   ]
 }
