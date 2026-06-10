@@ -71,7 +71,7 @@
         },
         {
           "k": "Horari",
-          "v": "17:00 – 22:00"
+          "v": "9:00 – 14:00"
         },
         {
           "k": "Format",
@@ -79,8 +79,35 @@
         }
       ],
       "media": "assets/community-5.jpg",
-      "sbSub": "La Mola. · 17:00–22:00",
+      "sbSub": "La Mola. · 9:00–14:00",
       "isHero": true
+    },
+    {
+      "id": "summer-copia",
+      "startDate": "2026-07-19",
+      "endDate": "2026-07-19",
+      "kicker": "Pool Party · CrossFit La Mola.",
+      "num": "19",
+      "mes": "Juliol",
+      "month": "07",
+      "title": "La Mola.<br><em class=\"serif\">Pool Party</em>",
+      "titleShort": "La Mola. Pool Party",
+      "lede": "WOD + PISCINA , BBQ, MUSICA, BILLAR I FUTBOLIN",
+      "pill": "★ Save the date",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Horari",
+          "v": "10:00 – 20:00"
+        },
+        {
+          "k": "Format",
+          "v": "WOD + Piscina + música"
+        }
+      ],
+      "media": "assets/pool-party.jpg",
+      "sbSub": "La Mola. · 10:00–20:00",
+      "isHero": false
     },
     {
       "id": "wodcelona",
