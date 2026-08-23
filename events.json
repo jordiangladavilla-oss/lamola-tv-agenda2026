@@ -165,22 +165,22 @@
       "sbSub": "La Mola. · Teams WOD · Gratuït"
     },
     {
-      "id": "sim-hyrox-1",
+      "id": "sim-Fit Race-1",
       "startDate": "2026-10-06",
       "endDate": "2026-10-06",
       "kicker": "Simulacre · Preparació",
       "num": "6",
       "mes": "Octubre",
       "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>1r",
-      "titleShort": "Simulacre Hyrox · 1r",
-      "lede": "Primer simulacre de cara a l'Hyrox Barcelona. Posa't a prova amb el format cursa + estacions.",
+      "title": "Simulacre<br><em class=\"serif\">Fit Race FCL</em><br>1r",
+      "titleShort": "Simulacre Fit Race FCL · 1r",
+      "lede": "Segon simulacre Fit Race abans de la cita FCL costa brava. Afina el ritme de cursa i les transicions.",
       "pill": "Gratuït",
       "pillKind": "free",
       "rows": [
         {
           "k": "Prepara",
-          "v": "<em>Hyrox Barcelona</em>"
+          "v": "<em>Fit Race FCL 2026</em>"
         },
         {
           "k": "Format",
@@ -191,8 +191,8 @@
           "v": "CrossFit La Mola."
         }
       ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "La Mola. · Hyrox · Gratuït"
+      "media": "assets/fitrace.png",
+      "sbSub": "La Mola. · Fit Race· Gratuït"
     },
     {
       "id": "sim-costabrava-2",
@@ -225,22 +225,22 @@
       "sbSub": "La Mola. · Teams WOD · Gratuït"
     },
     {
-      "id": "sim-hyrox-2",
-      "startDate": "2026-10-13",
-      "endDate": "2026-10-13",
+      "id": "sim-fitrace-2",
+      "startDate": "2026-10-17",
+      "endDate": "2026-11-07",
       "kicker": "Simulacre · Preparació",
       "num": "13",
       "mes": "Octubre",
       "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>2n",
-      "titleShort": "Simulacre Hyrox · 2n",
-      "lede": "Segon simulacre Hyrox abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.",
+      "title": "Simulacre<br><em class=\"serif\">Fit Race</em><br>2n",
+      "titleShort": "Simulacre Fit Race FCL· 2n",
+      "lede": "Segon simulacre Fit Race abans de la cita FCL costa brava. Afina el ritme de cursa i les transicions.",
       "pill": "Gratuït",
       "pillKind": "free",
       "rows": [
         {
           "k": "Prepara",
-          "v": "<em>Hyrox Barcelona</em>"
+          "v": "<em>Fit Race FCL</em>"
         },
         {
           "k": "Format",
@@ -251,8 +251,8 @@
           "v": "CrossFit La Mola."
         }
       ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "La Mola. · Hyrox · Gratuït"
+      "media": "assets/fitrace.png",
+      "sbSub": "La Mola. · Fit Race · Gratuït"
     },
     {
       "id": "ballena",
@@ -345,6 +345,37 @@
       ],
       "media": "assets/BASQUE-TXAPELKETA.jpg",
       "sbSub": "Bilbao · 30-31 Oct + 1 Nov"
+    },
+    {
+      "id": "sim-hyrox-1",
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "kicker": "Simulacre · Preparació",
+      "num": "7",
+      "mes": "Novembre",
+      "month": "10",
+      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>",
+      "titleShort": "Simulacre Hyrox Barcelona",
+      "lede": "Simulacre HYROX abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.",
+      "pill": "Gratuït",
+      "pillKind": "free",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>HYROX Barcelona</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Cursa + estacions"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/hyrox-bcn.jpg",
+      "sbSub": "La Mola. · HYROX · Gratuït",
+      "isHero": false
     },
     {
       "id": "Hyrox",
