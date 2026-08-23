@@ -236,12 +236,12 @@
     },
     {
       "id": "sim-hyrox-1",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
+      "startDate": "2026-10-06",
+      "endDate": "2026-10-06",
       "kicker": "Simulacre · Preparació",
-      "num": "3",
-      "mes": "Setembre",
-      "month": "09",
+      "num": "6",
+      "mes": "Octubre",
+      "month": "10",
       "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>1r",
       "titleShort": "Simulacre Hyrox · 1r",
       "lede": "Primer simulacre de cara a l'Hyrox Barcelona. Posa't a prova amb el format cursa + estacions.",
@@ -296,12 +296,12 @@
     },
     {
       "id": "sim-hyrox-2",
-      "startDate": "2026-09-26",
-      "endDate": "2026-09-26",
+      "startDate": "2026-10-13",
+      "endDate": "2026-10-13",
       "kicker": "Simulacre · Preparació",
-      "num": "26",
-      "mes": "Setembre",
-      "month": "09",
+      "num": "13",
+      "mes": "Octubre",
+      "month": "10",
       "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>2n",
       "titleShort": "Simulacre Hyrox · 2n",
       "lede": "Segon simulacre Hyrox abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.",
@@ -413,6 +413,58 @@
       ],
       "media": "assets/run by the beach.jpeg",
       "sbSub": "Costa Brava · Inscripcions obertes"
+    },
+    {
+      "id": "mountain-btt",
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "kicker": "Mountain Club · Sortida",
+      "num": "20",
+      "mes": "Setembre",
+      "month": "09",
+      "title": "Mountain Club<br><em class=\"serif\">BTT</em>",
+      "titleShort": "Mountain Club · Sortida BTT",
+      "lede": "Sortida en bicicleta de muntanya amb el Mountain Club. Ruta en grup, ritme adaptat al grup.",
+      "pill": "Exterior",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Format",
+          "v": "Ruta BTT en grup"
+        },
+        {
+          "k": "Qui",
+          "v": "Mountain Club La Mola."
+        }
+      ],
+      "media": "assets/camping-repos-del-pedraforca.jpg",
+      "sbSub": "La Mola. · Mountain Club · Exterior"
+    },
+    {
+      "id": "mountain-bastiments",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "kicker": "Mountain Club · Ascensió",
+      "num": "26",
+      "mes": "Setembre",
+      "month": "09",
+      "title": "Mountain Club<br><em class=\"serif\">Bastiments</em>",
+      "titleShort": "Mountain Club · Pic de Bastiments",
+      "lede": "Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.",
+      "pill": "Exterior",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Cim",
+          "v": "2.881 m"
+        },
+        {
+          "k": "On",
+          "v": "Ripollès · Pirineus"
+        }
+      ],
+      "media": "assets/camping-repos-del-pedraforca.jpg",
+      "sbSub": "La Mola. · Mountain Club · Exterior"
     }
   ]
 }
