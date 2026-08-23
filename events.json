@@ -21,93 +21,34 @@
   },
   "events": [
     {
-      "id": "consuegra",
-      "startDate": "2026-06-19",
-      "endDate": "2026-06-21",
-      "kicker": "Competició · Parelles",
-      "num": "19–21",
-      "numRng": true,
-      "mes": "Juny",
-      "month": "06",
-      "title": "<em class=\"serif\">Consuegra</em><br>Throwdown<span class=\"dot\">.</span>",
-      "titleShort": "Consuegra Throwdown · Toledo",
-      "lede": "Competició de referència nacional. Tres dies de CrossFit per parelles a Toledo.",
-      "pill": "Competició ext.",
-      "pillKind": "exterior",
+      "id": "sim-wodcelona",
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "kicker": "Simulacre · Preparació",
+      "num": "5",
+      "mes": "Setembre",
+      "month": "09",
+      "title": "Simulacre<br><em class=\"serif\">Wodcelona</em>",
+      "titleShort": "Simulacre Wodcelona · Teams of 3",
+      "lede": "Simulacre de preparació per Wodcelona. WOD per equips de 3 amb intensitat de competició.",
+      "pill": "Gratuït",
+      "pillKind": "free",
       "rows": [
         {
-          "k": "On",
-          "v": "Toledo, Castella-La Manxa"
+          "k": "Prepara",
+          "v": "<em>Wodcelona</em>"
         },
         {
-          "k": "Dates",
-          "v": "19, 20 i 21 de juny"
+          "k": "Format",
+          "v": "Teams of 3"
         },
-        {
-          "k": "Categoria",
-          "v": "<em>Parelles</em>"
-        }
-      ],
-      "media": "assets/throwdown2026.jpeg",
-      "sbSub": "Toledo · Parelles"
-    },
-    {
-      "id": "summer",
-      "startDate": "2026-07-04",
-      "endDate": "2026-07-04",
-      "kicker": "Competició interna · CrossFit La Mola.",
-      "num": "4",
-      "mes": "Juliol",
-      "month": "07",
-      "title": "La Mola.<br><em class=\"serif\">Summer Fest</em>",
-      "titleShort": "La Mola. Summer Fest",
-      "lede": "La festa de l'estiu ha tornat. WOD, música, gresca i xerinola.",
-      "pill": "★ Save the date",
-      "pillKind": "star",
-      "rows": [
         {
           "k": "On",
           "v": "CrossFit La Mola."
-        },
-        {
-          "k": "Horari",
-          "v": "9:00 – 14:00"
-        },
-        {
-          "k": "Format",
-          "v": "WOD + música"
         }
       ],
-      "media": "assets/community-5.jpg",
-      "sbSub": "La Mola. · 9:00–14:00",
-      "isHero": true
-    },
-    {
-      "id": "summer-copia",
-      "startDate": "2026-07-19",
-      "endDate": "2026-07-19",
-      "kicker": "Pool Party · CrossFit La Mola.",
-      "num": "19",
-      "mes": "Juliol",
-      "month": "07",
-      "title": "La Mola.<br><em class=\"serif\">Pool Party</em>",
-      "titleShort": "La Mola. Pool Party",
-      "lede": "WOD + PISCINA , BBQ, MUSICA, BILLAR I FUTBOLIN",
-      "pill": "★ Save the date",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "Horari",
-          "v": "10:00 – 20:00"
-        },
-        {
-          "k": "Format",
-          "v": "WOD + Piscina + música"
-        }
-      ],
-      "media": "assets/pool-party.jpg",
-      "sbSub": "La Mola. · 10:00–20:00",
-      "isHero": false
+      "media": "assets/community-3.jpg",
+      "sbSub": "La Mola. · Teams of 3 · Gratuït"
     },
     {
       "id": "wodcelona",
@@ -141,6 +82,179 @@
       "sbSub": "Barcelona · Indiv + Equips"
     },
     {
+      "id": "mountain-btt",
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "kicker": "Mountain Club · Sortida",
+      "num": "20",
+      "mes": "Setembre",
+      "month": "09",
+      "title": "Mountain Club<br><em class=\"serif\">BTT</em>",
+      "titleShort": "Mountain Club · Sortida BTT",
+      "lede": "Sortida en bicicleta de muntanya amb el Mountain Club. Ruta en grup, ritme adaptat al grup.  ",
+      "pill": "Exterior",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Format",
+          "v": "Ruta BTT en grup"
+        },
+        {
+          "k": "Qui",
+          "v": "Mountain Club La Mola."
+        }
+      ],
+      "media": "assets/btt.jpg",
+      "sbSub": "La Mola. · Mountain Club · Exterior"
+    },
+    {
+      "id": "mountain-bastiments",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "kicker": "Mountain Club · Ascensió",
+      "num": "26",
+      "mes": "Setembre",
+      "month": "09",
+      "title": "Mountain Club<br><em class=\"serif\">Bastiments</em>",
+      "titleShort": "Mountain Club · Pic de Bastiments",
+      "lede": "Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.",
+      "pill": "Exterior",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Cim",
+          "v": "2.881 m"
+        },
+        {
+          "k": "On",
+          "v": "Ripollès · Pirineus"
+        }
+      ],
+      "media": "assets/pic-bastiments.webp",
+      "sbSub": "La Mola. · Mountain Club · Exterior",
+      "isHero": true
+    },
+    {
+      "id": "sim-costabrava-1",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "kicker": "Simulacre · Preparació",
+      "num": "3",
+      "mes": "Octubre",
+      "month": "10",
+      "title": "Simulacre<br><em class=\"serif\">Costa Brava</em><br>1r",
+      "titleShort": "Simulacre Costa Brava · Teams WOD (1r)",
+      "lede": "Primer simulacre per equips de cara a la FCL Costa Brava. Prepara't amb la comunitat.",
+      "pill": "Gratuït",
+      "pillKind": "free",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>FCL Costa Brava</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Teams WOD"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/evento-costa-brava-fitness-02.jpg",
+      "sbSub": "La Mola. · Teams WOD · Gratuït"
+    },
+    {
+      "id": "sim-hyrox-1",
+      "startDate": "2026-10-06",
+      "endDate": "2026-10-06",
+      "kicker": "Simulacre · Preparació",
+      "num": "6",
+      "mes": "Octubre",
+      "month": "10",
+      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>1r",
+      "titleShort": "Simulacre Hyrox · 1r",
+      "lede": "Primer simulacre de cara a l'Hyrox Barcelona. Posa't a prova amb el format cursa + estacions.",
+      "pill": "Gratuït",
+      "pillKind": "free",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>Hyrox Barcelona</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Cursa + estacions"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/hyrox-bcn.jpg",
+      "sbSub": "La Mola. · Hyrox · Gratuït"
+    },
+    {
+      "id": "sim-costabrava-2",
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "kicker": "Simulacre · Preparació",
+      "num": "10",
+      "mes": "Octubre",
+      "month": "10",
+      "title": "Simulacre<br><em class=\"serif\">Costa Brava</em><br>2n",
+      "titleShort": "Simulacre Costa Brava · Teams WOD (2n)",
+      "lede": "Segon simulacre per equips abans de la FCL Costa Brava. Últims ajustos d'estratègia i ritme.",
+      "pill": "Gratuït",
+      "pillKind": "free",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>FCL Costa Brava</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Teams WOD"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/community-1.jpg",
+      "sbSub": "La Mola. · Teams WOD · Gratuït"
+    },
+    {
+      "id": "sim-hyrox-2",
+      "startDate": "2026-10-13",
+      "endDate": "2026-10-13",
+      "kicker": "Simulacre · Preparació",
+      "num": "13",
+      "mes": "Octubre",
+      "month": "10",
+      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>2n",
+      "titleShort": "Simulacre Hyrox · 2n",
+      "lede": "Segon simulacre Hyrox abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.",
+      "pill": "Gratuït",
+      "pillKind": "free",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>Hyrox Barcelona</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Cursa + estacions"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/hyrox-bcn.jpg",
+      "sbSub": "La Mola. · Hyrox · Gratuït"
+    },
+    {
       "id": "ballena",
       "startDate": "2026-10-17",
       "endDate": "2026-10-18",
@@ -170,6 +284,36 @@
       ],
       "media": "assets/evento-costa-brava-fitness-01.jpg",
       "sbSub": "Competició exterior"
+    },
+    {
+      "id": "fitrace-costabrava",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "kicker": "Cursa · Costa Brava",
+      "num": "17",
+      "mes": "Octubre",
+      "month": "10",
+      "title": "<em class=\"serif\">Fit Race</em><br>Costa Brava<span class=\"dot\">.</span>",
+      "titleShort": "Fit Race Costa Brava",
+      "lede": "Cursa d'obstacles i fitness a la Costa Brava. Inscripcions obertes!",
+      "pill": "Inscripcions obertes",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Costa Brava"
+        },
+        {
+          "k": "Dia",
+          "v": "Dissabte 17 d'octubre"
+        },
+        {
+          "k": "Inscripcions",
+          "v": "<em>Obertes</em>"
+        }
+      ],
+      "media": "assets/run by the beach.jpeg",
+      "sbSub": "Costa Brava · Inscripcions obertes"
     },
     {
       "id": "basque",
@@ -233,238 +377,6 @@
       "media": "assets/hyrox-bcn.jpg",
       "sbSub": "Barcelona · Indiv + Equips",
       "isHero": false
-    },
-    {
-      "id": "sim-hyrox-1",
-      "startDate": "2026-10-06",
-      "endDate": "2026-10-06",
-      "kicker": "Simulacre · Preparació",
-      "num": "6",
-      "mes": "Octubre",
-      "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>1r",
-      "titleShort": "Simulacre Hyrox · 1r",
-      "lede": "Primer simulacre de cara a l'Hyrox Barcelona. Posa't a prova amb el format cursa + estacions.",
-      "pill": "Gratuït",
-      "pillKind": "free",
-      "rows": [
-        {
-          "k": "Prepara",
-          "v": "<em>Hyrox Barcelona</em>"
-        },
-        {
-          "k": "Format",
-          "v": "Cursa + estacions"
-        },
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        }
-      ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "La Mola. · Hyrox · Gratuït"
-    },
-    {
-      "id": "sim-wodcelona",
-      "startDate": "2026-09-05",
-      "endDate": "2026-09-05",
-      "kicker": "Simulacre · Preparació",
-      "num": "5",
-      "mes": "Setembre",
-      "month": "09",
-      "title": "Simulacre<br><em class=\"serif\">Wodcelona</em>",
-      "titleShort": "Simulacre Wodcelona · Teams of 3",
-      "lede": "Simulacre de preparació per Wodcelona. WOD per equips de 3 amb intensitat de competició.",
-      "pill": "Gratuït",
-      "pillKind": "free",
-      "rows": [
-        {
-          "k": "Prepara",
-          "v": "<em>Wodcelona</em>"
-        },
-        {
-          "k": "Format",
-          "v": "Teams of 3"
-        },
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        }
-      ],
-      "media": "assets/community-3.jpg",
-      "sbSub": "La Mola. · Teams of 3 · Gratuït"
-    },
-    {
-      "id": "sim-hyrox-2",
-      "startDate": "2026-10-13",
-      "endDate": "2026-10-13",
-      "kicker": "Simulacre · Preparació",
-      "num": "13",
-      "mes": "Octubre",
-      "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Hyrox</em><br>2n",
-      "titleShort": "Simulacre Hyrox · 2n",
-      "lede": "Segon simulacre Hyrox abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.",
-      "pill": "Gratuït",
-      "pillKind": "free",
-      "rows": [
-        {
-          "k": "Prepara",
-          "v": "<em>Hyrox Barcelona</em>"
-        },
-        {
-          "k": "Format",
-          "v": "Cursa + estacions"
-        },
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        }
-      ],
-      "media": "assets/hyrox-bcn.jpg",
-      "sbSub": "La Mola. · Hyrox · Gratuït"
-    },
-    {
-      "id": "sim-costabrava-1",
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-03",
-      "kicker": "Simulacre · Preparació",
-      "num": "3",
-      "mes": "Octubre",
-      "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Costa Brava</em><br>1r",
-      "titleShort": "Simulacre Costa Brava · Teams WOD (1r)",
-      "lede": "Primer simulacre per equips de cara a la FCL Costa Brava. Prepara't amb la comunitat.",
-      "pill": "Gratuït",
-      "pillKind": "free",
-      "rows": [
-        {
-          "k": "Prepara",
-          "v": "<em>FCL Costa Brava</em>"
-        },
-        {
-          "k": "Format",
-          "v": "Teams WOD"
-        },
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        }
-      ],
-      "media": "assets/evento-costa-brava-fitness-02.jpg",
-      "sbSub": "La Mola. · Teams WOD · Gratuït"
-    },
-    {
-      "id": "sim-costabrava-2",
-      "startDate": "2026-10-10",
-      "endDate": "2026-10-10",
-      "kicker": "Simulacre · Preparació",
-      "num": "10",
-      "mes": "Octubre",
-      "month": "10",
-      "title": "Simulacre<br><em class=\"serif\">Costa Brava</em><br>2n",
-      "titleShort": "Simulacre Costa Brava · Teams WOD (2n)",
-      "lede": "Segon simulacre per equips abans de la FCL Costa Brava. Últims ajustos d'estratègia i ritme.",
-      "pill": "Gratuït",
-      "pillKind": "free",
-      "rows": [
-        {
-          "k": "Prepara",
-          "v": "<em>FCL Costa Brava</em>"
-        },
-        {
-          "k": "Format",
-          "v": "Teams WOD"
-        },
-        {
-          "k": "On",
-          "v": "CrossFit La Mola."
-        }
-      ],
-      "media": "assets/community-1.jpg",
-      "sbSub": "La Mola. · Teams WOD · Gratuït"
-    },
-    {
-      "id": "fitrace-costabrava",
-      "startDate": "2026-10-17",
-      "endDate": "2026-10-17",
-      "kicker": "Cursa · Costa Brava",
-      "num": "17",
-      "mes": "Octubre",
-      "month": "10",
-      "title": "<em class=\"serif\">Fit Race</em><br>Costa Brava<span class=\"dot\">.</span>",
-      "titleShort": "Fit Race Costa Brava",
-      "lede": "Cursa d'obstacles i fitness a la Costa Brava. Inscripcions obertes!",
-      "pill": "Inscripcions obertes",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "On",
-          "v": "Costa Brava"
-        },
-        {
-          "k": "Dia",
-          "v": "Dissabte 17 d'octubre"
-        },
-        {
-          "k": "Inscripcions",
-          "v": "<em>Obertes</em>"
-        }
-      ],
-      "media": "assets/run by the beach.jpeg",
-      "sbSub": "Costa Brava · Inscripcions obertes"
-    },
-    {
-      "id": "mountain-btt",
-      "startDate": "2026-09-20",
-      "endDate": "2026-09-20",
-      "kicker": "Mountain Club · Sortida",
-      "num": "20",
-      "mes": "Setembre",
-      "month": "09",
-      "title": "Mountain Club<br><em class=\"serif\">BTT</em>",
-      "titleShort": "Mountain Club · Sortida BTT",
-      "lede": "Sortida en bicicleta de muntanya amb el Mountain Club. Ruta en grup, ritme adaptat al grup.",
-      "pill": "Exterior",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "Format",
-          "v": "Ruta BTT en grup"
-        },
-        {
-          "k": "Qui",
-          "v": "Mountain Club La Mola."
-        }
-      ],
-      "media": "assets/camping-repos-del-pedraforca.jpg",
-      "sbSub": "La Mola. · Mountain Club · Exterior"
-    },
-    {
-      "id": "mountain-bastiments",
-      "startDate": "2026-09-26",
-      "endDate": "2026-09-26",
-      "kicker": "Mountain Club · Ascensió",
-      "num": "26",
-      "mes": "Setembre",
-      "month": "09",
-      "title": "Mountain Club<br><em class=\"serif\">Bastiments</em>",
-      "titleShort": "Mountain Club · Pic de Bastiments",
-      "lede": "Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.",
-      "pill": "Exterior",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "Cim",
-          "v": "2.881 m"
-        },
-        {
-          "k": "On",
-          "v": "Ripollès · Pirineus"
-        }
-      ],
-      "media": "assets/camping-repos-del-pedraforca.jpg",
-      "sbSub": "La Mola. · Mountain Club · Exterior"
     }
   ]
 }
