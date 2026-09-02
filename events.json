@@ -108,33 +108,6 @@
       "sbSub": "La Mola. · Mountain Club · Exterior"
     },
     {
-      "id": "mountain-bastiments",
-      "startDate": "2026-09-26",
-      "endDate": "2026-09-26",
-      "kicker": "Mountain Club · Ascensió",
-      "num": "26",
-      "mes": "Setembre",
-      "month": "09",
-      "title": "Mountain Club<br><em class=\"serif\">Bastiments</em>",
-      "titleShort": "Mountain Club · Pic de Bastiments",
-      "lede": "Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.",
-      "pill": "Exterior",
-      "pillKind": "exterior",
-      "rows": [
-        {
-          "k": "Cim",
-          "v": "2.881 m"
-        },
-        {
-          "k": "On",
-          "v": "Ripollès · Pirineus"
-        }
-      ],
-      "media": "assets/pic-bastiments.webp",
-      "sbSub": "La Mola. · Mountain Club · Exterior",
-      "isHero": false
-    },
-    {
       "id": "sim-costabrava-1",
       "startDate": "2026-10-03",
       "endDate": "2026-10-03",
