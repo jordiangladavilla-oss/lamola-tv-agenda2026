@@ -381,6 +381,131 @@
       "media": "assets/hyrox-bcn.jpg",
       "sbSub": "Barcelona · Indiv + Equips",
       "isHero": false
+    },
+    {
+      "id": "por-ellas-throwdown",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "kicker": "Competició · Exterior",
+      "num": "14–15",
+      "numRng": true,
+      "mes": "Novembre",
+      "month": "11",
+      "title": "<em class=\"serif\">Por Ellas</em><br>Throwdown<span class=\"dot\">.</span>",
+      "titleShort": "Por Ellas Throwdown · Blanes",
+      "lede": "Throwdown a Blanes, Costa Brava. Dos dies de competició i comunitat.",
+      "pill": "Competició ext.",
+      "pillKind": "exterior",
+      "rows": [
+        {
+          "k": "Dates",
+          "v": "14 i 15 de novembre"
+        },
+        {
+          "k": "On",
+          "v": "Blanes · Costa Brava"
+        },
+        {
+          "k": "Tipus",
+          "v": "Throwdown"
+        }
+      ],
+      "media": "assets/evento-costa-brava-fitness-02.jpg",
+      "sbSub": "Blanes · Costa Brava",
+      "isHero": false
+    },
+    {
+      "id": "second-hand-market",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "kicker": "Comunitat · CrossFit La Mola.",
+      "num": "21",
+      "mes": "Novembre",
+      "month": "11",
+      "title": "Second Hand<br><em class=\"serif\">Market</em><span class=\"dot\">.</span>",
+      "titleShort": "Second Hand Market · La Mola",
+      "lede": "Mercat de segona mà al box. Roba i material esportiu que ja no fas servir, amb una segona vida.",
+      "pill": "Comunitat",
+      "pillKind": "interior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        },
+        {
+          "k": "Què",
+          "v": "Roba i material esportiu de segona mà"
+        },
+        {
+          "k": "Dia",
+          "v": "Dissabte 21 de novembre"
+        }
+      ],
+      "media": "assets/community-1.jpg",
+      "sbSub": "La Mola. · Comunitat",
+      "isHero": false
+    },
+    {
+      "id": "sim-bombers",
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "kicker": "Simulacre · Opositors Bombers",
+      "num": "22",
+      "mes": "Novembre",
+      "month": "11",
+      "title": "Simulacre<br><em class=\"serif\">Circuit Bombers</em><br>",
+      "titleShort": "Simulacre Circuit Bombers",
+      "lede": "Simulacre complet i cronometrat del circuit de la prova física de Bombers. Per a opositors i per a qui vulgui posar-se a prova.",
+      "pill": "Opositors",
+      "pillKind": "interior",
+      "rows": [
+        {
+          "k": "Prepara",
+          "v": "<em>Prova física Bombers</em>"
+        },
+        {
+          "k": "Format",
+          "v": "Circuit complet cronometrat"
+        },
+        {
+          "k": "On",
+          "v": "CrossFit La Mola."
+        }
+      ],
+      "media": "assets/class-wod.jpg",
+      "sbSub": "La Mola. · Opositors Bombers",
+      "isHero": false
+    },
+    {
+      "id": "winter-games",
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "kicker": "Competició interna · CrossFit La Mola.",
+      "num": "16",
+      "mes": "Gener",
+      "month": "01",
+      "title": "La Mola.<br><em class=\"serif\">Winter Games</em>",
+      "titleShort": "La Mola. Winter Games",
+      "lede": "La competició d'hivern del box. Categories Open, Intermediate i RX en equips MM, FM i FF. De 9:00 a 17:00h, i after event.",
+      "pill": "Save the date",
+      "pillKind": "star",
+      "rows": [
+        {
+          "k": "Categories",
+          "v": "<em>Open</em> · <em>Intermediate</em> · <em>RX</em>"
+        },
+        {
+          "k": "Equips",
+          "v": "MM · FM · FF"
+        },
+        {
+          "k": "Horari",
+          "v": "9:00–17:00h + after event"
+        }
+      ],
+      "media": "assets/hero-still.jpg",
+      "sbSub": "La Mola. · 9:00–17:00h + after",
+      "isHero": true
     }
   ]
 }
