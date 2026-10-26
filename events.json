@@ -456,7 +456,7 @@
       "title": "Simulacre<br><em class=\"serif\">Circuit Bombers</em><br>",
       "titleShort": "Simulacre Circuit Bombers",
       "lede": "Simulacre complet i cronometrat del circuit de la prova física de Bombers. Per a opositors i per a qui vulgui posar-se a prova.",
-      "pill": "Opositors",
+      "pill": "Drop-in 20 € no socis",
       "pillKind": "interior",
       "rows": [
         {
@@ -468,12 +468,16 @@
           "v": "Circuit complet cronometrat"
         },
         {
+          "k": "Preu",
+          "v": "Drop-in no socis <em>20 €</em>"
+        },
+        {
           "k": "On",
           "v": "CrossFit La Mola."
         }
       ],
       "media": "assets/class-wod.jpg",
-      "sbSub": "La Mola. · Opositors Bombers",
+      "sbSub": "La Mola. · Drop-in 20 € no socis",
       "isHero": false
     },
     {
