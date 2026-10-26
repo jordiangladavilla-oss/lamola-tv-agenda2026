@@ -187,7 +187,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-A .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 .v-A .ev-desc{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.45;color:var(--muted-ink);max-width:40ch;text-wrap:pretty}
 
-/* VARIANT A — SUMMER FEST (hero slide) */
+/* VARIANT A — HERO (Save the date, dades de l'event isHero) */
 .v-A .save{background:var(--ink);color:var(--bone);width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 80px;overflow:hidden}
 .v-A .save::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% 20%,rgba(185,169,114,.18),transparent 60%),radial-gradient(900px 500px at 80% 90%,rgba(122,112,72,.12),transparent 60%)}
 .v-A .save>*{position:relative}
@@ -225,10 +225,10 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-B .ev-row-v{font-family:var(--f-display);font-weight:600;font-size:26px;color:var(--bone-ink);letter-spacing:-.01em;line-height:1.2}
 .v-B .ev-row-v em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent-ink)}
 
-/* VARIANT B — SUMMER FEST */
+/* VARIANT B — HERO */
 .v-B.save-layout{grid-template-columns:1fr}
 .v-B .save{position:relative;width:100%;height:100%;background:var(--ink);color:var(--bone);display:flex;flex-direction:column;justify-content:center;padding:0 120px;overflow:hidden}
-.v-B .save::before{content:"";position:absolute;inset:0;background-image:url('assets/hero-climb.jpg');background-size:cover;background-position:center;filter:saturate(.7) contrast(1.05) brightness(.35)}
+.v-B .save::before{content:"";position:absolute;inset:0;background-image:var(--hero-img,url('assets/hero-climb.jpg'));background-size:cover;background-position:center;filter:saturate(.7) contrast(1.05) brightness(.35)}
 .v-B .save::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,14,11,.85) 0%,rgba(16,14,11,.4) 60%,rgba(16,14,11,.75) 100%)}
 .v-B .save>*{position:relative;z-index:2}
 .v-B .save-kicker{font-family:var(--f-mono);font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3);margin-bottom:40px;display:flex;align-items:center;gap:18px}
@@ -264,7 +264,7 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(
 .v-C .c-meta .v{color:var(--bone-ink)}
 .v-C.dark .c-meta .v{color:var(--bone)}
 
-/* VARIANT C — SUMMER FEST */
+/* VARIANT C — HERO */
 .v-C.save{background:var(--ink);color:var(--bone)}
 .v-C.save .c-title{font-size:120px;color:var(--bone);max-width:18ch;letter-spacing:-.04em;line-height:.9;margin-bottom:40px}
 .v-C.save .c-title em{font-family:var(--f-serif);font-weight:400;color:var(--accent-hi)}
@@ -409,13 +409,33 @@ async function loadEvents(){
 const slidesEl = document.getElementById('slides');
 const dotsEl = document.getElementById('dots');
 
+/* Dades del hero (Save the date) derivades de l'event, res cablejat */
+const MESOS_CA = ['gener','febrer','març','abril','maig','juny','juliol','agost','setembre','octubre','novembre','desembre'];
+function deMes(m){ return (/^[aeiou]/.test(m) ? "d'" : 'de ') + m; }
+function heroMeta(ev){
+  const s = new Date(ev.startDate + 'T12:00:00'), e = new Date((ev.endDate || ev.startDate) + 'T12:00:00');
+  const sameDay = s.getTime() === e.getTime(), sameMonth = s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear();
+  const dd = n => String(n).padStart(2,'0');
+  const dateLong = sameDay
+    ? `${s.getDate()} ${deMes(MESOS_CA[s.getMonth()])} de ${s.getFullYear()}`
+    : sameMonth
+      ? `${s.getDate()}–${e.getDate()} ${deMes(MESOS_CA[s.getMonth()])} de ${s.getFullYear()}`
+      : `${s.getDate()} ${deMes(MESOS_CA[s.getMonth()])} – ${e.getDate()} ${deMes(MESOS_CA[e.getMonth()])} de ${e.getFullYear()}`;
+  const dateDots = `${sameDay ? s.getDate() : s.getDate()+'–'+e.getDate()}<span class="d">.</span>${dd(s.getMonth()+1)}<span class="d">.</span>${String(s.getFullYear()).slice(-2)}`;
+  const hRow = (ev.rows || []).find(r => /horari|hora|quan/i.test(r.k || ''));
+  const hours = hRow ? hRow.v.replace(/<[^>]+>/g,'') : '';
+  const sub = `${ev.lede}<br>${hours ? hours + ' · ' : ''}CrossFit La Mola.`;
+  return { dateLong, dateDots, sub, dayNum: ev.num || String(s.getDate()), month: (ev.mes || MESOS_CA[s.getMonth()]).toLowerCase(), title: ev.title, titleFlat: ev.title.replace(/<br>/g,' ') };
+}
+
 function renderVariantA(ev){
   if(ev.isHero){
+    const h = heroMeta(ev);
     return `<div class="save">
       <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
-      <div class="save-date r r-2">4 de juliol de 2026</div>
-      <h1 class="save-title r r-3">La Mola.<br><em>Summer Fest</em></h1>
-      <p class="save-sub r r-4">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>
+      <div class="save-date r r-2">${h.dateLong}</div>
+      <h1 class="save-title r r-3">${h.title}</h1>
+      <p class="save-sub r r-4">${h.sub}</p>
       <div class="save-tag r r-5">Save the date</div>
     </div>`;
   }
@@ -437,12 +457,13 @@ function renderVariantA(ev){
 
 function renderVariantB(ev){
   if(ev.isHero){
-    return `<div class="save">
+    const h = heroMeta(ev);
+    return `<div class="save" style="--hero-img:url('${ev.media}')">
       <div class="save-kicker r r-1"><span class="bar"></span>${ev.kicker}</div>
-      <h1 class="save-title r r-2">La Mola.<br><em>Summer</em><br>Fest<span class="dot">.</span></h1>
+      <h1 class="save-title r r-2">${h.title}</h1>
       <div class="save-row r r-3">
-        <div class="save-date">4<span class="d">.</span>07<span class="d">.</span>26</div>
-        <div class="save-sub">${ev.lede}<br>09:00 – 16:00h · CrossFit La Mola.</div>
+        <div class="save-date">${h.dateDots}</div>
+        <div class="save-sub">${h.sub}</div>
       </div>
     </div>`;
   }
@@ -464,11 +485,12 @@ function renderVariantB(ev){
 
 function renderVariantC(ev){
   if(ev.isHero){
+    const h = heroMeta(ev);
     return `<div class="c-kicker r r-1"><span class="bar"></span>${ev.kicker}<span class="bar"></span></div>
-      <div class="c-date r r-2">04</div>
-      <div class="c-month r r-3">juliol</div>
-      <h2 class="c-title r r-4">La Mola. <em class="serif">Summer Fest</em></h2>
-      <p class="c-sub r r-5">${ev.lede}<br>09:00 – 16:00 · CrossFit La Mola.</p>`;
+      <div class="c-date${ev.numRng?' rng':''} r r-2">${h.dayNum}</div>
+      <div class="c-month r r-3">${h.month}</div>
+      <h2 class="c-title r r-4">${h.titleFlat}</h2>
+      <p class="c-sub r r-5">${h.sub}</p>`;
   }
   const metaHTML = ev.rows.slice(0,2).map(r => `<div><span class="k">${r.k}</span><span class="v">${r.v.replace(/<br>/g,' ').replace(/<\/?em[^>]*>/g,'')}</span></div>`).join('');
   return `
