@@ -410,7 +410,7 @@
           "v": "Throwdown"
         }
       ],
-      "media": "assets/evento-costa-brava-fitness-02.jpg",
+      "media": "assets/porellas.png",
       "sbSub": "Blanes · Costa Brava",
       "isHero": false
     },
@@ -441,7 +441,7 @@
           "v": "Dissabte 21 de novembre"
         }
       ],
-      "media": "assets/community-1.jpg",
+      "media": "assets/market.jpeg",
       "sbSub": "La Mola. · Comunitat",
       "isHero": false
     },
@@ -476,7 +476,7 @@
           "v": "CrossFit La Mola."
         }
       ],
-      "media": "assets/class-wod.jpg",
+      "media": "assets/community-1.jpg",
       "sbSub": "La Mola. · Drop-in 20 € no socis",
       "isHero": false
     },
@@ -507,7 +507,7 @@
           "v": "9:00–17:00h + after event"
         }
       ],
-      "media": "assets/hero-still.jpg",
+      "media": "assets/wintergames.jpeg",
       "sbSub": "La Mola. · 9:00–17:00h + after",
       "isHero": true
     }
