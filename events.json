@@ -481,6 +481,45 @@
       "isHero": false
     },
     {
+      "id": "sopar-nadal",
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "kicker": "Comunitat · Sopar de Nadal",
+      "num": "19",
+      "mes": "Desembre",
+      "month": "12",
+      "title": "Sopar de<br><em class=\"serif\">Nadal</em><span class=\"dot\">.</span>",
+      "titleShort": "Sopar de Nadal · Cal Reig",
+      "lede": "El sopar de Nadal de la comunitat, a Cal Reig (Terrassa). Sala reservada, còctel a peu dret i tota la beguda inclosa. Avisa’ns per reservar la teva plaça.",
+      "pill": "45 € · beguda inclosa",
+      "pillKind": "interior",
+      "rows": [
+        {
+          "k": "On",
+          "v": "Cal Reig · Terrassa"
+        },
+        {
+          "k": "Dia",
+          "v": "Dissabte 19 de desembre"
+        },
+        {
+          "k": "Format",
+          "v": "Sala reservada · còctel a peu dret"
+        },
+        {
+          "k": "Preu",
+          "v": "<em>45 €</em> · tota la beguda inclosa"
+        },
+        {
+          "k": "Reserva",
+          "v": "Avisa’ns per reservar-te"
+        }
+      ],
+      "media": "assets/sopar-nadal.jpeg",
+      "sbSub": "Cal Reig · Terrassa · 45 €",
+      "isHero": false
+    },
+    {
       "id": "winter-games",
       "startDate": "2027-01-16",
       "endDate": "2027-01-16",
